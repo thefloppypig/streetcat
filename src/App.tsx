@@ -1,33 +1,71 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import { CatData, FeederData } from './Types';
+
+async function getFeederData(feeder: string) {
+  const response = await fetch(`../${feeder}/index.json`);
+  const json = await response.json() as FeederData;
+  json.__feeder = feeder;
+  return json;
+}
+
+async function getCatData(feeder: string, cat: string) {
+  const response = await fetch(`../${feeder}/${cat}/index.json`);
+  const json = await response.json() as CatData;
+  json.__cat = cat;
+  json.__feeder = feeder;
+  return json;
+}
+
+function getCatUrl(catData: CatData, img: string) {
+  return `../${catData.__feeder}/${catData.__cat}/${img}`
+}
+
+function processCatDataToTableImages(catData: CatData, which: keyof CatData["img"]) {
+  {
+    const src = catData.img[which];
+    if (src) {
+      return <img className='identifierImg' src={getCatUrl(catData, src)} />
+    }
+    else {
+      return <div>No image</div>
+    }
+  }
+}
+
+const feeder = "happycanteen"
+const feederData = await getFeederData(feeder);
+const catDataList: CatData[] = [];
+feederData.list.forEach(async (cat) => {
+  catDataList.push(await getCatData(feeder, cat))
+})
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>{feederData.name}</h1>
+      <table>
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Front</td>
+            <td>Back</td>
+            <td>Eating</td>
+          </tr>
+        </thead>
+        <tbody>
+          {catDataList.map((d) => <tr key={d.name}>
+            <td>{d.name}</td>
+            <td>{processCatDataToTableImages(d, "front")}</td>
+            <td>{processCatDataToTableImages(d, "back")}</td>
+            <td>{processCatDataToTableImages(d, "eating")}</td>
+          </tr>)}
+        </tbody>
+      </table>
     </>
   )
 }
