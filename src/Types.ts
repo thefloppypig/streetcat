@@ -1,8 +1,12 @@
+export type FolderMetaData = {
+    dir: string[],
+    files: string[]
+}
+
 export type FeederData = {
     __feeder: string,
     name: string,
     id: string,
-    list: string[],
 }
 
 export type CatData = {
