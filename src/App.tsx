@@ -4,20 +4,20 @@ import './App.css'
 import { CatData, FeederData, FolderMetaData } from './Types';
 
 async function getFeederData(feeder: string) {
-  const response = await fetch(`../${feeder}/index.json`);
+  const response = await fetch(`${feeder}/index.json`);
   const json = await response.json() as FeederData;
   json.__feeder = feeder;
   return json;
 }
 
 async function getCatList(feeder: string) {
-  const response = await fetch(`../${feeder}/.meta.json`);
+  const response = await fetch(`${feeder}/meta.json`);
   const json = await response.json() as FolderMetaData;
   return json.dir;
 }
 
 async function getCatData(feeder: string, cat: string) {
-  const response = await fetch(`../${feeder}/${cat}/index.json`);
+  const response = await fetch(`${feeder}/${cat}/index.json`);
   const json = await response.json() as CatData;
   json.__cat = cat;
   json.__feeder = feeder;
@@ -25,14 +25,14 @@ async function getCatData(feeder: string, cat: string) {
 }
 
 function getCatUrl(catData: CatData, img: string) {
-  return `../${catData.__feeder}/${catData.__cat}/${img}`
+  return `${catData.__feeder}/${catData.__cat}/${img}`
 }
 
 function processCatDataToTableImages(catData: CatData, which: keyof CatData["img"]) {
   {
     const src = catData.img[which];
     if (src) {
-      return <img className='identifierImg' src={getCatUrl(catData, src)} />
+      return <img loading="lazy" className='identifierImg' src={getCatUrl(catData, src)} />
     }
     else {
       return <div className='centered'>/</div>
