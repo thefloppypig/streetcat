@@ -12,3 +12,25 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.main {
+  min-height: 90vh;
+}
+
+.home {
+  text-align: center;
+}
+
+.nav {
+  padding: 10px;
+  background-color: black;
+}
+
+.navlink {
+  margin: 3px;
+}
+
+.footer {
+  padding: 5px;
+  background-color: black;
+}

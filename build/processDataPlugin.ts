@@ -34,17 +34,17 @@ async function processPngToWebp(dirPath: string, listDir: fs.Dirent[]) {
     }
 }
 
-function processRecursive(dirPath: string) {
-    const data = processDirectoryData(dirPath);
+async function processRecursive(dirPath: string) {
+    const data = await processDirectoryData(dirPath);
     for (const dir of data.dir) {
-        processRecursive(`${dirPath}/${dir}`)
+        await processRecursive(`${dirPath}/${dir}`)
     }
 }
 
-function processDirectoryData(dirPath: string) {
+async function processDirectoryData(dirPath: string) {
     const listDir = fs.readdirSync(dirPath, { withFileTypes: true });
     if (listDir.some(dirent => isPng(dirent))) {
-        processPngToWebp(dirPath, listDir)
+        await processPngToWebp(dirPath, listDir)
     }
     const jsonData = {
         dir: listDir.filter((d) => d.isDirectory()).map((d) => d.name),
@@ -57,6 +57,6 @@ function processDirectoryData(dirPath: string) {
 export const streetcatLoader: PluginOption = {
     name: "streetcatLoader",
     async buildStart(options) {
-        processRecursive("./public");
+        await processRecursive("./public");
     },
 }
