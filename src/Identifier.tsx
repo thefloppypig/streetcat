@@ -31,7 +31,8 @@ function processCatDataToTableImages(catData: CatData, which: keyof CatData["img
     {
         const src = catData.img[which];
         if (src) {
-            return <img loading="lazy" className='identifierImg' src={getCatUrl(catData, src)} />
+            const url = getCatUrl(catData, src);
+            return <img onClick={() => window.open(url)} loading="lazy" className='identifierImg' src={url} />
         }
         else {
             return <div className='centered'>/</div>
