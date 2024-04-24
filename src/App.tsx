@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import './App.css'
 import { CatData, FeederData, FolderMetaData } from './Types';
@@ -40,39 +40,54 @@ function processCatDataToTableImages(catData: CatData, which: keyof CatData["img
   }
 }
 
-const feeder = "happycanteen"
-const feederData = await getFeederData(feeder);
-const catList = await getCatList(feeder);
-const catDataList: CatData[] = [];
-for await (const cat of catList) {
-  catDataList.push(await getCatData(feeder, cat))
+async function getCats(feeder: string) {
+  const catList = await getCatList(feeder);
+  const catDataList: CatData[] = [];
+  const catDataPromiseList: Promise<CatData>[] = [];
+  for (const cat of catList) {
+    const promise = getCatData(feeder, cat);
+    promise.then((res) => catDataList.push(res));
+    catDataPromiseList.push(promise);
+  }
+  await Promise.allSettled(catDataPromiseList);
+  return catDataList;
 }
 
 
 function App() {
 
+  const [feederData, setFeederData] = useState<FeederData>()
+  const [catDataList, setCatDataList] = useState<CatData[]>()
+
+  useEffect(() => {
+    const feeder = "happycanteen"
+    getFeederData(feeder).then((res) => setFeederData(res));
+    getCats(feeder).then(res => setCatDataList(res))
+  }, [])
 
   return (
     <>
-      <h1>{feederData.name} Catdentifier</h1>
-      <table>
-        <thead>
-          <tr>
-            <td>Name</td>
-            <td>Front</td>
-            <td>Back</td>
-            <td>Eating</td>
-          </tr>
-        </thead>
-        <tbody>
-          {catDataList.map((d) => <tr key={d.__cat}>
-            <td>{d.name}</td>
-            <td>{processCatDataToTableImages(d, "front")}</td>
-            <td>{processCatDataToTableImages(d, "back")}</td>
-            <td>{processCatDataToTableImages(d, "eating")}</td>
-          </tr>)}
-        </tbody>
-      </table>
+      <h1>{feederData?.name ?? ""} Catdentifier</h1>
+      {catDataList ?
+        <table>
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>Front</td>
+              <td>Back</td>
+              <td>Eating</td>
+            </tr>
+          </thead>
+          <tbody>
+            {catDataList.map((d) => <tr key={d.__cat}>
+              <td>{d.name}</td>
+              <td>{processCatDataToTableImages(d, "front")}</td>
+              <td>{processCatDataToTableImages(d, "back")}</td>
+              <td>{processCatDataToTableImages(d, "eating")}</td>
+            </tr>)}
+          </tbody>
+        </table>
+        : "Loading..."}
     </>
   )
 }
