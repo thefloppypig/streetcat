@@ -20,7 +20,7 @@ export function CatPage(props: CatPageProps) {
     useEffect(() => {
         getFeederData(feeder).then((res) => setFeederData(res));
         getCatData(feeder, cat).then(res => setCatData(res))
-        getMeta(`/${feeder}/${cat}`).then(res => setFiles(res.files));
+        getMeta(`${feeder}/${cat}`).then(res => setFiles(res.files));
     }, []);
 
 
@@ -32,6 +32,7 @@ export function CatPage(props: CatPageProps) {
                 <br />
                 <div>Check {catData.name} <Link to={`https://streetcat.wiki/index.php/${catData.name.replace(/\s+/g, '_')}`}>Streetcat Wiki page</Link></div>
                 <br />
+                <h2>Gallery</h2>
                 <ResponsiveMasonry
                     columnsCountBreakPoints={{ 300: 1, 500: 2, 750: 3, 1000: 4, 1500: 6 }}
                 >
@@ -41,7 +42,7 @@ export function CatPage(props: CatPageProps) {
                             files.length > 0
                                 ?
                                 files.map(file => {
-                                    if (file.endsWith(".webp")) return <CatImage key={file} src={`/${feeder}/${cat}/${file}`} />
+                                    if (file.endsWith(".webp")) return <CatImage key={file} src={`${feeder}/${cat}/${file}`} />
                                 })
                                 :
                                 <div>Empty</div>
