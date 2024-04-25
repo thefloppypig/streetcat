@@ -1,8 +1,14 @@
 {
-    "name": "Ms Texas",
+    "name": "Ms. Texas",
     "img": {
         "front": "meow.camera_4258783365322591678_1713435916828.webp",
         "back": "meow.camera_4258783365322591678_1713435833695.webp",
         "eating": "meow.camera_4258783365322591678_1713435815149.webp"
-    }
+    },
+    "type": "calico",
+    "colours": [
+        "orange",
+        "brown",
+        "white"
+    ]
 }

@@ -1,8 +1,14 @@
 {
-    "name": "Ms Warn",
+    "name": "Ms. Warn",
     "img": {
         "front": "meow.camera_4258783365322591678_1713863821206.webp",
         "back": "meow.camera_4258783365322591678_1713432636421 ms warn.webp",
         "eating": "meow.camera_4258783365322591678_1713864026997.webp"
-    }
+    },
+    "type": "tortie",
+    "colours": [
+        "black",
+        "brown",
+        "orange"
+    ]
 }

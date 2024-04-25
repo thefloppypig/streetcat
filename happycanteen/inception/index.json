@@ -1,8 +1,14 @@
 {
-    "name": "Ms Inception",
+    "name": "Ms. Inception",
     "img": {
         "front": "meow.camera_4258783365322591678_1713955500717.webp",
         "back": "meow.camera_4258783365322591678_1713437881496.webp",
         "eating": "meow.camera_4258783365322591678_1713437708267.webp"
-    }
+    },
+    "type": "calico",
+    "colours": [
+        "black",
+        "orange",
+        "white"
+    ]
 }

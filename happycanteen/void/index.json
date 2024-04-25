@@ -1,8 +1,12 @@
 {
-    "name": "Mr Void",
+    "name": "Mr. Void",
     "img": {
         "front": "meow.camera_4258783365322591678_1713522694104.webp",
         "back": "meow.camera_4258783365322591678_1713522757264.webp",
         "eating": "meow.camera_4258783365322591678_1713522745513.webp"
-    }
+    },
+    "type": "black",
+    "colours": [
+        "black"
+    ]
 }

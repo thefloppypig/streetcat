@@ -1,8 +1,13 @@
 {
-    "name": "Mr Beetle",
+    "name": "Mr. Beetle",
     "img": {
         "front": "",
         "back": "",
         "eating": ""
-    }
+    },
+    "type": "brown",
+    "colours": [
+        "grey",
+        "brown"
+    ]
 }
