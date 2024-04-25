@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Bean",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1713871572136.webp",
+        "back": "meow.camera_4258783365322591678_1713871578947.webp",
+        "eating": "meow.camera_4258783365322591678_1713871548158.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ]
+}
