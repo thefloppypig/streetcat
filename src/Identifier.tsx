@@ -1,38 +1,16 @@
 import { useState, useEffect } from "react";
-import { FeederData, CatData, FolderMetaData } from "./Types";
+import { FeederData, CatData } from "./Types";
+import { getCatUrl, getCatList, getCatData, getFeederData } from "./utils";
+import { Link } from "react-router-dom";
+import { CatImage } from "./CatImage";
 
-
-async function getFeederData(feeder: string) {
-    const response = await fetch(`${feeder}/index.json`);
-    const json = await response.json() as FeederData;
-    json.__feeder = feeder;
-    return json;
-}
-
-async function getCatList(feeder: string) {
-    const response = await fetch(`${feeder}/meta.json`);
-    const json = await response.json() as FolderMetaData;
-    return json.dir;
-}
-
-async function getCatData(feeder: string, cat: string) {
-    const response = await fetch(`${feeder}/${cat}/index.json`);
-    const json = await response.json() as CatData;
-    json.__cat = cat;
-    json.__feeder = feeder;
-    return json;
-}
-
-function getCatUrl(catData: CatData, img: string) {
-    return `${catData.__feeder}/${catData.__cat}/${img}`
-}
 
 function processCatDataToTableImages(catData: CatData, which: keyof CatData["img"]) {
     {
         const src = catData.img[which];
         if (src) {
             const url = getCatUrl(catData, src);
-            return <img onClick={() => window.open(url)} loading="lazy" className='identifierImg' src={url} />
+            return <CatImage src={url} />
         }
         else {
             return <div className='centered'>/</div>
@@ -88,7 +66,7 @@ export function Identifier(props: IdentifierProps) {
                         </thead>
                         <tbody>
                             {catDataList.sort(Sort.Alphabetically).map((d) => <tr key={d.__cat}>
-                                <td>{d.name}</td>
+                                <td><Link to={`/${d.__feeder}/${d.__cat}`}>{d.name}</Link></td>
                                 <td>{processCatDataToTableImages(d, "front")}</td>
                                 <td>{processCatDataToTableImages(d, "back")}</td>
                                 <td>{processCatDataToTableImages(d, "eating")}</td>

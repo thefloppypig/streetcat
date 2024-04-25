@@ -5,6 +5,7 @@ import { Footer } from './Footer';
 import { Nav } from './Nav';
 import Identifier from './Identifier';
 import { Homepage } from './Homepage';
+import { CatPage } from './CatPage';
 
 function App() {
 
@@ -16,11 +17,12 @@ function App() {
           <Routes>
             <Route path='/' Component={Homepage} />
             <Route path='/:f' Component={Feeder} />
+            <Route path='/:f/:c' Component={CatPageRoute} />
             <Route path='*' Component={Page404} />
           </Routes>
         </div>
+        <Footer />
       </HashRouter>
-      <Footer />
     </>
   )
 }
@@ -28,9 +30,17 @@ function App() {
 function Feeder() {
   const { f } = useParams();
   if (f) {
-    return Identifier({ feeder: f })
+    return <Identifier feeder={f} />
   }
-  else return <Navigate to={"/"} />;
+  else return <Page404 />;
+}
+
+function CatPageRoute() {
+  const { f, c } = useParams();
+  if (f && c) {
+    return <CatPage feeder={f} cat={c} />
+  }
+  else return <Page404 />;
 }
 
 function Page404() {
