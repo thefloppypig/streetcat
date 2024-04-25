@@ -13,10 +13,10 @@ export enum CatType {
     None = "",
     Orange = "orange",
     Brown = "brown",
-    Black = "black",
-    White = "white",
     Calico = "calico",
     Tortie = "tortie",
+    Black = "black",
+    White = "white",
 }
 
 export type CatData = {

@@ -41,9 +41,7 @@ export function CatPage(props: CatPageProps) {
                             ?
                             files.length > 0
                                 ?
-                                files.map(file => {
-                                    if (file.endsWith(".webp")) return <CatImage key={file} src={`${feeder}/${cat}/${file}`} />
-                                })
+                                getGalleryElements(files, feeder, cat)
                                 :
                                 <div>Empty</div>
                             :
@@ -56,4 +54,15 @@ export function CatPage(props: CatPageProps) {
     else return (
         <div>Loading...</div>
     )
+}
+
+function getGalleryElements(files: string[], feeder: string, cat: string) {
+    const elems = []
+
+    for (let index = files.length - 1; index >= 0; index--) {
+        const file = files[index];
+        if (file.endsWith(".webp")) elems.push(<CatImage key={file} src={`${feeder}/${cat}/${file}`} />)
+    }
+
+    return elems;
 }

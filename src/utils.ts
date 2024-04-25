@@ -1,33 +1,37 @@
 import { FeederData, FolderMetaData, CatData } from "./Types";
 
-export async function fetchCached(url: string) {
-    return await fetch(url, { cache: "force-cache" });
+const cache: Record<string, any> = {};
+
+export async function fetchCachedJson<T>(url: string): Promise<T> {
+    if (cache[url]) {
+        return cache[url];
+    }
+    else {
+        const response = await fetch(url);
+        return cache[url] = await response.json();
+    }
 }
 
 export async function getFeederData(feeder: string) {
-    const response = await fetchCached(`${feeder}/index.json`);
-    const json = await response.json() as FeederData;
+    const json = await fetchCachedJson<FeederData>(`${feeder}/index.json`);
     json.__feeder = feeder;
     return json;
 }
 
 export async function getCatList(feeder: string) {
-    const response = await fetchCached(`${feeder}/meta.json`);
-    const json = await response.json() as FolderMetaData;
+    const json = await fetchCachedJson<FolderMetaData>(`${feeder}/meta.json`);
     return json.dir;
 }
 
 export async function getCatData(feeder: string, cat: string) {
-    const response = await fetchCached(`${feeder}/${cat}/index.json`);
-    const json = await response.json() as CatData;
+    const json = await fetchCachedJson<CatData>(`${feeder}/${cat}/index.json`);
     json.__cat = cat;
     json.__feeder = feeder;
     return json;
 }
 
 export async function getMeta(path: string) {
-    const response = await fetchCached(`${path}/meta.json`);
-    const json = await response.json() as FolderMetaData;
+    const json = await fetchCachedJson<FolderMetaData>(`${path}/meta.json`);
     return json;
 }
 
