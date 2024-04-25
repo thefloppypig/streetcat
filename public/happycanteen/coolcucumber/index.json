@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Cool Cucumber",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1713962844132.webp",
+        "back": "meow.camera_4258783365322591678_1713962869331.webp",
+        "eating": "meow.camera_4258783365322591678_1713962862886.webp"
+    },
+    "type": "brown",
+    "colours": [
+        "grey",
+        "brown"
+    ]
+}

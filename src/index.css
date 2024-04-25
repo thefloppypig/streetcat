@@ -22,12 +22,28 @@
 }
 
 .nav {
-  padding: 10px;
+  display: flex;
+  align-items: center;
   background-color: black;
+  height: 40px;
+}
+
+.navicon {
+  height: 100%;
+  cursor: pointer;
 }
 
 .navlink {
-  margin: 3px;
+  height: 100%;
+  cursor: pointer;
+  padding: 0px 5px;
+  background-color: transparent;
+  border: 0;
+}
+
+.navlink:hover,
+.navicon:hover {
+  background-color: #595959;
 }
 
 .footer {
