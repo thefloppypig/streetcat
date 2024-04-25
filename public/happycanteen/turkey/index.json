@@ -1,10 +1,11 @@
 {
-    "name": "Mr Turkey",
+    "name": "Mr. Turkey",
     "img": {
         "front": "meow.camera_4258783365322591678_1713434714535.webp",
         "back": "meow.camera_4258783365322591678_1713434729508.webp",
         "eating": ""
     },
+    "type": "orange",
     "colours": [
         "orange",
         "white"

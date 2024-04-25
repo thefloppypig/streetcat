@@ -9,6 +9,16 @@ export type FeederData = {
     id: string,
 }
 
+export enum CatType {
+    None = "",
+    Orange = "orange",
+    Brown = "brown",
+    Black = "black",
+    White = "white",
+    Calico = "calico",
+    Tortie = "tortie",
+}
+
 export type CatData = {
     __feeder: string,
     __cat: string,
@@ -17,5 +27,7 @@ export type CatData = {
         front?: string,
         back?: string,
         eating?: string,
-    }
+    },
+    type: CatType,
+    colours: string[],
 }

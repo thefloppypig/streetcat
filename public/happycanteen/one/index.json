@@ -1,10 +1,11 @@
 {
-    "name": "Mr One",
+    "name": "Mr. One",
     "img": {
         "front": "meow.camera_4258783365322591678_1713441364625.webp",
         "back": "meow.camera_4258783365322591678_1713441375723.webp",
         "eating": "meow.camera_4258783365322591678_1713441491953.webp"
     },
+    "type": "white",
     "colours": [
         "white",
         "brown"

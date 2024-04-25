@@ -1,10 +1,11 @@
 {
-    "name": "Ms Rust",
+    "name": "Ms. Rust",
     "img": {
         "front": "meow.camera_4258783365322591678_1713952361018.webp",
         "back": "meow.camera_4258783365322591678_1713952387658.webp",
         "eating": "meow.camera_4258783365322591678_1713952376127.webp"
     },
+    "type": "tortie",
     "colours": [
         "black",
         "brown",

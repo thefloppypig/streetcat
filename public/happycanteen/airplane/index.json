@@ -1,10 +1,11 @@
 {
-    "name": "Mr Airplane",
+    "name": "Mr. Airplane",
     "img": {
         "front": "meow.camera_4258783365322591678_1713957542500.webp",
         "back": "meow.camera_4258783365322591678_1713444455770.webp",
         "eating": "meow.camera_4258783365322591678_1713957588670.webp"
     },
+    "type": "orange",
     "colours": [
         "orange",
         "white"

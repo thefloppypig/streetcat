@@ -1,10 +1,11 @@
 {
-    "name": "Mr Beef",
+    "name": "Mr. Beef",
     "img": {
         "front": "meow.camera_4258783365322591678_1713968753101.webp",
         "back": "meow.camera_4258783365322591678_1713435458021.webp",
         "eating": "meow.camera_4258783365322591678_1713435592357.webp"
     },
+    "type": "orange",
     "colours": [
         "orange",
         "white"

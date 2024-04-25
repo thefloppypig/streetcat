@@ -28,9 +28,12 @@ export function CatPage(props: CatPageProps) {
         return (
             <>
                 <h1>{catData.name}</h1>
-                <div>Find {catData.name} at <Link to={`/${feederData?.__feeder}`}>{feederData?.name}</Link></div>
+                <div>Find {catData.name} at <Link to={`/${feederData?.__feeder}`}>{feederData?.name}!</Link></div>
+                <br />
+                <div>Check {catData.name} <Link to={`https://streetcat.wiki/index.php/${catData.name.replace(/\s+/g, '_')}`}>Streetcat Wiki page</Link></div>
+                <br />
                 <ResponsiveMasonry
-                    columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}
+                    columnsCountBreakPoints={{ 300: 1, 500: 2, 750: 3, 1000: 4, 1500: 6 }}
                 >
                     <Masonry>
                         {files

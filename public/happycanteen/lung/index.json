@@ -1,10 +1,11 @@
 {
-    "name": "Mr Lung",
+    "name": "Mr. Lung",
     "img": {
         "front": "meow.camera_4258783365322591678_1713436505282.webp",
         "back": "meow.camera_4258783365322591678_1713436523250.webp",
         "eating": "meow.camera_4258783365322591678_1713436591162.webp"
     },
+    "type": "orange",
     "colours": [
         "orange",
         "white"

@@ -1,11 +1,13 @@
 {
-    "name": "Mr Halo",
+    "name": "Mr. Halo",
     "img": {
         "front": "meow.camera_4258783365322591678_1713440953778.webp",
         "back": "meow.camera_4258783365322591678_1713440999596.webp",
         "eating": "meow.camera_4258783365322591678_1713440990750.webp"
     },
+    "type": "brown",
     "colours": [
+        "brown",
         "grey",
         "white"
     ]

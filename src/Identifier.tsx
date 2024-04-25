@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FeederData, CatData } from "./Types";
+import { FeederData, CatData, CatType } from "./Types";
 import { getCatUrl, getCatList, getCatData, getFeederData } from "./utils";
 import { Link } from "react-router-dom";
 import { CatImage } from "./CatImage";
@@ -43,40 +43,50 @@ export function Identifier(props: IdentifierProps) {
 
     const [feederData, setFeederData] = useState<FeederData>()
     const [catDataList, setCatDataList] = useState<CatData[]>()
+    const [filterType, setFilterType] = useState<CatType>(CatType.None)
 
     useEffect(() => {
         const feeder = props.feeder;
         getFeederData(feeder).then((res) => setFeederData(res));
         getCats(feeder).then(res => setCatDataList(res))
     }, [])
-    return (
 
-        <>
-            <h1>{feederData?.name ?? ""} Catdentifier</h1>
-            {
-                catDataList ?
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Front</td>
-                                <td>Back</td>
-                                <td>Eating</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {catDataList.sort(Sort.Alphabetically).map((d) => <tr key={d.__cat}>
-                                <td><Link to={`/${d.__feeder}/${d.__cat}`}>{d.name}</Link></td>
-                                <td>{processCatDataToTableImages(d, "front")}</td>
-                                <td>{processCatDataToTableImages(d, "back")}</td>
-                                <td>{processCatDataToTableImages(d, "eating")}</td>
-                            </tr>)}
-                        </tbody>
-                    </table>
-                    : "Loading..."
-            }
-        </>
-    )
+    if (catDataList) {
+        const filteredList = filterType ? catDataList.filter((d) => d.type === filterType) : catDataList;
+        return (
+            <>
+                <h1>{feederData?.name ?? ""} Catdentifier</h1>
+                <div>
+                    Filter:
+                    {Object.entries(CatType).map(([k, v]) => {
+                        return <span key={v} onClick={() => setFilterType(v)}>
+                            <input type="radio" radioGroup="filter" value={v} checked={filterType === v} readOnly />
+                            <label >{k}</label>
+                        </span>
+                    })}
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Front</td>
+                            <td>Back</td>
+                            <td>Eating</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {filteredList.sort(Sort.Alphabetically).map((d) => <tr key={d.__cat}>
+                            <td><Link to={`/${d.__feeder}/${d.__cat}`}>{d.name}</Link></td>
+                            <td>{processCatDataToTableImages(d, "front")}</td>
+                            <td>{processCatDataToTableImages(d, "back")}</td>
+                            <td>{processCatDataToTableImages(d, "eating")}</td>
+                        </tr>)}
+                    </tbody>
+                </table>
+            </>
+        )
+    }
+    else return <div>Loading...</div>
 }
 
 export default Identifier;
