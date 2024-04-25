@@ -4,5 +4,9 @@
         "front": "meow.camera_4258783365322591678_1713458023411.webp",
         "back": "meow.camera_4258783365322591678_1713458037594.webp",
         "eating": "meow.camera_4258783365322591678_1713458028622.webp"
-    }
+    },
+    "colours": [
+        "orange",
+        "white"
+    ]
 }

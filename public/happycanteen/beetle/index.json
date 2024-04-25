@@ -4,5 +4,8 @@
         "front": "",
         "back": "",
         "eating": ""
-    }
+    },
+    "colours": [
+        "grey"
+    ]
 }
