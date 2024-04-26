@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FeederData, CatData } from "./Types";
-import { getCatData, getFeederData, getMeta } from "./utils";
+import { fetchCatData, fetchFeederData, fetchMeta } from "./utils";
 import { Link } from "react-router-dom";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { CatImage } from "./CatImage";
@@ -18,9 +18,9 @@ export function CatPage(props: CatPageProps) {
     const [files, setFiles] = useState<string[]>();
 
     useEffect(() => {
-        getFeederData(feeder).then((res) => setFeederData(res));
-        getCatData(feeder, cat).then(res => setCatData(res))
-        getMeta(`${feeder}/${cat}`).then(res => setFiles(res.files));
+        fetchFeederData(feeder).then((res) => setFeederData(res));
+        fetchCatData(feeder, cat).then(res => setCatData(res))
+        fetchMeta(`${feeder}/${cat}`).then(res => setFiles(res.files));
     }, []);
 
 

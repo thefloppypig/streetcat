@@ -34,16 +34,16 @@ async function processPngToWebp(dirPath: string, listDir: fs.Dirent[]) {
     }
 }
 
-async function processRecursive(dirPath: string) {
-    const data = await processDirectoryData(dirPath);
+async function processRecursive(dirPath: string, options: ProcessOptions) {
+    const data = await processDirectoryData(dirPath, options);
     for (const dir of data.dir) {
-        await processRecursive(`${dirPath}/${dir}`)
+        await processRecursive(`${dirPath}/${dir}`, options)
     }
 }
 
-async function processDirectoryData(dirPath: string) {
+async function processDirectoryData(dirPath: string, options: ProcessOptions) {
     const listDir = fs.readdirSync(dirPath, { withFileTypes: true });
-    if (listDir.some(dirent => isPng(dirent))) {
+    if (options.processWebp && listDir.some(dirent => isPng(dirent))) {
         await processPngToWebp(dirPath, listDir)
     }
     const jsonData = {
@@ -54,9 +54,19 @@ async function processDirectoryData(dirPath: string) {
     return jsonData;
 }
 
+export async function startProcessRecursive(dirPath: string, options: Partial<ProcessOptions>) {
+    const allOptions = {...defaultProcessOptions, ...options};
+    return await processRecursive(dirPath, allOptions);
+}
+
+export const defaultProcessOptions = {
+    processWebp: false
+}
+export type ProcessOptions= typeof defaultProcessOptions;
+
 export const streetcatLoader: PluginOption = {
     name: "streetcatLoader",
     async buildStart(options) {
-        await processRecursive("./public");
+        await startProcessRecursive("./public", {});
     },
 }

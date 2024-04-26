@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FeederData, CatData, CatType } from "./Types";
-import { getCatUrl, getCatList, getCatData, getFeederData } from "./utils";
+import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "./utils";
 import { Link } from "react-router-dom";
 import { CatImage } from "./CatImage";
 
@@ -19,11 +19,11 @@ function processCatDataToTableImages(catData: CatData, which: keyof CatData["img
 }
 
 async function getCats(feeder: string) {
-    const catList = await getCatList(feeder);
+    const catList = await fetchCatList(feeder);
     const catDataList: CatData[] = [];
     const catDataPromiseList: Promise<CatData>[] = [];
     for (const cat of catList) {
-        const promise = getCatData(feeder, cat);
+        const promise = fetchCatData(feeder, cat);
         promise.then((res) => catDataList.push(res));
         catDataPromiseList.push(promise);
     }
@@ -47,7 +47,7 @@ export function Identifier(props: IdentifierProps) {
 
     useEffect(() => {
         const feeder = props.feeder;
-        getFeederData(feeder).then((res) => setFeederData(res));
+        fetchFeederData(feeder).then((res) => setFeederData(res));
         getCats(feeder).then(res => setCatDataList(res))
     }, [])
 

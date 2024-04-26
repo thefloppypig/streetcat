@@ -1,0 +1,13 @@
+{
+    "name": "Goobert",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1714134475036.webp",
+        "back": "meow.camera_4258783365322591678_1714134479365.webp",
+        "eating": "meow.camera_4258783365322591678_1714134471073.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ]
+}

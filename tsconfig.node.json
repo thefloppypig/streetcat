@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "es2017",
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",
@@ -8,7 +9,7 @@
     "strict": true
   },
   "include": [
-    "vite.config.ts",
+    "vite.config.mts",
     "build/*"
   ]
 }
