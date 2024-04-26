@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { FeederData, CatData } from "./Types";
-import { fetchCatData, fetchFeederData, fetchMeta } from "./utils";
+import { FeederData, CatData } from "../Types";
+import { fetchCatData, fetchExtGalleryList, fetchFeederData, fetchMeta } from "../fetchUtils";
 import { Link } from "react-router-dom";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { CatImage } from "./CatImage";
+import { Helmet } from "react-helmet-async";
 
 export type CatPageProps = {
     feeder: string,
@@ -15,18 +16,23 @@ export function CatPage(props: CatPageProps) {
     const { feeder, cat } = props;
     const [feederData, setFeederData] = useState<FeederData>()
     const [catData, setCatData] = useState<CatData>()
-    const [files, setFiles] = useState<string[]>();
+    const [filesLocal, setFilesLocal] = useState<string[]>();
+    const [filesExt, setFilesExt] = useState<string[]>();
 
     useEffect(() => {
         fetchFeederData(feeder).then((res) => setFeederData(res));
         fetchCatData(feeder, cat).then(res => setCatData(res))
-        fetchMeta(`${feeder}/${cat}`).then(res => setFiles(res.files));
+        fetchMeta(`${feeder}/${cat}`).then(res => setFilesLocal(res.files));
+        fetchExtGalleryList(feeder, cat).then(res => setFilesExt(res));
     }, []);
 
 
     if (catData) {
         return (
             <>
+                <Helmet>
+                    <title>Streetcat Identifier - {catData.name}</title>
+                </Helmet>
                 <h1>{catData.name}</h1>
                 <div>Find {catData.name} at <Link to={`/${feederData?.__feeder}`}>{feederData?.name}!</Link></div>
                 <br />
@@ -34,16 +40,27 @@ export function CatPage(props: CatPageProps) {
                 <br />
                 <h2>Gallery</h2>
                 <ResponsiveMasonry
-                    columnsCountBreakPoints={{ 300: 1, 500: 2, 750: 3, 1000: 4, 1500: 6 }}
+                    columnsCountBreakPoints={{ 300: 1, 500: 2, 750: 3, 1000: 4, 2000: 6 }}
                 >
                     <Masonry>
-                        {files
+                        {filesLocal
                             ?
-                            files.length > 0
+                            filesLocal.length > 0
                                 ?
-                                getGalleryElements(files, feeder, cat)
+                                getGalleryElements(filesLocal, feeder, cat)
                                 :
                                 <div>Empty</div>
+                            :
+                            <div>Loading...</div>}
+                        {filesExt
+                            ?
+                            filesExt.length > 0
+                                ?
+                                filesExt.map((src, i) => {
+                                    return <CatImage key={i} src={src} />
+                                })
+                                :
+                                undefined
                             :
                             <div>Loading...</div>}
                     </Masonry>
@@ -57,7 +74,7 @@ export function CatPage(props: CatPageProps) {
 }
 
 function getGalleryElements(files: string[], feeder: string, cat: string) {
-    const elems = []
+    const elems = [];
 
     for (let index = files.length - 1; index >= 0; index--) {
         const file = files[index];

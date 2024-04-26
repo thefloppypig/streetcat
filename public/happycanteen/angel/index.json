@@ -1,0 +1,14 @@
+{
+    "name": "Ms. Angel",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1714142807471.webp",
+        "back": "meow.camera_4258783365322591678_1714142817629.webp",
+        "eating": "meow.camera_4258783365322591678_1714142811050.webp"
+    },
+    "type": "calico",
+    "colours": [
+        "white",
+        "brown",
+        "orange"
+    ]
+}

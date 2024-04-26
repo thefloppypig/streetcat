@@ -17,6 +17,24 @@ export async function fetchCachedJson<T>(url: string): Promise<T> {
     }
 }
 
+export async function fetchCachedTxt(url: string): Promise<string | undefined> {
+    if (cache[url]) {
+        return cache[url];
+    }
+    else {
+        try {
+            const response = await fetch(url);
+            const txt = await response.text();
+            if (txt.startsWith("<!")) {//throw `File not found: ${url}`
+                return cache[url] = undefined;
+            }
+            return cache[url] = txt;
+        } catch (error) {
+            throw error;
+        }
+    }
+}
+
 export async function fetchFeederData(feeder: string) {
     const json = await fetchCachedJson<FeederData>(`${feeder}/index.json`);
     json.__feeder = feeder;
@@ -33,6 +51,14 @@ export async function fetchCatData(feeder: string, cat: string) {
     json.__cat = cat;
     json.__feeder = feeder;
     return json;
+}
+
+export async function fetchExtGalleryList(feeder: string, cat: string): Promise<string[]> {
+    const text = await fetchCachedTxt(`${feeder}/${cat}/gallery.txt`);
+    if (text) {
+        return text.split("\n");
+    }
+    else return [];
 }
 
 export async function fetchMeta(path: string) {

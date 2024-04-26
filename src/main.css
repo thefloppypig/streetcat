@@ -19,6 +19,7 @@ body {
 }
 
 table {
+  border-collapse: collapse;
   overflow-x: auto;
   height: 100%;
   width: 100%;
@@ -70,6 +71,11 @@ img {
 .navlink:hover,
 .navicon:hover {
   background-color: #595959;
+}
+
+.divider {
+  border-top: 1px solid #8f8f8f;
+  border-radius: 5px;
 }
 
 .footer {

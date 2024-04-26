@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { FeederData, CatData, CatType } from "./Types";
-import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "./utils";
+import { FeederData, CatData, CatType } from "../Types";
+import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "../fetchUtils";
 import { Link } from "react-router-dom";
 import { CatImage } from "./CatImage";
+import { Helmet } from "react-helmet-async";
+import { Divider } from "./Divider";
 
 
 function processCatDataToTableImages(catData: CatData, which: keyof CatData["img"]) {
@@ -51,10 +53,17 @@ export function Identifier(props: IdentifierProps) {
         getCats(feeder).then(res => setCatDataList(res))
     }, [])
 
+    const helmet = feederData ?
+        <Helmet>
+            <title>Streetcat Identifier - {feederData?.name}</title>
+            <meta name="description" content={`Identify the cats at ${feederData?.name}`} />
+        </Helmet> : undefined;
+
     if (catDataList) {
         const filteredList = filterType ? catDataList.filter((d) => d.type === filterType) : catDataList;
         return (
             <>
+                {helmet}
                 <h1>{feederData?.name ?? ""} Catdentifier</h1>
                 <div>
                     Filter:
@@ -65,6 +74,7 @@ export function Identifier(props: IdentifierProps) {
                         </span>
                     })}
                 </div>
+                <Divider />
                 <table>
                     <thead>
                         <tr>
