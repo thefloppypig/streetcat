@@ -8,19 +8,6 @@ import { Divider } from "./Divider";
 import { Page404 } from "./Page404";
 
 
-function processCatDataToTableImages(catData: CatData, which: keyof CatData["img"]) {
-    {
-        const src = catData.img[which];
-        if (src) {
-            const url = getCatUrl(catData, src);
-            return <CatImage src={url} />
-        }
-        else {
-            return <div className='centered'>/</div>
-        }
-    }
-}
-
 async function getCats(feeder: string) {
     const catList = await fetchCatList(feeder);
     const catDataList: CatData[] = [];
@@ -50,16 +37,16 @@ export function Identifier(props: IdentifierProps) {
     const [notFound, setNotFound] = useState(false);
 
     useEffect(() => {
-        fetchFeederData(feeder).then((res) => setFeederData(res)).catch(()=> setNotFound(true));
-        getCats(feeder).then(res => setCatDataList(res)).catch(()=> setNotFound(true));
+        fetchFeederData(feeder).then((res) => setFeederData(res)).catch(() => setNotFound(true));
+        getCats(feeder).then(res => setCatDataList(res)).catch(() => setNotFound(true));
     }, [feeder]);
 
-    if (notFound) return <Page404/>
+    if (notFound) return <Page404 />
 
     const helmet = feederData ?
         <Helmet>
-            <title>Streetcat Identifier - {feederData?.name}</title>
-            <meta name="description" content={`Identify the cats at ${feederData?.name}`} />
+            <title>{feederData.name} - Streetcat Identifier</title>
+            <meta name="description" content={`Identify the cats at ${feederData.name}`} />
         </Helmet> : undefined;
 
     if (catDataList) {
@@ -79,20 +66,24 @@ export function Identifier(props: IdentifierProps) {
                 </div>
                 <Divider />
                 <table>
+                    <colgroup>
+                        <col className="identifier1stCol" />
+                        <col span={3} width="auto" />
+                    </colgroup>
                     <thead>
                         <tr>
-                            <td>Name</td>
-                            <td>Front</td>
-                            <td>Back</td>
-                            <td>Eating</td>
+                            <th>Name</th>
+                            <th>Front</th>
+                            <th>Back</th>
+                            <th>Eating</th>
                         </tr>
                     </thead>
                     <tbody>
                         {filteredList.sort(Sort.Alphabetically).map((d) => <tr key={d.__cat}>
                             <td><Link to={`/${d.__feeder}/${d.__cat}`}>{d.name}</Link></td>
-                            <td>{processCatDataToTableImages(d, "front")}</td>
-                            <td>{processCatDataToTableImages(d, "back")}</td>
-                            <td>{processCatDataToTableImages(d, "eating")}</td>
+                            {processCatDataToTableImages(d, "front")}
+                            {processCatDataToTableImages(d, "back")}
+                            {processCatDataToTableImages(d, "eating")}
                         </tr>)}
                     </tbody>
                 </table>
@@ -100,6 +91,21 @@ export function Identifier(props: IdentifierProps) {
         )
     }
     else return <div>Loading...</div>
+}
+
+function processCatDataToTableImages(catData: CatData, which: keyof CatData["img"]) {
+    {
+        const src = catData.img[which];
+        return <>
+            <td className="identifierTd" width={1280} height={720}>
+                {src ?
+                    < CatImage width={1280} height={720} className='identifierImg' src={getCatUrl(catData, src)} />
+                    :
+                    <div className='centered'>/</div>}
+            </td >
+
+        </>
+    }
 }
 
 export default Identifier;

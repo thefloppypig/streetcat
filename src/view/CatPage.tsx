@@ -34,7 +34,7 @@ export function CatPage(props: CatPageProps) {
         return (
             <>
                 <Helmet>
-                    <title>Streetcat Identifier - {catData.name}</title>
+                    <title>{catData.name} - Streetcat Identifier</title>
                 </Helmet>
                 <h1>{catData.name}</h1>
                 <div>Find {catData.name} at <Link to={`/${feederData?.__feeder}`}>{feederData?.name}!</Link></div>
