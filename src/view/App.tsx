@@ -7,6 +7,7 @@ import { Homepage } from './Homepage';
 import { CatPage } from './CatPage';
 import { HelmetProvider } from "react-helmet-async";
 import { Page404 } from './Page404';
+import { About } from './About';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Homepage />,
+      },
+      {
+        path: '/about',
+        element: <About />,
       },
       {
         path: '/:f',

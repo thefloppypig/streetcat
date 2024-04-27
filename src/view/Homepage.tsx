@@ -5,11 +5,11 @@ export function Homepage() {
     return (
         <div className="home">
             <Helmet>
-                <title>Streetcat Identifier - Home</title>
+                <title>Home - Streetcat Identifier</title>
             </Helmet>
             <h1>Streetcat Identifier</h1>
 
-            <div>Easily identify the happy canteen cats!</div>
+            <div>Identify the cats on Hello Street Cat livestreams!</div>
 
             <div>
                 <Link to={"/happycanteen"}>

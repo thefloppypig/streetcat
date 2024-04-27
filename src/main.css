@@ -92,11 +92,6 @@ img {
   border-radius: 5px;
 }
 
-.footer {
-  padding: 5px;
-  background-color: black;
-}
-
 .centered {
   text-align: center;
 }
@@ -119,4 +114,19 @@ img {
   height: 100%;
   display: block;
   cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  background-color: black;
+}
+
+.footlink {
+  cursor: pointer;
+  border: 0;
+  color: gray;
+  white-space: nowrap;
 }
