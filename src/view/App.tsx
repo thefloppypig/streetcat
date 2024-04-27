@@ -6,6 +6,7 @@ import Identifier from './Identifier';
 import { Homepage } from './Homepage';
 import { CatPage } from './CatPage';
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Page404 } from './Page404';
 
 function App() {
 
@@ -48,13 +49,6 @@ function CatPageRoute() {
     return <CatPage feeder={f} cat={c} />
   }
   else return <Page404 />;
-}
-
-function Page404() {
-  return <div>
-    <h1>Error 404</h1>
-    <div>There's nothing on this page!</div>
-  </div>
 }
 
 export default App

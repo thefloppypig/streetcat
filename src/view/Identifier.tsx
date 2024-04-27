@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CatImage } from "./CatImage";
 import { Helmet } from "react-helmet-async";
 import { Divider } from "./Divider";
+import { Page404 } from "./Page404";
 
 
 function processCatDataToTableImages(catData: CatData, which: keyof CatData["img"]) {
@@ -42,16 +43,18 @@ export type IdentifierProps = {
 }
 
 export function Identifier(props: IdentifierProps) {
-
+    const { feeder } = props;
     const [feederData, setFeederData] = useState<FeederData>()
     const [catDataList, setCatDataList] = useState<CatData[]>()
     const [filterType, setFilterType] = useState<CatType>(CatType.None)
+    const [notFound, setNotFound] = useState(false);
 
     useEffect(() => {
-        const feeder = props.feeder;
-        fetchFeederData(feeder).then((res) => setFeederData(res));
-        getCats(feeder).then(res => setCatDataList(res))
-    }, [])
+        fetchFeederData(feeder).then((res) => setFeederData(res)).catch(()=> setNotFound(true));
+        getCats(feeder).then(res => setCatDataList(res)).catch(()=> setNotFound(true));
+    }, [feeder]);
+
+    if (notFound) return <Page404/>
 
     const helmet = feederData ?
         <Helmet>

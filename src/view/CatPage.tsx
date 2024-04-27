@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { CatImage } from "./CatImage";
 import { Helmet } from "react-helmet-async";
+import { Page404 } from "./Page404";
 
 export type CatPageProps = {
     feeder: string,
@@ -18,14 +19,16 @@ export function CatPage(props: CatPageProps) {
     const [catData, setCatData] = useState<CatData>()
     const [filesLocal, setFilesLocal] = useState<string[]>();
     const [filesExt, setFilesExt] = useState<string[]>();
+    const [notFound, setNotFound] = useState(false);
 
     useEffect(() => {
         fetchFeederData(feeder).then((res) => setFeederData(res));
-        fetchCatData(feeder, cat).then(res => setCatData(res))
+        fetchCatData(feeder, cat).then(res => setCatData(res)).catch(()=> setNotFound(true))
         fetchMeta(`${feeder}/${cat}`).then(res => setFilesLocal(res.files));
         fetchExtGalleryList(feeder, cat).then(res => setFilesExt(res));
-    }, []);
-
+    }, [feeder, cat]);
+    
+    if (notFound) return <Page404/>
 
     if (catData) {
         return (
