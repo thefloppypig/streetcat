@@ -1,5 +1,5 @@
 
-import { HashRouter, Route, Routes, useParams } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import { Footer } from './Footer';
 import { Nav } from './Nav';
 import Identifier from './Identifier';
@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <HelmetProvider>
-        <HashRouter>
+        <BrowserRouter>
           <Helmet>
             <title>Streetcat Identifier</title>
             <meta name="title" content="Streetcat Identifier" />
@@ -28,7 +28,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
-        </HashRouter>
+        </BrowserRouter>
       </HelmetProvider>
     </>
   )

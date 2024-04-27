@@ -5,5 +5,6 @@ import { streetcatLoader } from './build/processDataPlugin'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "./",
-  plugins: [react(), streetcatLoader]
+  plugins: [react(), streetcatLoader],
+  publicDir: "public"
 })

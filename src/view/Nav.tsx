@@ -1,18 +1,16 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavLink(props: { to: string, label: string }) {
     const { to, label } = props;
-    const navigate = useNavigate();
 
-    return <button className="navlink" onClick={() => navigate(to)}>{label}</button>;
+    return <Link to={to} className="navlink">{label}</Link>;
 }
 
 export function Nav() {
-    const navigate = useNavigate();
 
     return (
         <nav className="nav">
-            <img className="navicon" src="icon-48.webp" onClick={() => navigate("/")}></img>
+            <Link to={"/"}><img className="navicon" src="icon-48.webp"></img></Link> 
             <NavLink to={"/"} label="Home" />
             <NavLink to={"/happycanteen"} label="Happy Canteen" />
         </nav>

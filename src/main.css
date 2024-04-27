@@ -1,3 +1,7 @@
+html {
+  --navHeight: 40px;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,6 +15,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  line-height: 0;
 }
 
 body {
@@ -52,20 +60,24 @@ img {
   display: flex;
   align-items: center;
   background-color: black;
-  height: 40px;
+  height: var(--navHeight);
 }
 
 .navicon {
-  height: 100%;
+  height: var(--navHeight);
+  height: var(--navHeight);
   cursor: pointer;
 }
 
 .navlink {
-  height: 100%;
+  height: var(--navHeight);
   cursor: pointer;
-  padding: 0px 5px;
+  line-height: 35px;
+  padding: 0px 5px 0px 5px;
   background-color: transparent;
   border: 0;
+  color: inherit; 
+  text-decoration: inherit;
 }
 
 .navlink:hover,
