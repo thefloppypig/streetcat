@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
-export function Homepage() {
+export default function Homepage() {
     return (
         <div className="home">
             <Helmet>

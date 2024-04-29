@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { FeederData, CatData, CatType } from "../Types";
 import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "../fetchUtils";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { CatImage } from "./CatImage";
 import { Helmet } from "react-helmet-async";
 import { Divider } from "./Divider";
 import { Page404 } from "./Page404";
+import { SortCatData } from "../utils"
 
 
 async function getCats(feeder: string) {
@@ -21,16 +22,14 @@ async function getCats(feeder: string) {
     return catDataList;
 }
 
-const Sort = {
-    Alphabetically: (a: CatData, b: CatData) => a.__cat.localeCompare(b.__cat),
-}
-
 export type IdentifierProps = {
-    feeder: string,
 }
 
-export function Identifier(props: IdentifierProps) {
-    const { feeder } = props;
+export default function Identifier(props: IdentifierProps) {
+
+    const { f: feeder } = useParams();
+    if (!feeder) return <Page404 />
+
     const [feederData, setFeederData] = useState<FeederData>()
     const [catDataList, setCatDataList] = useState<CatData[]>()
     const [filterType, setFilterType] = useState<CatType>(CatType.None)
@@ -58,9 +57,9 @@ export function Identifier(props: IdentifierProps) {
                 <div>
                     Filter:
                     {Object.entries(CatType).map(([k, v]) => {
-                        return <span key={v} onClick={() => setFilterType(v)}>
-                            <input type="radio" radioGroup="filter" value={v} checked={filterType === v} readOnly />
-                            <label >{k}</label>
+                        return <span className="idRadio" key={v} onClick={() => setFilterType(v)}>
+                            <input type="radio" radioGroup="filter" id={`radio-${v}`} value={v} checked={filterType === v} readOnly />
+                            <label htmlFor={`radio-${v}`}>{k}</label>
                         </span>
                     })}
                 </div>
@@ -79,7 +78,7 @@ export function Identifier(props: IdentifierProps) {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredList.sort(Sort.Alphabetically).map((d) => <tr key={d.__cat}>
+                        {filteredList.sort(SortCatData.Alphabetically).map((d) => <tr key={d.__cat}>
                             <td><Link to={`/${d.__feeder}/${d.__cat}`}>{d.name}</Link></td>
                             {processCatDataToTableImages(d, "front")}
                             {processCatDataToTableImages(d, "back")}
@@ -120,5 +119,3 @@ function processCatDataToTableImages(catData: CatData, which: keyof CatData["img
         </>
     }
 }
-
-export default Identifier;

@@ -42,10 +42,13 @@ async function processRecursive(dirPath: string, options: ProcessOptions) {
 }
 
 async function processDirectoryData(dirPath: string, options: ProcessOptions) {
-    const listDir = fs.readdirSync(dirPath, { withFileTypes: true });
+    let listDir = fs.readdirSync(dirPath, { withFileTypes: true });
+
     if (options.processWebp && listDir.some(dirent => isPng(dirent))) {
-        await processPngToWebp(dirPath, listDir)
+        await processPngToWebp(dirPath, listDir);
+        listDir = fs.readdirSync(dirPath, { withFileTypes: true });
     }
+    
     const jsonData = {
         dir: listDir.filter((d) => d.isDirectory()).map((d) => d.name),
         files: listDir.filter((d) => !d.isDirectory()).map((d) => d.name),

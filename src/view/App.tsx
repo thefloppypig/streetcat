@@ -2,12 +2,12 @@
 import { Outlet, RouterProvider, ScrollRestoration, createBrowserRouter, useParams } from 'react-router-dom';
 import { Footer } from './Footer';
 import { Nav } from './Nav';
-import Identifier from './Identifier';
-import { Homepage } from './Homepage';
 import { CatPage } from './CatPage';
 import { HelmetProvider } from "react-helmet-async";
 import { Page404 } from './Page404';
 import { About } from './About';
+import Homepage from './Homepage';
+import Identifier from './Identifier';
 
 const router = createBrowserRouter([
   {
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/:f',
-        element: <Feeder />,
+        element: <Identifier />,
       },
       {
         path: '/:f/:c',
@@ -62,14 +62,6 @@ function App() {
       </HelmetProvider>
     </>
   )
-}
-
-function Feeder() {
-  const { f } = useParams();
-  if (f) {
-    return <Identifier feeder={f} />
-  }
-  else return <Page404 />;
 }
 
 function CatPageRoute() {

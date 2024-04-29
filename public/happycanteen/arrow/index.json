@@ -1,0 +1,14 @@
+{
+    "name": "Ms. Arrow",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1714402793155.webp",
+        "back": "meow.camera_4258783365322591678_1714402828080.webp",
+        "eating": "meow.camera_4258783365322591678_1714402814210.webp"
+    },
+    "type": "calico",
+    "colours": [
+        "white",
+        "brown",
+        "orange"
+    ]
+}

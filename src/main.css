@@ -116,6 +116,10 @@ img {
   cursor: pointer;
 }
 
+.idRadio {
+  text-wrap: nowrap;
+}
+
 .footer {
   display: flex;
   align-items: center;
