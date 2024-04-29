@@ -15,7 +15,7 @@ export function Homepage() {
                 <Link to={"/happycanteen"}>
                     View the happy canteen cats!
                     <br />
-                    <img style={{ margin: "auto", maxWidth: "100%" }} src="home.webp" />
+                    <img style={{ margin: "auto", maxWidth: "100%" }} src="home.webp" alt="Mr Puke and Mr Sleepy at the Happy Canteen" />
                 </Link>
                 <br />
                 <i>Mr Puke and Mr Sleepy at the Happy Canteen</i>

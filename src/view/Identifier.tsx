@@ -93,13 +93,26 @@ export function Identifier(props: IdentifierProps) {
     else return <div>Loading...</div>
 }
 
+function altText(name: string, which: keyof CatData["img"]) {
+    switch (which) {
+        case "front":
+            return `Front facing image of the cat ${name}`
+        case "back":
+            return `The back pattern of the cat ${name}`
+        case "eating":
+            return `${name} eating`
+        default:
+            return `Image of ${name}`;
+    }
+}
+
 function processCatDataToTableImages(catData: CatData, which: keyof CatData["img"]) {
     {
         const src = catData.img[which];
         return <>
             <td className="identifierTd" width={1280} height={720}>
                 {src ?
-                    < CatImage width={1280} height={720} className='identifierImg' src={getCatUrl(catData, src)} />
+                    < CatImage width={1280} height={720} className='identifierImg' src={getCatUrl(catData, src)} alt={altText(catData.name, which)} />
                     :
                     <div className='centered'>/</div>}
             </td >

@@ -10,7 +10,7 @@ export function Nav() {
 
     return (
         <nav className="nav">
-            <Link to={"/"}><img className="navicon" src="icon-48.webp"></img></Link> 
+            <Link to={"/"}><img className="navicon" src="icon-48.webp" alt="Home"></img></Link> 
             <NavLink to={"/"} label="Home" />
             <NavLink to={"/happycanteen"} label="Happy Canteen" />
         </nav>
