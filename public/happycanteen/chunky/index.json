@@ -1,0 +1,16 @@
+{
+    "name": "Ms. Chunky",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1714485817228.webp",
+        "back": "meow.camera_4258783365322591678_1714485656083.webp",
+        "eating": "meow.camera_4258783365322591678_1714485801719.webp"
+    },
+    "type": "brown",
+    "colours": [
+        "grey",
+        "brown"
+    ],
+    "features": [
+        "Head pattern looks slightly different to Mr beetle"
+    ]
+}

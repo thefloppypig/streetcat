@@ -6,5 +6,5 @@ import { streetcatLoader } from './build/processDataPlugin'
 export default defineConfig({
   base: "./",
   plugins: [react(), streetcatLoader],
-  publicDir: "public"
+  publicDir: "public",
 })

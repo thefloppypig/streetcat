@@ -1,13 +1,19 @@
 
-import { Outlet, RouterProvider, ScrollRestoration, createBrowserRouter, useParams } from 'react-router-dom';
+import { Outlet, RouterProvider, ScrollRestoration, createBrowserRouter } from 'react-router-dom';
 import { Footer } from './Footer';
 import { Nav } from './Nav';
-import { CatPage } from './CatPage';
 import { HelmetProvider } from "react-helmet-async";
 import { Page404 } from './Page404';
-import { About } from './About';
+import { Suspense } from 'react';
+import About from './About';
+import CatPage from './CatPage';
 import Homepage from './Homepage';
 import Identifier from './Identifier';
+
+// const About = lazy(() => import('./About'));
+// const Homepage = lazy(() => import('./Homepage'));
+// const Identifier = lazy(() => import('./Identifier'));
+// const CatPage = lazy(() => import('./CatPage'));
 
 const router = createBrowserRouter([
   {
@@ -27,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/:f/:c',
-        element: <CatPageRoute />,
+        element: <CatPage />,
       },
       {
         path: '*',
@@ -58,18 +64,12 @@ function App() {
   return (
     <>
       <HelmetProvider>
-        <RouterProvider router={router} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <RouterProvider router={router} />
+        </Suspense>
       </HelmetProvider>
     </>
   )
-}
-
-function CatPageRoute() {
-  const { f, c } = useParams();
-  if (f && c) {
-    return <CatPage feeder={f} cat={c} />
-  }
-  else return <Page404 />;
 }
 
 export default App

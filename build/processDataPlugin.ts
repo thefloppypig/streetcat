@@ -27,7 +27,10 @@ async function processPngToWebp(dirPath: string, listDir: fs.Dirent[]) {
         const process = cmdRun("magick", ["mogrify", "-format webp", "-resize 50%", "*.png"], { cwd: dirPath, shell: true })
         await process;
         for (const dirent of listDir) {
-            if (isPng(dirent)) fs.rmSync(`${dirPath}/${dirent.name}`);
+            if (isPng(dirent)) {
+                fs.rmSync(`${dirPath}/${dirent.name}`);
+                console.log(`Removing ${dirPath}/${dirent.name}`);
+            };
         }
     } catch (error) {
         console.log(error);
@@ -48,7 +51,7 @@ async function processDirectoryData(dirPath: string, options: ProcessOptions) {
         await processPngToWebp(dirPath, listDir);
         listDir = fs.readdirSync(dirPath, { withFileTypes: true });
     }
-    
+
     const jsonData = {
         dir: listDir.filter((d) => d.isDirectory()).map((d) => d.name),
         files: listDir.filter((d) => !d.isDirectory()).map((d) => d.name),
@@ -58,14 +61,14 @@ async function processDirectoryData(dirPath: string, options: ProcessOptions) {
 }
 
 export async function startProcessRecursive(dirPath: string, options: Partial<ProcessOptions>) {
-    const allOptions = {...defaultProcessOptions, ...options};
+    const allOptions = { ...defaultProcessOptions, ...options };
     return await processRecursive(dirPath, allOptions);
 }
 
 export const defaultProcessOptions = {
     processWebp: false
 }
-export type ProcessOptions= typeof defaultProcessOptions;
+export type ProcessOptions = typeof defaultProcessOptions;
 
 export const streetcatLoader: PluginOption = {
     name: "streetcatLoader",

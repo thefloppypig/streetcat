@@ -1,4 +1,4 @@
-export function About() {
+export default function About() {
     return (
         <>
             <h1>About Street Cat Identifier</h1>

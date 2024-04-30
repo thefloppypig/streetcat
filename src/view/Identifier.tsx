@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FeederData, CatData, CatType } from "../Types";
 import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "../fetchUtils";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { CatImage } from "./CatImage";
 import { Helmet } from "react-helmet-async";
 import { Divider } from "./Divider";
@@ -25,7 +25,7 @@ async function getCats(feeder: string) {
 export type IdentifierProps = {
 }
 
-export default function Identifier(props: IdentifierProps) {
+export default function Identifier() {
 
     const { f: feeder } = useParams();
     if (!feeder) return <Page404 />

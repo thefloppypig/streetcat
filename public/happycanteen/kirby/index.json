@@ -10,5 +10,8 @@
         "white",
         "brown",
         "orange"
+    ],
+    "features": [
+        "It's kirbin time"
     ]
 }

@@ -1,5 +1,5 @@
 {
-    "name": "Mr. Butter",
+    "name": "Mr. Rev",
     "img": {
         "front": "meow.camera_4258783365322591678_1714141266978.webp",
         "back": "meow.camera_4258783365322591678_1714141288190.webp",
@@ -9,5 +9,10 @@
     "colours": [
         "orange",
         "white"
+    ],
+    "features": [
+        "White chest",
+        "Front paws are white",
+        "Back legs are all white"
     ]
 }

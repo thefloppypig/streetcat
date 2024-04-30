@@ -120,6 +120,12 @@ img {
   text-wrap: nowrap;
 }
 
+.galleryIframe {
+  width: 100%;
+  height: fit-content;
+  border: 0;
+}
+
 .footer {
   display: flex;
   align-items: center;

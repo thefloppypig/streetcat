@@ -30,4 +30,5 @@ export type CatData = {
     },
     type: CatType,
     colours: string[],
+    features?: string[],
 }
