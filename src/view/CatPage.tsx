@@ -1,11 +1,12 @@
 import { useState, useEffect, ReactNode } from "react";
-import { FeederData, CatData } from "../types/Types";
+import { FeederData, CatData } from "../shared/Types";
 import { fetchCatData, fetchExtGalleryList, fetchFeederData, fetchMeta } from "../fetchUtils";
 import { Link, useParams } from "react-router-dom";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { CatImage } from "./CatImage";
 import { Helmet } from "react-helmet-async";
 import { Page404 } from "./Page404";
+import { linkWiki } from "../shared/Const";
 
 export type CatPageProps = {
 }
@@ -43,7 +44,7 @@ export default function CatPage() {
                 <h1>{catData.name}</h1>
                 <div>Find {name} at <Link to={`/${feederData?.__feeder}`}>{feederData?.name}!</Link></div>
                 <br />
-                <div>Check {names} <Link to={`https://streetcat.wiki/index.php/${name.replace(/\s+/g, '_')}`}>Streetcat Wiki page</Link></div>
+                <div>Check {names} <Link to={`${linkWiki}/${name.replace(/\s+/g, '_')}`}>Streetcat Wiki page</Link></div>
                 <br />
                 {features ? <>
                     <h2>{names} Features</h2>

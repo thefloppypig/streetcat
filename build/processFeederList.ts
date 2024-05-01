@@ -1,8 +1,7 @@
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
-// @ts-ignore
-import { FeederData } from "../src/types/Types"
+import { FeederData } from "../src/shared/Types"
 import { PluginOption } from "vite";
-const feederRoot = "./public";
+import { feederRoot } from "../src/shared/Const"
 
 function processFeederList() {
     const listDir = readdirSync(feederRoot, { withFileTypes: true });

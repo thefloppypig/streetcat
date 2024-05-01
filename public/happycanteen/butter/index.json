@@ -1,0 +1,16 @@
+{
+    "name": "Mr. Butter",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1714576772692.webp",
+        "back": "meow.camera_4258783365322591678_1714576836709.webp",
+        "eating": "meow.camera_4258783365322591678_1714576832686.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ],
+    "features": [
+        "White chest"
+    ]
+}

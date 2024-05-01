@@ -6,6 +6,6 @@ import { processList } from './build/processFeederList'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "./",
-  plugins: [react(), streetcatLoader, processList],
+  plugins: [react(), processList, streetcatLoader],
   publicDir: "public",
 })

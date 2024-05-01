@@ -5,7 +5,7 @@ import { cmdRun, isPng } from "./processUtils";
 
 async function processPngToWebp(dirPath: string, listDir: fs.Dirent[]) {
     try {
-        const process = cmdRun("magick", ["mogrify", "-format webp", "-resize 50%", "*.png"], { cwd: dirPath, shell: true })
+        const process = cmdRun("magick", ["mogrify", "-format webp", "*.png"], { cwd: dirPath, shell: true })
         await process;
         for (const dirent of listDir) {
             if (isPng(dirent)) {

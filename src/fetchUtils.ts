@@ -1,4 +1,4 @@
-import { FeederData, FolderMetaData, CatData, FeederList } from "./types/Types";
+import { FeederData, FolderMetaData, CatData, FeederList } from "./shared/Types";
 
 const cache: Record<string, any> = {};
 

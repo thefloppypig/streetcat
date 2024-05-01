@@ -11,6 +11,6 @@
   "include": [
     "vite.config.mts",
     "build/*",
-    "src/types"
+    "src/shared"
   ]
 }

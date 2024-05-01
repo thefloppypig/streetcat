@@ -1,0 +1,13 @@
+{
+    "name": "Ms. Note",
+    "img": {
+        "front": "meow.camera_4412424173050749216_1714575238555.webp",
+        "back": "meow.camera_4412424173050749216_1714575294818.webp",
+        "eating": "meow.camera_4412424173050749216_1714575245461.webp"
+    },
+    "type": "tortie",
+    "colours": [
+        "black",
+        "grey"
+    ]
+}

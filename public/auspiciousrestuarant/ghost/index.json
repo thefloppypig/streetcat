@@ -1,0 +1,12 @@
+{
+    "name": "Mr. Ghost",
+    "img": {
+        "front": "meow.camera_4412424173050749216_1714582133343.webp",
+        "back": "meow.camera_4412424173050749216_1714582136026.webp",
+        "eating": "meow.camera_4412424173050749216_1714582122347.webp"
+    },
+    "type": "white",
+    "colours": [
+        "white"
+    ]
+}

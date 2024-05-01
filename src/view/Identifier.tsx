@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FeederData, CatData, CatType } from "../types/Types";
+import { FeederData, CatData, CatType } from "../shared/Types";
 import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "../fetchUtils";
 import { Link, useParams } from "react-router-dom";
 import { CatImage } from "./CatImage";
