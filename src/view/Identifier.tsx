@@ -36,6 +36,8 @@ export default function Identifier() {
     const [notFound, setNotFound] = useState(false);
 
     useEffect(() => {
+        setFeederData(undefined);
+        setCatDataList(undefined);
         fetchFeederData(feeder).then((res) => setFeederData(res)).catch(() => setNotFound(true));
         getCats(feeder).then(res => setCatDataList(res)).catch(() => setNotFound(true));
     }, [feeder]);
@@ -54,6 +56,7 @@ export default function Identifier() {
             <>
                 {helmet}
                 <h1>List of Cats in {feederData?.name ?? ""}</h1>
+                <Divider />
                 <div>
                     Filter:
                     {Object.entries(CatType).map(([k, v]) => {

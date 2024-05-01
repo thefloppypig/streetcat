@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Swole",
+    "img": {
+        "front": "meow.camera_4412424173050749216_1714598341663.webp",
+        "back": "meow.camera_4412424173050749216_1714598349625.webp",
+        "eating": "meow.camera_4412424173050749216_1714598308334.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ]
+}

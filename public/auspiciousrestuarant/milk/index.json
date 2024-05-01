@@ -1,0 +1,12 @@
+{
+    "name": "Ms. Milk?",
+    "img": {
+        "front": "meow.camera_4412424173050749216_1714599811975.webp",
+        "back": "meow.camera_4412424173050749216_1714599848727.webp",
+        "eating": "meow.camera_4412424173050749216_1714599985842.webp"
+    },
+    "type": "white",
+    "colours": [
+        "white"
+    ]
+}
