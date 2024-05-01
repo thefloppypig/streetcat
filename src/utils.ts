@@ -1,4 +1,4 @@
-import { CatData } from "./Types";
+import { CatData } from "./types/Types";
 
 
 export const SortCatData = {

@@ -10,6 +10,7 @@
   },
   "include": [
     "vite.config.mts",
-    "build/*"
+    "build/*",
+    "src/types"
   ]
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FeederData, CatData, CatType } from "../Types";
+import { FeederData, CatData, CatType } from "../types/Types";
 import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "../fetchUtils";
 import { Link, useParams } from "react-router-dom";
 import { CatImage } from "./CatImage";
@@ -53,7 +53,7 @@ export default function Identifier() {
         return (
             <>
                 {helmet}
-                <h1>{feederData?.name ?? ""} Catdentifier</h1>
+                <h1>List of Cats in {feederData?.name ?? ""}</h1>
                 <div>
                     Filter:
                     {Object.entries(CatType).map(([k, v]) => {

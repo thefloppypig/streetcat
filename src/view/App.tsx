@@ -9,6 +9,7 @@ import About from './About';
 import CatPage from './CatPage';
 import Homepage from './Homepage';
 import Identifier from './Identifier';
+import FeederListView from './FeederList';
 
 // const About = lazy(() => import('./About'));
 // const Homepage = lazy(() => import('./Homepage'));
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />,
+      },
+      {
+        path: `/list`,
+        element: <FeederListView />
       },
       {
         path: '/:f',

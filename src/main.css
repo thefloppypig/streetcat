@@ -59,7 +59,7 @@ img {
 
 .nav {
   display: flex;
-  gap: 5px;
+  gap: 0px;
   align-items: center;
   background-color: black;
   height: var(--navHeight);
@@ -75,8 +75,10 @@ img {
   height: var(--navHeight);
   cursor: pointer;
   line-height: 35px;
+  padding: 0px 5px;
   background-color: transparent;
-  border: 0;
+  border: 1px solid #515151;
+  border-radius: 0px 0px 10px 10px;
   color: inherit;
   text-decoration: inherit;
   white-space: nowrap;
@@ -118,6 +120,7 @@ img {
 
 .idRadio {
   text-wrap: nowrap;
+  user-select: none;
 }
 
 .galleryIframe {

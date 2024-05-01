@@ -1,5 +1,5 @@
 import { useState, useEffect, ReactNode } from "react";
-import { FeederData, CatData } from "../Types";
+import { FeederData, CatData } from "../types/Types";
 import { fetchCatData, fetchExtGalleryList, fetchFeederData, fetchMeta } from "../fetchUtils";
 import { Link, useParams } from "react-router-dom";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";

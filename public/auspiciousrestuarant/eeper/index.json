@@ -1,0 +1,17 @@
+{
+    "name": "Ms. Eeper",
+    "img": {
+        "front": "meow.camera_4412424173050749216_1714553907176.webp",
+        "back": "meow.camera_4412424173050749216_1714553939926.webp",
+        "eating": "meow.camera_4412424173050749216_1714553934016.webp"
+    },
+    "type": "calico",
+    "colours": [
+        "white",
+        "brown",
+        "orange"
+    ],
+    "features": [
+        "Small size"
+    ]
+}

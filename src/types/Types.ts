@@ -9,6 +9,8 @@ export type FeederData = {
     id: string,
 }
 
+export type FeederList = FeederData[]
+
 export enum CatType {
     None = "",
     Orange = "orange",

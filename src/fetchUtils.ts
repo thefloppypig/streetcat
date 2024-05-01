@@ -1,4 +1,4 @@
-import { FeederData, FolderMetaData, CatData } from "./Types";
+import { FeederData, FolderMetaData, CatData, FeederList } from "./types/Types";
 
 const cache: Record<string, any> = {};
 
@@ -38,6 +38,11 @@ export async function fetchCachedTxt(url: string): Promise<string | undefined> {
 export async function fetchFeederData(feeder: string) {
     const json = await fetchCachedJson<FeederData>(`${feeder}/index.json`);
     json.__feeder = feeder;
+    return json;
+}
+
+export async function fetchFeederList() {
+    const json = await fetchCachedJson<FeederList>(`feederList.json`);
     return json;
 }
 

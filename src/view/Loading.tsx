@@ -1,7 +1,7 @@
 
 export type LoadingProps = {
-    error: boolean
-    pastDelay: boolean
+    error?: boolean
+    pastDelay?: boolean
 }
 
 export default function Loading(props: LoadingProps) {

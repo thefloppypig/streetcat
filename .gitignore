@@ -3,6 +3,8 @@
 public/**/meta.json
 !dist/**/meta.json
 
+public/feederlist.json
+
 # Logs
 logs
 *.log
