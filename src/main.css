@@ -41,6 +41,10 @@ img {
   margin: 0;
 }
 
+h1 {
+  margin: 10px 0 0 0;
+}
+
 .main {
   min-height: 90vh;
   margin-right: auto;
@@ -96,6 +100,19 @@ img {
 
 .centered {
   text-align: center;
+}
+
+.linkButton {
+  color: inherit;
+  padding: 5px;
+  margin: 3px;
+  background-color: black;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.linkButton:hover {
+  background-color: gray;
 }
 
 .identifier1stCol {

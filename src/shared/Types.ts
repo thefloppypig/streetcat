@@ -6,7 +6,8 @@ export type FolderMetaData = {
 export type FeederData = {
     __feeder: string,
     name: string,
-    id: string,
+    id: string,//camera id
+    wiki: string,//wiki link
 }
 
 export type FeederList = FeederData[]

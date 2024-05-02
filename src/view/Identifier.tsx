@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 import { Divider } from "./Divider";
 import { Page404 } from "./Page404";
 import { SortCatData } from "../utils"
+import { linkMeowCamera, linkWiki } from "../shared/Const";
 
 
 async function getCats(feeder: string) {
@@ -56,6 +57,10 @@ export default function Identifier() {
             <>
                 {helmet}
                 <h1>List of Cats in {feederData?.name ?? ""}</h1>
+                <div>
+                    <a className="linkButton" href={`${linkWiki}/${feederData?.wiki}`}>Wiki</a>
+                    <a className="linkButton" href={`${linkMeowCamera}${feederData?.id}`}>Camera</a>
+                </div>
                 <Divider />
                 <div>
                     Filter:
