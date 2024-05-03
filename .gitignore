@@ -1,9 +1,7 @@
-*.meta.json
-
 public/**/meta.json
 !dist/**/meta.json
 
-public/feederlist.json
+public/feeders/feederList.json
 
 # Logs
 logs

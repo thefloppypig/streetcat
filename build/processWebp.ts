@@ -1,5 +1,5 @@
 import { startProcessRecursive } from "./processDataPlugin"
 
 console.log("finding pngs")
-await startProcessRecursive("./public", {processWebp: true});
+await startProcessRecursive("./public/feeders", { processWebp: true });
 console.log("done");
