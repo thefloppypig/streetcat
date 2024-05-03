@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "streetcat.twa",
+            "sha256_cert_fingerprints": [
+                "D3:F2:C8:00:FC:F6:A8:F8:FC:0F:6F:FC:66:29:66:A6:90:4C:88:AD:CD:8D:8C:66:C3:BA:C6:A6:A9:E9:0C:AB"
+            ]
+        }
+    }
+]

@@ -1,3 +1,4 @@
+import { feederRootProd } from "./shared/Const";
 import { FeederData, FolderMetaData, CatData, FeederList } from "./shared/Types";
 
 const cache: Record<string, any> = {};
@@ -36,30 +37,30 @@ export async function fetchCachedTxt(url: string): Promise<string | undefined> {
 }
 
 export async function fetchFeederData(feeder: string) {
-    const json = await fetchCachedJson<FeederData>(`${feeder}/index.json`);
+    const json = await fetchCachedJson<FeederData>(`${feederRootProd}/${feeder}/index.json`);
     json.__feeder = feeder;
     return json;
 }
 
 export async function fetchFeederList() {
-    const json = await fetchCachedJson<FeederList>(`feederList.json`);
+    const json = await fetchCachedJson<FeederList>(`${feederRootProd}/feederList.json`);
     return json;
 }
 
 export async function fetchCatList(feeder: string) {
-    const json = await fetchMeta(feeder);
+    const json = await fetchMeta(`${feederRootProd}/${feeder}`);
     return json.dir;
 }
 
 export async function fetchCatData(feeder: string, cat: string) {
-    const json = await fetchCachedJson<CatData>(`${feeder}/${cat}/index.json`);
+    const json = await fetchCachedJson<CatData>(`${feederRootProd}/${feeder}/${cat}/index.json`);
     json.__cat = cat;
     json.__feeder = feeder;
     return json;
 }
 
 export async function fetchExtGalleryList(feeder: string, cat: string): Promise<string[]> {
-    const text = await fetchCachedTxt(`${feeder}/${cat}/gallery.txt`);
+    const text = await fetchCachedTxt(`${feederRootProd}/${feeder}/${cat}/gallery.txt`);
     if (text) {
         return text.split("\n");
     }
@@ -72,5 +73,5 @@ export async function fetchMeta(path: string) {
 }
 
 export function getCatUrl(catData: CatData, img: string) {
-    return `${catData.__feeder}/${catData.__cat}/${img}`
+    return `${feederRootProd}/${catData.__feeder}/${catData.__cat}/${img}`
 }

@@ -1,12 +1,12 @@
 import { useState, useEffect, ReactNode } from "react";
 import { FeederData, CatData } from "../shared/Types";
-import { fetchCatData, fetchExtGalleryList, fetchFeederData, fetchMeta } from "../fetchUtils";
+import { fetchCatData, fetchExtGalleryList, fetchFeederData, fetchMeta, getCatUrl } from "../fetchUtils";
 import { Link, useParams } from "react-router-dom";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { CatImage } from "./CatImage";
 import { Helmet } from "react-helmet-async";
 import { Page404 } from "./Page404";
-import { linkWiki } from "../shared/Const";
+import { feederRootProd, linkWiki } from "../shared/Const";
 
 export type CatPageProps = {
 }
@@ -27,7 +27,7 @@ export default function CatPage() {
     useEffect(() => {
         fetchFeederData(feeder).then((res) => setFeederData(res));
         fetchCatData(feeder, cat).then(res => setCatData(res)).catch(() => setNotFound(true))
-        fetchMeta(`${feeder}/${cat}`).then(res => setFilesLocal(res.files));
+        fetchMeta(`${feederRootProd}/${feeder}/${cat}`).then(res => setFilesLocal(res.files));
         fetchExtGalleryList(feeder, cat).then(res => setFilesExt(res));
     }, [feeder, cat]);
 
@@ -82,7 +82,7 @@ function getGalleryElements(files: string[], catData: CatData) {
 
     for (let index = files.length - 1; index >= 0; index--) {
         const file = files[index];
-        if (file.endsWith(".webp")) elems.push(<CatImage key={file} src={`${catData.__feeder}/${catData.__cat}/${file}`} alt={`Picture of ${catData.name}`} />)
+        if (file.endsWith(".webp")) elems.push(<CatImage key={file} src={getCatUrl(catData, file)} alt={`Picture of ${catData.name}`} />)
     }
 
     return elems;

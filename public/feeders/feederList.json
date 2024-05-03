@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Auspicious Restuarant",
+        "id": "4412424173050749216",
+        "wiki": "Auspicious_Restaurant",
+        "__feeder": "auspiciousrestuarant"
+    },
+    {
+        "name": "Brother Fresh's Exclusive Castle CatMojo",
+        "id": "5144313095337151915",
+        "wiki": "Brother_Fresh’s_Exclusive_Castle_CatMojo",
+        "__feeder": "catmojo"
+    },
+    {
+        "name": "Happy Canteen",
+        "id": "4258783365322591678",
+        "wiki": "Happy_Canteen",
+        "__feeder": "happycanteen"
+    }
+]

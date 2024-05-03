@@ -1,5 +1,6 @@
 export const
-    feederRoot = "./public",
+    feederRoot = "./public/feeders",
+    feederRootProd = "feeders",
 
     linkHelloStreetCat = "https://hellostreetcat.com/",
     linkWiki = "https://streetcat.wiki/index.php",
