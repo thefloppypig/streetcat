@@ -5,12 +5,12 @@
     "description": "Identify the cats on Hello Street Cat livestreams",
     "icons": [
         {
-            "src": "./icon-500.webp",
+            "src": "https://streetcat.pages.dev/icon-500.webp",
             "type": "image/webp",
             "sizes": "500x500"
         },
         {
-            "src": "./icon-128.webp",
+            "src": "../icon-128.webp",
             "type": "image/webp",
             "sizes": "128x128"
         },
