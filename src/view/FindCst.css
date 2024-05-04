@@ -5,6 +5,7 @@
     border-radius: 10px;
     width: fit-content;
     display: block;
+    overflow-wrap: anywhere;
 }
 
 .wikiSource {
