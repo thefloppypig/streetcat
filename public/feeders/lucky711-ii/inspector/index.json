@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Inspector",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714837974293.webp",
+        "back": "meow.camera_4291094747934800009_1714840553690.webp",
+        "eating": "meow.camera_4291094747934800009_1714837978044.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ]
+}

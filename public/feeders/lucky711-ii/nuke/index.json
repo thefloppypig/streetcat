@@ -1,0 +1,14 @@
+{
+    "name": "Ms. Nuke",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714846659788.webp",
+        "back": "meow.camera_4291094747934800009_1714846668166.webp",
+        "eating": ""
+    },
+    "type": "calico",
+    "colours": [
+        "orange",
+        "black",
+        "white"
+    ]
+}

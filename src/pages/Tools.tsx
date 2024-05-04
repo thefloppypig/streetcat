@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export function Tools() {
+export default function Tools() {
     return (
         <div>
             <h1>Tools</h1>

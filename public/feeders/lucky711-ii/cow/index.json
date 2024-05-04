@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Cow",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714845930812.webp",
+        "back": "",
+        "eating": ""
+    },
+    "type": "white",
+    "colours": [
+        "white",
+        "black"
+    ]
+}

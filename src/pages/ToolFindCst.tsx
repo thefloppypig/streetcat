@@ -6,13 +6,14 @@ import { Divider } from '../components/Divider';
 import { fetchFeederList } from '../fetchUtils';
 import { FeederList } from '../shared/Types';
 import { linkWiki } from '../shared/Const';
+import { CatWarningIcon } from '../components/CatWarningIcon';
 
 const Timezones = {
     CST: { name: "China Standard Time -06:00", tz: "Asia/Shanghai" },
     GMT: { name: "Greenwich Standard time +00:00", tz: "Atlantic/Reykjavik" },
 }
 
-export function ToolFindCst() {
+export default function ToolFindCst() {
     const [feederList, setFeederList] = useState<FeederList>([])
 
     const fileUpload = useRef<HTMLInputElement>(null);
@@ -32,10 +33,10 @@ export function ToolFindCst() {
                 const feeder = findFeederInList(feederId, feederList);
                 const time = nameSplit[2]?.split(".")[0];//extract time from filename
                 let ms = parseInt(time);
-                let saved = "saved";
+                let incorrectFormat = false;
                 if (!ms || isNaN(ms)) {
                     ms = file.lastModified;
-                    saved = "last modified"
+                    incorrectFormat = true;
                 };
                 const m = moment(ms).tz(timezone);
                 const formattedDate = m.format("MMMM Do, YYYY")
@@ -44,9 +45,10 @@ export function ToolFindCst() {
                 const outSource = `* '''${formattedDate} -''' At ${formattedTime}`;
                 elems.push(<span className='fileItem' key={file.name}>
                     <h4>{file.name}</h4>
-                    <div>This file was {saved} at <span className='wikiSource'>{outVisual}</span><button onClick={() => navigator.clipboard.writeText(outVisual)}>Copy</button></div>
+                    {incorrectFormat && <div className='warningBox'><CatWarningIcon noTooltip /> The file name is not formatted correctly</div>}
+                    <div>This file was {incorrectFormat ? "last modified" : "saved"} at <span className='wikiSource'>{outVisual}</span><button onClick={() => navigator.clipboard.writeText(outVisual)}>Copy</button></div>
                     <div>Wiki Source Text for sighting:<span className='wikiSource'>{outSource}</span><button onClick={() => navigator.clipboard.writeText(outSource)}>Copy</button></div>
-                    <div>Taken in {feeder ? <a href={`${linkWiki}/${feeder.wiki}`}>{feeder.name}</a> : undefined} feeder with id {feederId}</div>
+                    {!incorrectFormat && <div>Taken in {feeder ? <a href={`${linkWiki}/${feeder.wiki}`}>{feeder.name}</a> : undefined} feeder with id {feederId}</div>}
                 </span>)
             } catch (error) {
                 elems.push(<span key={file.name}>
