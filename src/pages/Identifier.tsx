@@ -123,9 +123,9 @@ function processCatDataToTableImages(catData: CatData, which: keyof CatData["img
     {
         const src = catData.img[which];
         return <>
-            <td className="identifierTd" width={1280} height={720}>
+            <td className="identifierTd">
                 {src ?
-                    < CatImage width={1280} height={720} className='identifierImg' src={getCatUrl(catData, src)} alt={altText(catData.name, which)} />
+                    < CatImage width={640} height={360} className='identifierImg' src={getCatUrl(catData, src)} alt={altText(catData.name, which)} />
                     :
                     <div className='centered'>/</div>}
             </td >
