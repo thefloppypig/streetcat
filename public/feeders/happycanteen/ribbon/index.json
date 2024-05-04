@@ -1,10 +1,11 @@
 {
-    "name": "Mr. Ribbon?",
+    "name": "Mr. Ribbon",
     "img": {
         "front": "meow.camera_4258783365322591678_1714140280309.webp",
         "back": "meow.camera_4258783365322591678_1714140285157.webp",
         "eating": "meow.camera_4258783365322591678_1714140611935.webp"
     },
+    "unknown": true,
     "type": "brown",
     "colours": [
         "grey",

@@ -1,10 +1,11 @@
 {
-    "name": "Mr. Drumstick?",
+    "name": "Mr. Drumstick",
     "img": {
         "front": "meow.camera_4412424173050749216_1714600578561.webp",
         "back": "",
         "eating": "meow.camera_4412424173050749216_1714600622818.webp"
     },
+    "unknown": true,
     "type": "tortie",
     "colours": [
         "black",

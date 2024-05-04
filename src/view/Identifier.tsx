@@ -8,6 +8,7 @@ import { Divider } from "./Divider";
 import { Page404 } from "./Page404";
 import { SortCatData } from "../utils"
 import { linkMeowCamera, linkWiki } from "../shared/Const";
+import { CatWarningIcon } from "./CatWarningIcon";
 
 
 async function getCats(feeder: string) {
@@ -87,7 +88,12 @@ export default function Identifier() {
                     </thead>
                     <tbody>
                         {filteredList.sort(SortCatData.Alphabetically).map((d) => <tr key={d.__cat}>
-                            <td><Link to={`/${d.__feeder}/${d.__cat}`}>{d.name}</Link></td>
+                            <td>
+                                <Link to={`/${d.__feeder}/${d.__cat}`}>
+                                    {d.name}
+                                    {d.unknown ? <CatWarningIcon /> : undefined}
+                                </Link>
+                            </td>
                             {processCatDataToTableImages(d, "front")}
                             {processCatDataToTableImages(d, "back")}
                             {processCatDataToTableImages(d, "eating")}

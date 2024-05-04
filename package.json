@@ -20,8 +20,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.4",
+    "react-icons": "^5.2.0",
     "react-responsive-masonry": "^2.2.0",
-    "react-router-dom": "^6.23.0"
+    "react-router-dom": "^6.23.0",
+    "react-tooltip": "^5.26.4"
   },
   "devDependencies": {
     "@types/moment-timezone": "^0.5.30",

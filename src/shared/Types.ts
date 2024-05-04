@@ -31,6 +31,7 @@ export type CatData = {
         back?: string,
         eating?: string,
     },
+    unknown?: boolean,
     type: CatType,
     colours: string[],
     features?: string[],

@@ -11,6 +11,8 @@ import Homepage from './Homepage';
 import Identifier from './Identifier';
 import FeederListView from './FeederList';
 import { FindCst } from './FindCst';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
 // const About = lazy(() => import('./About'));
 // const Homepage = lazy(() => import('./Homepage'));
@@ -59,6 +61,7 @@ function AppLayout() {
       <ScrollRestoration getKey={(location) => {
         return location.pathname;
       }} />
+      <Tooltip id="tooltip" />
       <Nav />
       <div className='main'>
         <Outlet />
