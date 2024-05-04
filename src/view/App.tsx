@@ -10,6 +10,7 @@ import CatPage from './CatPage';
 import Homepage from './Homepage';
 import Identifier from './Identifier';
 import FeederListView from './FeederList';
+import { FindCst } from './FindCst';
 
 // const About = lazy(() => import('./About'));
 // const Homepage = lazy(() => import('./Homepage'));
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: `/list`,
         element: <FeederListView />
+      },
+      {
+        path: `/tools/checker`,
+        element: <FindCst />
       },
       {
         path: '/:f',
