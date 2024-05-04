@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchFeederList } from "../fetchUtils";
 import { Page404 } from "./Page404";
 import { FeederList } from "../shared/Types";
-import Loading from "./Loading";
+import Loading from "../components/Loading";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
@@ -28,7 +28,7 @@ export default function FeederListView() {
                     {feederList.map((feederData) => {
                         const { __feeder, name } = feederData;
                         return <li key={__feeder}>
-                            <Link to={`/${__feeder}`}>{name}</Link>
+                            <Link className="toolListItem" to={`/${__feeder}`}>{name}</Link>
                         </li>
                     })}
                 </ul>

@@ -3,11 +3,11 @@ import { FeederData, CatData } from "../shared/Types";
 import { fetchCatData, fetchExtGalleryList, fetchFeederData, fetchMeta, getCatUrl } from "../fetchUtils";
 import { Link, useParams } from "react-router-dom";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { CatImage } from "./CatImage";
+import { CatImage } from "../components/CatImage";
 import { Helmet } from "react-helmet-async";
 import { Page404 } from "./Page404";
 import { feederRootProd, linkWiki } from "../shared/Const";
-import { CatWarningBox } from "./CatWarningBox";
+import { CatWarningBox } from "../components/CatWarningBox";
 
 export type CatPageProps = {
 }

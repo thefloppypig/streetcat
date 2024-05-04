@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { FeederData, CatData, CatType } from "../shared/Types";
 import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "../fetchUtils";
 import { Link, useParams } from "react-router-dom";
-import { CatImage } from "./CatImage";
+import { CatImage } from "../components/CatImage";
 import { Helmet } from "react-helmet-async";
-import { Divider } from "./Divider";
+import { Divider } from "../components/Divider";
 import { Page404 } from "./Page404";
 import { SortCatData } from "../utils"
 import { linkMeowCamera, linkWiki } from "../shared/Const";
-import { CatWarningIcon } from "./CatWarningIcon";
+import { CatWarningIcon } from "../components/CatWarningIcon";
 
 
 async function getCats(feeder: string) {

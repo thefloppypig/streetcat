@@ -1,7 +1,7 @@
 
 import { Outlet, RouterProvider, ScrollRestoration, createBrowserRouter } from 'react-router-dom';
-import { Footer } from './Footer';
-import { Nav } from './Nav';
+import { Footer } from '../components/Footer';
+import { Nav } from '../components/Nav';
 import { HelmetProvider } from "react-helmet-async";
 import { Page404 } from './Page404';
 import { Suspense } from 'react';
@@ -10,9 +10,10 @@ import CatPage from './CatPage';
 import Homepage from './Homepage';
 import Identifier from './Identifier';
 import FeederListView from './FeederList';
-import { FindCst } from './FindCst';
+import { ToolFindCst } from './ToolFindCst';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
+import { Tools } from './Tools';
 
 // const About = lazy(() => import('./About'));
 // const Homepage = lazy(() => import('./Homepage'));
@@ -36,8 +37,12 @@ const router = createBrowserRouter([
         element: <FeederListView />
       },
       {
+        path: `/tools`,
+        element: <Tools />
+      },
+      {
         path: `/tools/checker`,
-        element: <FindCst />
+        element: <ToolFindCst />
       },
       {
         path: '/:f',

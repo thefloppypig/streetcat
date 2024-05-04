@@ -1,17 +1,23 @@
 import 'moment-timezone';
 import moment from "moment";
 import { ReactNode, useEffect, useRef, useState } from "react"
-import './FindCst.css'
-import { Divider } from './Divider';
+import './ToolFindCst.css'
+import { Divider } from '../components/Divider';
 import { fetchFeederList } from '../fetchUtils';
 import { FeederList } from '../shared/Types';
 import { linkWiki } from '../shared/Const';
 
-export function FindCst() {
+const Timezones = {
+    CST: { name: "China Standard Time -06:00", tz: "Asia/Shanghai" },
+    GMT: { name: "Greenwich Standard time +00:00", tz: "Atlantic/Reykjavik" },
+}
+
+export function ToolFindCst() {
     const [feederList, setFeederList] = useState<FeederList>([])
 
     const fileUpload = useRef<HTMLInputElement>(null);
     const [files, setFiles] = useState<FileList | null>();
+    const [timezone, setTimezone] = useState<string>(Timezones.CST.tz);
     const elems: ReactNode[] = [];
 
     useEffect(() => {
@@ -31,7 +37,7 @@ export function FindCst() {
                     ms = file.lastModified;
                     saved = "last modified"
                 };
-                const m = moment(ms).tz("Asia/Shanghai");
+                const m = moment(ms).tz(timezone);
                 const formattedDate = m.format("MMMM Do, YYYY")
                 const formattedTime = m.format("HH:MM z")
                 const outVisual = `${formattedDate} - At ${formattedTime}`;
@@ -54,7 +60,7 @@ export function FindCst() {
     return (
         <div>
             <h1>Meow.camera file checker</h1>
-            <div>Simple tool to retrieve the date from the filename of a meow.camera screenshot or clip</div>
+            <div>Simple tool to retrieve the date from the filename of a meow.camera screenshot or clip.</div>
             <div>File names should look like this: <i>meow.camera_4258783365322591678_1714768691754</i></div>
             <div>Select 1 or more files:</div>
             <Divider />
@@ -66,6 +72,11 @@ export function FindCst() {
                     ev.currentTarget.value = "";
                     setFiles(null);
                 }} />
+            <select value={timezone} onChange={(ev) => setTimezone(ev.target.value)}>
+                {Object.entries(Timezones).map(([id, value]) => {
+                    return <option value={value.tz}>{`${id} ${value.name}`}</option>
+                })}
+            </select>
             <Divider />
             {elems}
         </div>

@@ -1,5 +1,7 @@
 html {
   --navHeight: 40px;
+  --buttonColor: black;
+  --hoverColor: gray;
 }
 
 :root {
@@ -180,4 +182,21 @@ h1 {
   border: 0;
   color: gray;
   white-space: nowrap;
+}
+
+.toolListItem {
+  display: block;
+  margin: 5px;
+  padding: 0px 5px;
+  line-height: initial;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 10px;
+  background-color: #595959;
+  width: fit-content;
+}
+
+.toolListItem:hover {
+  background-color: var(--hoverColor);
 }
