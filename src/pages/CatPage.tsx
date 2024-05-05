@@ -44,9 +44,9 @@ export default function CatPage() {
                 </Helmet>
                 <h1>{catData.name}</h1>
                 {catData.unknown ? <CatWarningBox /> : undefined}
-                <div>Find {name} at <Link to={`/${feederData?.__feeder}`}>{feederData?.name}!</Link></div>
+                <div>Find {name} at <Link className="a" to={`/${feederData?.__feeder}`}>{feederData?.name}!</Link></div>
                 <br />
-                <div>Check {names} <Link to={`${linkWiki}/${name.replace(/\s+/g, '_')}`}>Streetcat Wiki page</Link></div>
+                <div>Check {names} <Link className="a" to={`${linkWiki}/${name.replace(/\s+/g, '_')}`}>Streetcat Wiki page</Link></div>
                 <br />
                 {features ? <>
                     <h2>{names} Features</h2>

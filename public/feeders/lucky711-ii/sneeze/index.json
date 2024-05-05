@@ -1,0 +1,12 @@
+{
+    "name": "Mr. Sneeze",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714859604500.webp",
+        "back": "meow.camera_4291094747934800009_1714859970362.webp",
+        "eating": "meow.camera_4291094747934800009_1714859952792.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange"
+    ]
+}

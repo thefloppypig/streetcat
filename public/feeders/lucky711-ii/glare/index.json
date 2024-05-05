@@ -1,0 +1,14 @@
+{
+    "name": "Ms. Glare",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714848823893.webp",
+        "back": "meow.camera_4291094747934800009_1714849716998.webp",
+        "eating": "meow.camera_4291094747934800009_1714848848742.webp"
+    },
+    "type": "tortie",
+    "colours": [
+        "orange",
+        "black",
+        "brown"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Porcupine",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714927428343.webp",
+        "back": "meow.camera_4291094747934800009_1714927452162.webp",
+        "eating": "meow.camera_4291094747934800009_1714927452162.webp"
+    },
+    "type": "brown",
+    "colours": [
+        "brown",
+        "grey"
+    ]
+}

@@ -6,6 +6,7 @@ export function Footer() {
         <footer className="footer">
             <span>Streetcat Identifier</span>
             <Link className="footlink" to={"/about"}>About</Link>
+            <Link className="footlink" to={"/tools"}>Tools</Link>
             <a className="footlink" href={linkGithub}>Github</a>
         </footer>
     )

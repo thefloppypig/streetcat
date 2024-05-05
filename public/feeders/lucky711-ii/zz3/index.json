@@ -1,0 +1,14 @@
+{
+    "name": "???",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714928301149.webp",
+        "back": "meow.camera_4291094747934800009_1714928330316.webp",
+        "eating": "meow.camera_4291094747934800009_1714928381185.webp"
+    },
+    "unknown": true,
+    "type": "tortie",
+    "colours": [
+        "brown",
+        "orange"
+    ]
+}

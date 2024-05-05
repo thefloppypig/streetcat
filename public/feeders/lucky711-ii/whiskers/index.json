@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Whiskers",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714914049718.webp",
+        "back": "meow.camera_4291094747934800009_1714913776319.webp",
+        "eating": "meow.camera_4291094747934800009_1714913971875.webp"
+    },
+    "type": "black",
+    "colours": [
+        "black",
+        "white"
+    ]
+}

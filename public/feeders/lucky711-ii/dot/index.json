@@ -1,0 +1,13 @@
+{
+    "name": "Ms. Dot",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714910927065.webp",
+        "back": "meow.camera_4291094747934800009_1714910955171.webp",
+        "eating": "meow.camera_4291094747934800009_1714910975158.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ]
+}

@@ -28,14 +28,6 @@ body {
   margin: 0;
 }
 
-table {
-  border-collapse: collapse;
-  overflow-x: auto;
-  height: 100%;
-  width: 100%;
-  font-size: small;
-}
-
 td,
 tr,
 img {
@@ -49,6 +41,19 @@ h3,
 h4,
 h5 {
   margin: 10px 0 0 0;
+}
+
+.a:link {
+  color: #bbb9ff;
+  text-decoration: dotted underline;
+}
+
+.a:visited {
+  color: #e0abe1;
+}
+
+.a:hover {
+  color: #ffffff;
 }
 
 h1 {
@@ -93,8 +98,8 @@ h1 {
   background-color: transparent;
   border: 1px solid #515151;
   border-radius: 0px 0px 10px 10px;
-  color: inherit;
-  text-decoration: inherit;
+  color: white;
+  text-decoration: none;
   white-space: nowrap;
 }
 
@@ -135,6 +140,20 @@ h1 {
   margin: 2px;
   padding: 5px;
   background-color: rgba(255, 255, 0, 0.308);
+}
+
+.idTable {
+  border-collapse: collapse;
+  overflow-x: auto;
+  height: 100%;
+  width: 100%;
+  font-size: 12.5px;
+}
+
+@media (max-width: 500px) {
+  .idTable {
+    font-size: 10px;
+  }
 }
 
 .identifier1stCol {

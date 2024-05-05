@@ -9,6 +9,7 @@ import { Page404 } from "./Page404";
 import { SortCatData } from "../utils"
 import { linkMeowCamera, linkWiki } from "../shared/Const";
 import { CatWarningIcon } from "../components/CatWarningIcon";
+import { IoLink } from "react-icons/io5";
 
 
 async function getCats(feeder: string) {
@@ -73,7 +74,7 @@ export default function Identifier() {
                     })}
                 </div>
                 <Divider />
-                <table>
+                <table className="idTable">
                     <colgroup>
                         <col className="identifier1stCol" />
                         <col span={3} width="auto" />
@@ -89,9 +90,9 @@ export default function Identifier() {
                     <tbody>
                         {filteredList.sort(SortCatData.Alphabetically).map((d) => <tr key={d.__cat}>
                             <td>
-                                <Link to={`/${d.__feeder}/${d.__cat}`}>
+                                <Link className="a" to={`/${d.__feeder}/${d.__cat}`}>
                                     {d.name}
-                                    {d.unknown ? <CatWarningIcon /> : undefined}
+                                    {d.unknown ? <CatWarningIcon /> : <IoLink />}
                                 </Link>
                             </td>
                             {processCatDataToTableImages(d, "front")}

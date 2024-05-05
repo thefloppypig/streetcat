@@ -1,0 +1,14 @@
+{
+    "name": "Ms. Snack",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714922340181.webp",
+        "back": "",
+        "eating": ""
+    },
+    "type": "calico",
+    "colours": [
+        "orange",
+        "black",
+        "white"
+    ]
+}
