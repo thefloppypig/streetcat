@@ -5,9 +5,10 @@
         ],
         "target": {
             "namespace": "android_app",
-            "package_name": "streetcat.twa",
+            "package_name": "streetcat.id.twa",
             "sha256_cert_fingerprints": [
-                "D3:F2:C8:00:FC:F6:A8:F8:FC:0F:6F:FC:66:29:66:A6:90:4C:88:AD:CD:8D:8C:66:C3:BA:C6:A6:A9:E9:0C:AB"
+                "5F:06:36:D2:08:E7:F7:B5:66:29:BD:8A:4F:5E:12:F0:76:F4:0B:F7:57:79:79:17:DA:7B:49:8B:C5:00:0C:CA",
+                "33:C1:39:61:7C:98:75:3E:29:D9:A3:D5:47:A4:EB:88:29:63:77:4C:3A:7C:73:0D:6D:B6:EC:D7:05:02:06:09"
             ]
         }
     }
