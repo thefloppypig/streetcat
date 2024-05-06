@@ -1,0 +1,15 @@
+{
+    "name": "Mr. Goatee",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1714957630303.webp",
+        "back": "meow.camera_4291094747934800009_1714957654374.webp",
+        "eating": "meow.camera_4291094747934800009_1714957739296.webp"
+    },
+    "type": "black",
+    "colours": [
+        "black"
+    ],
+    "features": [
+        "Small goatee-like white patch under his chin"
+    ]
+}
