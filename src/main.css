@@ -156,12 +156,18 @@ h1 {
   }
 }
 
+@media (max-width: 300px) {
+  .idTable {
+    font-size: 7px;
+  }
+}
+
 .identifier1stCol {
   width: auto;
 }
 
 .identifierCol {
-  width: 10px;
+  width: 30%;
 }
 
 .identifierTd {

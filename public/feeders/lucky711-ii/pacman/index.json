@@ -1,0 +1,14 @@
+{
+    "name": "Ms. Pacman",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1715093476455.webp",
+        "back": "meow.camera_4291094747934800009_1715093529330.webp",
+        "eating": "meow.camera_4291094747934800009_1715093534846.webp"
+    },
+    "type": "calico",
+    "colours": [
+        "orange",
+        "black",
+        "white"
+    ]
+}

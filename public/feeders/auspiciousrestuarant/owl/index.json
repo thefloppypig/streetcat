@@ -1,0 +1,14 @@
+{
+    "name": "Ms. Owl",
+    "img": {
+        "front": "meow.camera_4412424173050749216_1715094988559.webp",
+        "back": "meow.camera_4412424173050749216_1715094991396.webp",
+        "eating": "meow.camera_4412424173050749216_1715095050785.webp"
+    },
+    "type": "brown",
+    "colours": [
+        "brown",
+        "grey",
+        "white"
+    ]
+}

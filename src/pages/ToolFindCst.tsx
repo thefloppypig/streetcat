@@ -42,7 +42,7 @@ export default function ToolFindCst() {
                 const formattedDate = m.format("MMMM Do, YYYY")
                 const formattedTime = m.format("HH:MM z")
                 const outVisual = `${formattedDate} - At ${formattedTime}`;
-                const outSource = `* '''${formattedDate} -''' At ${formattedTime}`;
+                const outSource = `* '''${formattedDate}:''' At ${formattedTime}`;
                 elems.push(<span className='fileItem' key={file.name}>
                     <h4>{file.name}</h4>
                     {incorrectFormat && <div className='warningBox'><CatWarningIcon noTooltip /> The file name is not formatted correctly</div>}
@@ -76,7 +76,7 @@ export default function ToolFindCst() {
                 }} />
             <select value={timezone} onChange={(ev) => setTimezone(ev.target.value)}>
                 {Object.entries(Timezones).map(([id, value]) => {
-                    return <option value={value.tz}>{`${id} ${value.name}`}</option>
+                    return <option key={id} value={value.tz}>{`${id} ${value.name}`}</option>
                 })}
             </select>
             <Divider />

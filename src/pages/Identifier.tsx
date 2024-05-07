@@ -77,7 +77,7 @@ export default function Identifier() {
                 <table className="idTable">
                     <colgroup>
                         <col className="identifier1stCol" />
-                        <col span={3} width="auto" />
+                        <col span={3} className="identifierCol" />
                     </colgroup>
                     <thead>
                         <tr>
