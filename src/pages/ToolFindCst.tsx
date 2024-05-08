@@ -3,7 +3,7 @@ import moment from "moment";
 import { ReactNode, useEffect, useRef, useState } from "react"
 import './ToolFindCst.css'
 import { Divider } from '../components/Divider';
-import { fetchFeederList } from '../fetchUtils';
+import { fetchFeederList } from '../utils/fetchUtils';
 import { FeederList } from '../shared/Types';
 import { linkWiki } from '../shared/Const';
 import { CatWarningIcon } from '../components/CatWarningIcon';

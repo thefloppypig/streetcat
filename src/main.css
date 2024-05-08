@@ -188,6 +188,15 @@ h1 {
   display: inline-block;
 }
 
+.breakwords {
+  word-break: break-all;
+}
+
+.imgView {
+  width: 100%;
+  height: auto;
+}
+
 .galleryIframe {
   width: 100%;
   height: fit-content;

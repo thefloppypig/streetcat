@@ -12,6 +12,7 @@ import Identifier from './Identifier';
 import FeederListView from './FeederList';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
+import ImageViewer from './ImageViewer';
 
 // const About = lazy(() => import('./About'));
 // const Homepage = lazy(() => import('./Homepage'));
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: `/tools`,
         element: <Tools />
+      },
+      {
+        path: `/image`,
+        element: <ImageViewer />
       },
       {
         path: `/tools/checker`,

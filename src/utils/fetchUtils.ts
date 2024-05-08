@@ -1,5 +1,5 @@
-import { feederRootProd } from "./shared/Const";
-import { FeederData, FolderMetaData, CatData, FeederList } from "./shared/Types";
+import { feederRootProd } from "../shared/Const";
+import { FeederData, FolderMetaData, CatData, FeederList } from "../shared/Types";
 
 const cache: Record<string, any> = {};
 

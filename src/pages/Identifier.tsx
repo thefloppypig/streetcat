@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FeederData, CatData, CatType } from "../shared/Types";
-import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "../fetchUtils";
+import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "../utils/fetchUtils";
 import { Link, useParams } from "react-router-dom";
 import { CatImage } from "../components/CatImage";
 import { Helmet } from "react-helmet-async";

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchFeederList } from "../fetchUtils";
+import { fetchFeederList } from "../utils/fetchUtils";
 import { Page404 } from "./Page404";
 import { FeederList } from "../shared/Types";
 import Loading from "../components/Loading";
