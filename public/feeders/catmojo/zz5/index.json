@@ -1,0 +1,13 @@
+{
+    "name": "???",
+    "img": {
+        "front": "meow.camera_5144313095337151915_1715167900423.webp",
+        "back": "meow.camera_5144313095337151915_1715166995135.webp",
+        "eating": "meow.camera_5144313095337151915_1715166982415.webp"
+    },
+    "unknown": true,
+    "type": "black",
+    "colours": [
+        "black"
+    ]
+}

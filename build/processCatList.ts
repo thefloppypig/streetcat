@@ -3,7 +3,7 @@ import { FeederData } from "../src/shared/Types"
 import { PluginOption } from "vite";
 import { feederRootPublic } from "../src/shared/Const"
 
-function processFeederList() {
+function processCats() {
     const listDir = readdirSync(feederRootPublic, { withFileTypes: true });
 
     const feederIndexMap: FeederData[] = [];
@@ -26,9 +26,9 @@ function processFeederList() {
 
 
 
-export const processFeederPlugin: PluginOption = {
+export const processCatsPlugin: PluginOption = {
     name: "processFeederList",
     async buildStart(options) {
-        processFeederList();
+        processCats();
     },
 }
