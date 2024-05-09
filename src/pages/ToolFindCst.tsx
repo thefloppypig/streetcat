@@ -7,6 +7,8 @@ import { fetchFeederList } from '../utils/fetchUtils';
 import { FeederList } from '../shared/Types';
 import { linkWiki } from '../shared/Const';
 import { CatWarningIcon } from '../components/CatWarningIcon';
+import { useDropzone } from 'react-dropzone';
+import { RiImageAddFill } from 'react-icons/ri';
 
 const Timezones = {
     CST: { name: "China Standard Time (LFT - Local Feeder Time) -06:00", tz: "Asia/Shanghai" },
@@ -17,9 +19,14 @@ export default function ToolFindCst() {
     const [feederList, setFeederList] = useState<FeederList>([])
 
     const fileUpload = useRef<HTMLInputElement>(null);
-    const [files, setFiles] = useState<FileList | null>();
+    const [files, setFiles] = useState<File[] | null>();
     const [timezone, setTimezone] = useState<string>(Timezones.CST.tz);
     const elems: ReactNode[] = [];
+
+    const onDrop = (files: File[]) => {
+        setFiles(files);
+    }
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
     useEffect(() => {
         fetchFeederList().then((res) => setFeederList(res));
@@ -65,15 +72,14 @@ export default function ToolFindCst() {
             <div>Simple tool to retrieve the date from the filename of a meow.camera screenshot or clip.</div>
             <div>File names should look like this: <i>meow.camera_4258783365322591678_1714768691754</i></div>
             <div>Select 1 or more files:</div>
-            <Divider />
-            <input type="file" ref={fileUpload} multiple onChange={(ev) => {
-                const files = ev.target.files;
-                setFiles(files);
-            }}
-                onMouseDown={(ev) => {
-                    ev.currentTarget.value = "";
-                    setFiles(null);
-                }} />
+            <div className={`dropzone ${isDragActive ? "dropzoneReady" : ""}`} {...getRootProps()}>
+                <input {...getInputProps()} type="file" ref={fileUpload} multiple />
+                {
+                    isDragActive ?
+                        <p><RiImageAddFill /> Drop files!</p> :
+                        <p><RiImageAddFill /> Drag files here or click to select</p>
+                }
+            </div>
             <select value={timezone} onChange={(ev) => setTimezone(ev.target.value)}>
                 {Object.entries(Timezones).map(([id, value]) => {
                     return <option key={id} value={value.tz}>{`${id} ${value.name}`}</option>

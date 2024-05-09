@@ -268,3 +268,15 @@ h1 {
 .feederListItem:hover {
   background-color: var(--hoverColor);
 }
+
+.dropzone {
+  padding: 10px;
+  text-align: center;
+  border: 3px dashed grey;
+  color: gray;
+  cursor: pointer;
+}
+
+.dropzoneReady {
+  background-color: #8f8f8f8f;
+}
