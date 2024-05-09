@@ -9,7 +9,7 @@ import { linkWiki } from '../shared/Const';
 import { CatWarningIcon } from '../components/CatWarningIcon';
 
 const Timezones = {
-    CST: { name: "China Standard Time -06:00", tz: "Asia/Shanghai" },
+    CST: { name: "China Standard Time (LFT - Local Feeder Time) -06:00", tz: "Asia/Shanghai" },
     GMT: { name: "Greenwich Standard time +00:00", tz: "Atlantic/Reykjavik" },
 }
 
@@ -40,7 +40,7 @@ export default function ToolFindCst() {
                 };
                 const m = moment(ms).tz(timezone);
                 const formattedDate = m.format("MMMM Do, YYYY")
-                const formattedTime = m.format("HH:MM z")
+                const formattedTime = m.format("HH:MM (z)").replace("CST", "LFT")
                 const outVisual = `${formattedDate} - At ${formattedTime}`;
                 const outSource = `* '''${formattedDate}:''' At ${formattedTime}`;
                 elems.push(<span className='fileItem' key={file.name}>

@@ -7,17 +7,21 @@ export default function Homepage() {
             <Helmet>
                 <title>Home - Streetcat Identifier</title>
             </Helmet>
+            <img style={{ width: "100%", maxWidth: "500px", height: "auto" }} width={1024} height={500} src="banner.webp" alt="Streetcat Identifier Banner" />
+
             <h1>Streetcat Identifier</h1>
 
             <div>Identify the cats on Hello Street Cat livestreams!</div>
             <br />
-            <div>View the <Link to={"/list"}>List of Feeders</Link></div>
+            <Link className="feederListItem aNone" to={"/list"}>View the List of Feeders!</Link>
+            <br />
+            <br />
+            <Link className="feederListItem aNone" to={"/happycanteen"}>View the happy canteen cats!</Link>
+            <br />
             <br />
             <div>
                 <Link to={"/happycanteen"}>
-                    View the happy canteen cats!
-                    <br />
-                    <img style={{ margin: "auto", maxWidth: "100%", maxHeight: 250 }} src="home.webp" alt="Mr Puke and Mr Sleepy at the Happy Canteen" />
+                    <img width={491} height={471} style={{ width: "auto", height: "100%", maxHeight: 250, maxWidth: "100%" }} src="home.webp" alt="Mr Puke and Mr Sleepy at the Happy Canteen" />
                 </Link>
                 <br />
                 <i>Mr Puke and Mr Sleepy at the Happy Canteen</i>

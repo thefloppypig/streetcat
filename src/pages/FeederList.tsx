@@ -24,14 +24,16 @@ export default function FeederListView() {
                     <meta name="description" content={`List of feeders in Streetcat Identifier`} />
                 </Helmet>
                 <h1>List of Feeders</h1>
-                <ul>
+                <div>
                     {feederList.map((feederData) => {
                         const { __feeder, name } = feederData;
-                        return <li key={__feeder}>
-                            <Link className="toolListItem" to={`/${__feeder}`}>{name}</Link>
-                        </li>
+                        return <Link key={__feeder} className="aNone" to={`/${__feeder}`}>
+                            <div className="feederListItem" >
+                                {name}
+                            </div>
+                        </Link>
                     })}
-                </ul>
+                </div>
             </div>
         )
     }
