@@ -1,0 +1,14 @@
+{
+    "name": "Ms. Camo",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1715246042386.webp",
+        "back": "meow.camera_4258783365322591678_1715246058429.webp",
+        "eating": "meow.camera_4258783365322591678_1715246019943.webp"
+    },
+    "type": "calico",
+    "colours": [
+        "black",
+        "orange",
+        "white"
+    ]
+}

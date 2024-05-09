@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Snoob",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1715245961433.webp",
+        "back": "meow.camera_4258783365322591678_1715245631684.webp",
+        "eating": "meow.camera_4258783365322591678_1715245903517.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ]
+}

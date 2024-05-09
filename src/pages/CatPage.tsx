@@ -84,7 +84,7 @@ function getGalleryElements(files: string[], catData: CatData) {
 
     for (let index = files.length - 1; index >= 0; index--) {
         const file = files[index];
-        if (file.endsWith(".webp")) elems.push(<CatImage key={file} src={getCatUrl(catData, file)} alt={`Picture of ${catData.name}`} />)
+        if (file.endsWith(".webp")) elems.push(<CatImage className="galleryImg" key={file} src={getCatUrl(catData, file)} alt={`Picture of ${catData.name}`} />)
     }
 
     return elems;
@@ -99,7 +99,7 @@ function getExtGalleryElements(urls: string[] | undefined, catData: CatData) {
                 elems.push(<iframe key={i} className="galleryIframe" width="100%" height="100%" src={src}></iframe>)
             }
             else {
-                elems.push(<CatImage key={i} src={src} alt={`Picture of ${catData.name}`} />)
+                elems.push(<CatImage key={i} src={src} alt={`Picture of ${catData.name}`} className="galleryImg" />)
             }
         })
         return elems;

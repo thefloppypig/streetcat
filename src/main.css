@@ -197,6 +197,12 @@ h1 {
   height: auto;
 }
 
+.galleryImg {
+  width: 100%;
+  height: auto;
+  border: 0;
+}
+
 .galleryIframe {
   width: 100%;
   height: fit-content;
