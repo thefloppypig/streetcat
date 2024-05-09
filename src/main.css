@@ -43,6 +43,10 @@ h5 {
   margin: 10px 0 0 0;
 }
 
+h1 {
+  font-size: x-large;
+}
+
 .a:link {
   color: #bbb9ff;
   text-decoration: dotted underline;
@@ -56,19 +60,22 @@ h5 {
   color: #ffffff;
 }
 
-h1 {
-  font-size: x-large;
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .main {
-  min-height: 90vh;
-  margin-right: auto;
-  margin-left: auto;
+  flex: 1;
 }
 
 @media (min-aspect-ratio: 1) {
   .main {
     width: 75%;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 

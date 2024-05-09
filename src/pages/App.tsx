@@ -67,7 +67,7 @@ const router = createBrowserRouter([
 
 function AppLayout() {
   return (
-    <>
+    <div className='app'>
       <ScrollRestoration getKey={(location) => {
         return location.pathname;
       }} />
@@ -79,7 +79,7 @@ function AppLayout() {
         </Suspense>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }
 
