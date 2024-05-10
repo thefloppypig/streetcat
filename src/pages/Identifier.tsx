@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { FeederData, CatData, CatType } from "../shared/Types";
-import { getCatUrl, fetchCatList, fetchCatData, fetchFeederData } from "../utils/fetchUtils";
-import { Link, useParams } from "react-router-dom";
-import { CatImage } from "../components/CatImage";
+import { fetchCatList, fetchCatData, fetchFeederData } from "../utils/fetchUtils";
+import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Divider } from "../components/Divider";
 import { Page404 } from "./Page404";
-import { SortCatData } from "../utils"
 import { linkMeowCamera, linkWiki } from "../shared/Const";
-import { CatWarningIcon } from "../components/CatWarningIcon";
-import { IoLink } from "react-icons/io5";
+import IdentifierTable from "./IdentifierTable";
+import IdentifierTiles from "./IdentifierTiles";
+import { SortCatData } from "../utils";
 
 
 async function getCats(feeder: string) {
@@ -25,6 +24,15 @@ async function getCats(feeder: string) {
     return catDataList;
 }
 
+const IdentifierViews = {
+    all: "All",
+    front: "Front Only",
+    back: "Back Only",
+    eating: "Eating Only",
+}
+
+type IdentifierViewType = keyof typeof IdentifierViews;
+
 export type IdentifierProps = {
 }
 
@@ -36,6 +44,7 @@ export default function Identifier() {
     const [feederData, setFeederData] = useState<FeederData>()
     const [catDataList, setCatDataList] = useState<CatData[]>()
     const [filterType, setFilterType] = useState<CatType>(CatType.None)
+    const [view, setView] = useState<IdentifierViewType>("all");
     const [notFound, setNotFound] = useState(false);
 
     useEffect(() => {
@@ -55,6 +64,7 @@ export default function Identifier() {
 
     if (catDataList) {
         const filteredList = filterType ? catDataList.filter((d) => d.type === filterType) : catDataList;
+        const sortedFilteredList = filteredList.sort(SortCatData.Alphabetically);
         return (
             <>
                 {helmet}
@@ -65,6 +75,15 @@ export default function Identifier() {
                 </div>
                 <Divider />
                 <div>
+                    View:
+                    {Object.entries(IdentifierViews).map(([k, v]) => {
+                        return <span className="idRadio" key={v} onClick={() => setView(k as IdentifierViewType)}>
+                            <input type="radio" radioGroup="filter" id={`radio-${k}`} value={k} checked={view === k} readOnly />
+                            <label htmlFor={`radio-${k}`}>{v}</label>
+                        </span>
+                    })}
+                </div>
+                <div>
                     Filter:
                     {Object.entries(CatType).map(([k, v]) => {
                         return <span className="idRadio" key={v} onClick={() => setFilterType(v)}>
@@ -74,63 +93,13 @@ export default function Identifier() {
                     })}
                 </div>
                 <Divider />
-                <table className="idTable">
-                    <colgroup>
-                        <col className="identifier1stCol" />
-                        <col span={3} className="identifierCol" />
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Front</th>
-                            <th>Back</th>
-                            <th>Eating</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredList.sort(SortCatData.Alphabetically).map((d) => <tr key={d.__cat}>
-                            <td>
-                                <Link className="a" to={`/${d.__feeder}/${d.__cat}`}>
-                                    {d.name}
-                                    {d.unknown ? <CatWarningIcon /> : <IoLink />}
-                                </Link>
-                            </td>
-                            {processCatDataToTableImages(d, "front")}
-                            {processCatDataToTableImages(d, "back")}
-                            {processCatDataToTableImages(d, "eating")}
-                        </tr>)}
-                    </tbody>
-                </table>
+                {view === "all" ?
+                    <IdentifierTable catDatList={sortedFilteredList} />
+                    :
+                    <IdentifierTiles key={view} tilesPerRow={3} which={view} catDatList={sortedFilteredList} />
+                }
             </>
         )
     }
     else return <div>Loading...</div>
-}
-
-function altText(name: string, which: keyof CatData["img"]) {
-    switch (which) {
-        case "front":
-            return `Front facing image of the cat ${name}`
-        case "back":
-            return `The back pattern of the cat ${name}`
-        case "eating":
-            return `${name} eating`
-        default:
-            return `Image of ${name}`;
-    }
-}
-
-function processCatDataToTableImages(catData: CatData, which: keyof CatData["img"]) {
-    {
-        const src = catData.img[which];
-        return <>
-            <td className="identifierTd">
-                {src ?
-                    < CatImage width={640} height={360} className='identifierImg' src={getCatUrl(catData, src)} alt={altText(catData.name, which)} />
-                    :
-                    <div className='centered'>/</div>}
-            </td >
-
-        </>
-    }
 }

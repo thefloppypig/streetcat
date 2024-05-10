@@ -36,3 +36,5 @@ export type CatData = {
     colours: string[],
     features?: string[],
 }
+
+export type CatImgType = keyof CatData["img"]

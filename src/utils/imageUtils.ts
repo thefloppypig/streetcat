@@ -1,4 +1,5 @@
 import moment from "moment";
+import { CatData } from "../shared/Types";
 
 export function getMeowCameraFileNameData(filename: string) {
     try {
@@ -19,5 +20,18 @@ export function getMeowCameraFileNameData(filename: string) {
     } catch (error) {
         console.warn(error)
         return undefined;
+    }
+}
+
+export function altText(name: string, which: keyof CatData["img"]) {
+    switch (which) {
+        case "front":
+            return `Front facing image of the cat ${name}`
+        case "back":
+            return `The back pattern of the cat ${name}`
+        case "eating":
+            return `${name} eating`
+        default:
+            return `Image of ${name}`;
     }
 }
