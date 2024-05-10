@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Plump",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1715345438270.webp",
+        "back": "",
+        "eating": "meow.camera_4258783365322591678_1715345535708.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ]
+}

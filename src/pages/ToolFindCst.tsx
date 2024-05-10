@@ -1,6 +1,6 @@
 import 'moment-timezone';
 import moment from "moment";
-import { ReactNode, useEffect, useRef, useState } from "react"
+import { ReactNode, useEffect, useState } from "react"
 import './ToolFindCst.css'
 import { Divider } from '../components/Divider';
 import { fetchFeederList } from '../utils/fetchUtils';
@@ -11,14 +11,13 @@ import { useDropzone } from 'react-dropzone';
 import { RiImageAddFill } from 'react-icons/ri';
 
 const Timezones = {
-    CST: { name: "China Standard Time (LFT - Local Feeder Time) -06:00", tz: "Asia/Shanghai" },
+    CST: { name: "China Standard Time (LFT - Local Feeder Time) +08:00", tz: "Asia/Shanghai" },
     GMT: { name: "Greenwich Standard time +00:00", tz: "Atlantic/Reykjavik" },
 }
 
 export default function ToolFindCst() {
     const [feederList, setFeederList] = useState<FeederList>([])
 
-    const fileUpload = useRef<HTMLInputElement>(null);
     const [files, setFiles] = useState<File[] | null>();
     const [timezone, setTimezone] = useState<string>(Timezones.CST.tz);
     const elems: ReactNode[] = [];
@@ -73,7 +72,7 @@ export default function ToolFindCst() {
             <div>File names should look like this: <i>meow.camera_4258783365322591678_1714768691754</i></div>
             <div>Select 1 or more files:</div>
             <div className={`dropzone ${isDragActive ? "dropzoneReady" : ""}`} {...getRootProps()}>
-                <input {...getInputProps()} type="file" ref={fileUpload} multiple />
+                <input {...getInputProps()} type="file" multiple />
                 {
                     isDragActive ?
                         <p><RiImageAddFill /> Drop files!</p> :

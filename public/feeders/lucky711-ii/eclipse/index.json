@@ -1,0 +1,15 @@
+{
+    "name": "Mr. Eclipse",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1715179348079.webp",
+        "back": "meow.camera_4291094747934800009_1715179181036.webp",
+        "eating": "meow.camera_4291094747934800009_1715179201783.webp"
+    },
+    "type": "black",
+    "colours": [
+        "black"
+    ],
+    "features": [
+        "Mr Eclipse's hair is longer than Mr Shadow"
+    ]
+}
