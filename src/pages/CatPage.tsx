@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 import { Page404 } from "./Page404";
 import { feederRootProd, linkWiki } from "../shared/Const";
 import { CatWarningBox } from "../components/CatWarningBox";
+import { CatUnseeableBox } from "../components/CatUnseeableBox";
 
 export type CatPageProps = {
 }
@@ -43,7 +44,8 @@ export default function CatPage() {
                     <title>{name} - Streetcat Identifier</title>
                 </Helmet>
                 <h1>{catData.name}</h1>
-                {catData.unknown ? <CatWarningBox /> : undefined}
+                {catData.unseeable && <CatUnseeableBox />}
+                {catData.unknown && <CatWarningBox />}
                 <div>Find {name} at <Link className="a" to={`/${feederData?.__feeder}`}>{feederData?.name}!</Link></div>
                 <br />
                 <div>Check {names} <Link className="a" to={`${linkWiki}/${name.replace(/\s+/g, '_')}`}>Streetcat Wiki page</Link></div>

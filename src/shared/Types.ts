@@ -32,6 +32,7 @@ export type CatData = {
         eating?: string,
     },
     unknown?: boolean,
+    unseeable: boolean,
     type: CatType,
     colours: string[],
     features?: string[],

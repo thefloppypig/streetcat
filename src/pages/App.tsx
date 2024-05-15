@@ -20,6 +20,7 @@ import ImageViewer from './ImageViewer';
 // const CatPage = lazy(() => import('./CatPage'));
 const Tools = lazy(() => import('./Tools'));
 const ToolFindCst = lazy(() => import('./ToolFindCst'));
+const ToolNotepad = lazy(() => import('./ToolNotepad'));
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: `/tools/checker`,
         element: <ToolFindCst />
+      },
+      {
+        path: `/tools/notepad`,
+        element: <ToolNotepad />
       },
       {
         path: '/:f',

@@ -5,6 +5,10 @@ export default function Tools() {
         <div>
             <h1>Tools</h1>
             <div>Random tools for street cat related things</div>
+            <Link to={"/tools/notepad"} className="toolListItem">
+                <h3>Feeder notepad</h3>
+                <div>Keep track of your favourite feeders</div>
+            </Link>
             <Link to={"/tools/checker"} className="toolListItem">
                 <h3>Meow.camera file checker</h3>
                 <div>Get the date+time from the filename</div>

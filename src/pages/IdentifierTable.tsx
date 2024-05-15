@@ -5,6 +5,7 @@ import { CatData } from "../shared/Types";
 import { altText } from "../utils/imageUtils";
 import { CatImage } from "../components/CatImage";
 import { getCatUrl } from "../utils/fetchUtils";
+import { CatUnseeableIcon } from "../components/CatUnseeableIcon";
 
 interface IdentifierTableProps {
     catDatList: CatData[]
@@ -33,7 +34,9 @@ export default function IdentifierTable(props: IdentifierTableProps) {
                     <td>
                         <Link className="a" to={`/${d.__feeder}/${d.__cat}`}>
                             {d.name}
-                            {d.unknown ? <CatWarningIcon /> : <IoLink />}
+                            {d.unknown || d.unseeable || <IoLink />}
+                            {d.unseeable && <CatUnseeableIcon />}
+                            {d.unknown && <CatWarningIcon />}
                         </Link>
                     </td>
                     {processCatDataToTableImages(d, "front")}

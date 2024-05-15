@@ -151,11 +151,25 @@ h1 {
 }
 
 .warningBox {
+  width: fit-content;
   border: yellow 1px solid;
   border-radius: 10px;
   margin: 2px;
   padding: 5px;
   background-color: rgba(255, 255, 0, 0.308);
+}
+
+.error {
+  color: red;
+}
+
+.errorBox {
+  width: fit-content;
+  border: red 1px solid;
+  border-radius: 10px;
+  margin: 2px;
+  padding: 5px;
+  background-color: rgba(255, 0, 0, 0.308);
 }
 
 .idTable {

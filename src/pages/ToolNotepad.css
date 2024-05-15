@@ -1,0 +1,40 @@
+.notepadItem {
+    display: flex;
+    align-items: center;
+    background-color: #444;
+    border-radius: 10px;
+    margin: 4px;
+}
+
+.notepadName {
+    flex-shrink: 0;
+    font-weight: bold;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.notepadDesc {
+    flex: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: smaller;
+    padding-left: .5em;
+    width: 100%;
+    max-height: 3em;
+}
+
+.notepadX {
+    padding: 10px 6px;
+    border: 0;
+    border-radius: 10px;
+    margin-right: 3px;
+}
+
+.notepadX:hover {
+    background-color: darkred;
+}
+
+.notepadEmpty {
+    color: grey;
+    text-align: center;
+}
