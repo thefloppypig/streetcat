@@ -24,7 +24,7 @@ export default function Homepage() {
                     <img width={491} height={471} style={{ width: "auto", height: "100%", maxHeight: 250, maxWidth: "100%" }} src="home.webp" alt="Mr Puke and Mr Sleepy at the Happy Canteen" />
                 </Link>
                 <br />
-                <i>Mr Puke and Mr Sleepy at the Happy Canteen</i>
+                <i>Ms Puke and Ms Sleepy at the Happy Canteen</i>
             </div>
 
         </div>
