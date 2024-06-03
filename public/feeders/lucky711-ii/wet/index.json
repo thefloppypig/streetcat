@@ -1,0 +1,14 @@
+{
+    "name": "Mr. Wet",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1717421955379.webp",
+        "back": "meow.camera_4291094747934800009_1717421882389.webp",
+        "eating": "meow.camera_4291094747934800009_1717420644357.webp"
+    },
+    "type": "white",
+    "colours": [
+        "white",
+        "brown",
+        "grey"
+    ]
+}
