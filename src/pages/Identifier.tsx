@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FeederData, CatData, CatType } from "../shared/Types";
-import { fetchCatList, fetchCatData, fetchFeederData } from "../utils/fetchUtils";
+import { fetchFeederData, fetchFeederCatList } from "../utils/fetchUtils";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Divider } from "../components/Divider";
@@ -12,16 +12,8 @@ import { SortCatData } from "../utils";
 
 
 async function getCats(feeder: string) {
-    const catList = await fetchCatList(feeder);
-    const catDataList: CatData[] = [];
-    const catDataPromiseList: Promise<CatData>[] = [];
-    for (const cat of catList) {
-        const promise = fetchCatData(feeder, cat);
-        promise.then((res) => catDataList.push(res));
-        catDataPromiseList.push(promise);
-    }
-    await Promise.allSettled(catDataPromiseList);
-    return catDataList;
+    const catList = await fetchFeederCatList(feeder);
+    return catList;
 }
 
 const IdentifierViews = {

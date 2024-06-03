@@ -1,7 +1,12 @@
 import { feederRootProd } from "../shared/Const";
-import { FeederData, FolderMetaData, CatData, FeederList } from "../shared/Types";
+import { FeederData, FolderMetaData, CatData, FeederList, CatDataMap } from "../shared/Types";
 
 const cache: Record<string, any> = {};
+
+function checkCatMapCached(feeder: string) {
+    const url = `${feederRootProd}/${feeder}/catList.json`;
+    if (cache[url]) return cache[url] as CatDataMap;
+}
 
 export async function fetchCachedJson<T>(url: string): Promise<T> {
     if (cache[url]) {
@@ -52,7 +57,32 @@ export async function fetchCatList(feeder: string) {
     return json.dir;
 }
 
+export async function fetchFeederCatMap(feeder: string) {
+    const json = await fetchCachedJson<CatDataMap>(`${feederRootProd}/${feeder}/catList.json`);
+    for (const key in json) {
+        const catData = json[key]
+        if (catData) {
+            catData.__feeder = feeder;
+            catData.__cat = key;
+        }
+    }
+    return json;
+}
+
+export async function fetchFeederCatList(feeder: string) {
+    const json = await fetchFeederCatMap(feeder);
+    const catDataList = [] as CatData[]
+    for (const key in json) {
+        catDataList.push(json[key]);
+    }
+    return catDataList;
+}
+
 export async function fetchCatData(feeder: string, cat: string) {
+    const catMap = checkCatMapCached(feeder);
+    if (catMap) {
+        return catMap[cat];
+    }
     const json = await fetchCachedJson<CatData>(`${feederRootProd}/${feeder}/${cat}/index.json`);
     json.__cat = cat;
     json.__feeder = feeder;

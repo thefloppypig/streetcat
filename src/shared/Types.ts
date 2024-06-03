@@ -32,10 +32,12 @@ export type CatData = {
         eating?: string,
     },
     unknown?: boolean,
-    unseeable: boolean,
+    unseeable?: boolean,
     type: CatType,
     colours: string[],
     features?: string[],
 }
+
+export type CatDataMap = Record<string, CatData>;
 
 export type CatImgType = keyof CatData["img"]
