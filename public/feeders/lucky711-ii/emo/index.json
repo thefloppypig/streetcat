@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Emo",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1717414887414.webp",
+        "back": "meow.camera_4291094747934800009_1717414736482.webp",
+        "eating": "meow.camera_4291094747934800009_1717414768196.webp"
+    },
+    "type": "black",
+    "colours": [
+        "black",
+        "white"
+    ]
+}

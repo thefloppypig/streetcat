@@ -1,13 +1,14 @@
 {
     "name": "???",
     "img": {
-        "front": "meow.camera_4291094747934800009_1715330401739.webp",
-        "back": "meow.camera_4291094747934800009_1715330294428.webp",
-        "eating": "meow.camera_4291094747934800009_1715330243947.webp"
+        "front": "meow.camera_4291094747934800009_1715940599173.webp",
+        "back": "meow.camera_4291094747934800009_1715940523420.webp",
+        "eating": "meow.camera_4291094747934800009_1715940515149.webp"
     },
     "unknown": true,
-    "type": "brown",
+    "type": "black",
     "colours": [
-        "brown"
+        "black",
+        "white"
     ]
 }
