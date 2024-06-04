@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import { useWindowSize } from "../utils/reactUtils";
 
-function NavLink(props: { to: string, label: string }) {
+interface NavLinkProps { to: string, label: string }
+
+
+function NavLink(props: NavLinkProps) {
     const { to, label } = props;
+
     const [windowWidth] = useWindowSize()
     const ref = (r: HTMLAnchorElement) => {
         if (r) {

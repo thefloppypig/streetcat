@@ -4,7 +4,7 @@ import { fetchCatData, fetchExtGalleryList, fetchFeederData, fetchMeta, getCatUr
 import { Link, useParams } from "react-router-dom";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { CatImage } from "../components/CatImage";
-import { Helmet } from "react-helmet-async";
+import { Head } from "vite-react-ssg";
 import { Page404 } from "./Page404";
 import { feederRootProd, linkWiki } from "../shared/Const";
 import { CatWarningBox } from "../components/CatWarningBox";
@@ -40,9 +40,9 @@ export default function CatPage() {
         const names = possessive(name);
         return (
             <>
-                <Helmet>
+                <Head>
                     <title>{name} - Streetcat Identifier</title>
-                </Helmet>
+                </Head>
                 <h1>{catData.name}</h1>
                 {catData.unseeable && <CatUnseeableBox />}
                 {catData.unknown && <CatWarningBox />}

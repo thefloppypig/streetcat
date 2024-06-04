@@ -1,15 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FeederData, CatData, CatType } from "../shared/Types";
 import { fetchFeederData, fetchFeederCatList } from "../utils/fetchUtils";
-import { useParams } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Params, useLoaderData, useParams } from "react-router-dom";
 import { Divider } from "../components/Divider";
 import { Page404 } from "./Page404";
 import { linkMeowCamera, linkWiki } from "../shared/Const";
 import IdentifierTable from "./IdentifierTable";
 import IdentifierTiles from "./IdentifierTiles";
 import { SortCatData } from "../utils";
+import { Head } from "vite-react-ssg";
 
+interface IdentifierLoaderData {
+    feederData: FeederData,
+    catDataList: CatData[]
+}
 
 async function getCats(feeder: string) {
     const catList = await fetchFeederCatList(feeder);
@@ -31,35 +35,24 @@ export type IdentifierProps = {
 export default function Identifier() {
 
     const { f: feeder } = useParams();
-    if (!feeder) return <Page404 />
+    const { feederData, catDataList } = useLoaderData() as IdentifierLoaderData;
+    if (!(feeder && feederData && catDataList)) return <Page404 />
 
-    const [feederData, setFeederData] = useState<FeederData>()
-    const [catDataList, setCatDataList] = useState<CatData[]>()
     const [filterType, setFilterType] = useState<CatType>(CatType.None)
     const [view, setView] = useState<IdentifierViewType>("all");
-    const [notFound, setNotFound] = useState(false);
 
-    useEffect(() => {
-        setFeederData(undefined);
-        setCatDataList(undefined);
-        fetchFeederData(feeder).then((res) => setFeederData(res)).catch(() => setNotFound(true));
-        getCats(feeder).then(res => setCatDataList(res)).catch(() => setNotFound(true));
-    }, [feeder]);
-
-    if (notFound) return <Page404 />
-
-    const helmet = feederData ?
-        <Helmet>
+    const head = feederData ?
+        <Head>
             <title>{feederData.name} - Streetcat Identifier</title>
             <meta name="description" content={`Identify the cats at ${feederData.name}`} />
-        </Helmet> : undefined;
+        </Head> : undefined;
 
     if (catDataList) {
         const filteredList = filterType ? catDataList.filter((d) => d.type === filterType) : catDataList;
         const sortedFilteredList = filteredList.sort(SortCatData.Alphabetically);
         return (
             <>
-                {helmet}
+                {head}
                 <h1>List of Cats in {feederData?.name ?? ""}</h1>
                 <div>
                     <a className="linkButton" href={`${linkWiki}/${feederData?.wiki}`}>Wiki</a>

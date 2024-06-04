@@ -52,11 +52,6 @@ export async function fetchFeederList() {
     return json;
 }
 
-export async function fetchCatList(feeder: string) {
-    const json = await fetchMeta(`${feederRootProd}/${feeder}`);
-    return json.dir;
-}
-
 export async function fetchFeederCatMap(feeder: string) {
     const json = await fetchCachedJson<CatDataMap>(`${feederRootProd}/${feeder}/catList.json`);
     for (const key in json) {

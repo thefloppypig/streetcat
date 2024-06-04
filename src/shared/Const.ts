@@ -1,6 +1,6 @@
 export const
     feederRootPublic = "./public/feeders",
-    feederRootProd = "feeders",
+    feederRootProd = "./feeders",
 
     linkHelloStreetCat = "https://hellostreetcat.com/",
     linkWiki = "https://streetcat.wiki/index.php",

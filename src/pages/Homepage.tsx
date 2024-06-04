@@ -1,12 +1,12 @@
-import { Helmet } from "react-helmet-async";
+import { Head } from "vite-react-ssg";
 import { Link } from "react-router-dom";
 
 export default function Homepage() {
     return (
         <div className="home">
-            <Helmet>
+            <Head>
                 <title>Home - Streetcat Identifier</title>
-            </Helmet>
+            </Head>
             <img style={{ width: "100%", maxWidth: "500px", height: "auto" }} width={1024} height={500} src="banner.webp" alt="Streetcat Identifier Banner" />
 
             <h1>Streetcat Identifier</h1>

@@ -7,8 +7,8 @@ import { fetchFeederList } from '../utils/fetchUtils';
 import { FeederList } from '../shared/Types';
 import { linkWiki } from '../shared/Const';
 import { CatWarningIcon } from '../components/CatWarningIcon';
-import { useDropzone } from 'react-dropzone';
 import { RiImageAddFill } from 'react-icons/ri';
+import { useDropzone } from 'react-dropzone-esm';
 
 const Timezones = {
     CST: { name: "China Standard Time (LFT - Local Feeder Time) +08:00", tz: "Asia/Shanghai" },

@@ -1,28 +1,18 @@
-import { useEffect, useState } from "react";
-import { fetchFeederList } from "../utils/fetchUtils";
-import { Page404 } from "./Page404";
 import { FeederList } from "../shared/Types";
 import Loading from "../components/Loading";
-import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Link, useLoaderData } from "react-router-dom";
+import { Head } from "vite-react-ssg";
 
 export default function FeederListView() {
-    const [feederList, setFeederList] = useState<FeederList>()
-    const [notFound, setNotFound] = useState(false);
-
-    if (notFound) return <Page404 />
-
-    useEffect(() => {
-        fetchFeederList().then((res) => setFeederList(res)).catch(() => setNotFound(true));
-    }, []);
+    const feederList = useLoaderData() as FeederList
 
     if (feederList) {
         return (
             <div>
-                <Helmet>
+                <Head>
                     <title>List of Feeders - Streetcat Identifier</title>
                     <meta name="description" content={`List of feeders in Streetcat Identifier`} />
-                </Helmet>
+                </Head>
                 <h1>List of Feeders</h1>
                 <div>
                     {feederList.map((feederData) => {

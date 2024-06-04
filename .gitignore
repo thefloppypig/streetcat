@@ -4,6 +4,8 @@ public/**/meta.json
 public/feeders/feederList.json
 public/feeders/**/catList.json
 
+.vite-react-ssg-temp
+
 # Logs
 logs
 *.log
