@@ -11,7 +11,7 @@ const {
 	imageCard,
 } = Astro.props;
 
-const image = `streetcat.pages.dev/${imageSrc}`;
+const image = `https://streetcat.pages.dev/${imageSrc}`;
 const openGraph: SEOProps["openGraph"] | undefined = {
 	basic: { title: title, image: image, type: "website" },
 	image: imageCard ? { url: image } : undefined,
