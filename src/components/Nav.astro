@@ -18,3 +18,17 @@ import NavLink from "./NavLink.astro";
     <NavLink to={"/auspiciousrestaurant"} label="Auspicious Restaurant" />
     <NavLink to={"/catmojo"} label="CatMojo" />
 </nav>
+<script>
+    const buttons = document.querySelectorAll(
+        ".navlink",
+    ) as NodeListOf<HTMLElement>;
+    const resize = () => {
+        buttons.forEach((r) => {
+            const rect = r.getBoundingClientRect();
+            r.style.visibility =
+                rect.right > window.innerWidth ? "hidden" : "visible";
+        });
+    };
+    resize();
+    window.addEventListener("resize", resize);
+</script>

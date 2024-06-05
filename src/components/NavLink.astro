@@ -5,10 +5,8 @@ interface Props {
 }
 
 const { to, label } = Astro.props;
-
-const shown = "visible"; // TODO or "hidden"
 ---
 
-<a href={to} class="navlink" style=`visibility: ${shown};`>
+<a href={to} class="navlink">
     {label}
 </a>
