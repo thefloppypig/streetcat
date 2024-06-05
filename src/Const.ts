@@ -1,4 +1,6 @@
 export const
+    deployedLink = `https://streetcat.pages.dev `,
+
     feederRootPublic = "./public/feeders",
     feederRootProd = "feeders",
 

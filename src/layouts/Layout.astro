@@ -3,6 +3,7 @@ import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 import { SEO, SEOProps } from "astro-seo";
 import "./main.css";
+import { deployedLink } from "../Const";
 
 const {
 	title = "Streetcat Identifier",
@@ -11,7 +12,7 @@ const {
 	imageCard,
 } = Astro.props;
 
-const image = `https://streetcat.pages.dev/${imageSrc}`;
+const image = `${deployedLink}/${imageSrc}`;
 const openGraph: SEOProps["openGraph"] | undefined = {
 	basic: { title: title, image: image, type: "website" },
 	image: imageCard ? { url: image } : undefined,
