@@ -3,6 +3,13 @@ import ToolNotepad from "../../components/ToolNotepad";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout>
-    <ToolNotepad client:only="react" />
+<Layout
+    title="Feeder Notepad - Streetcat Identifier"
+    description="A tool to keep track of your favourite feeders"
+>
+    <div>
+        <h1>Feeder Notepad</h1>
+        <div>Keep track of your favourite feeders with this page!</div>
+        <ToolNotepad client:only="react" />
+    </div>
 </Layout>

@@ -48,7 +48,7 @@ function processCatList(feeder: string) {
 
 export const processFeederPlugin: PluginOption = {
     name: "processFeederList",
-    async buildStart(options) {
+    async buildStart(_) {
         processFeederList();
     },
 }

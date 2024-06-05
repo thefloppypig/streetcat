@@ -8,6 +8,10 @@ import { deployedLink } from './src/Const';
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover"
+  },
   site: deployedLink,
   integrations: [react(), sitemap()],
   vite: {

@@ -64,9 +64,7 @@ export default function ToolNotepad() {
     }
 
     return (
-        <div>
-            <h1>Feeder Notepad</h1>
-            <div>Keep track of your favourite feeders with this page!</div>
+        <>
             <Divider />
             {list.length > 0 ? list.map((stored, index) => {
                 return <ToolNotepadItem
@@ -80,7 +78,7 @@ export default function ToolNotepad() {
             }) : <div className="notepadEmpty">Notepad is empty, add a feeder below</div>}
             <Divider />
             <ToolNotepadAddNew list={list} onAdd={(newItem) => setSaveList([...list, newItem])} />
-        </div>
+        </>
     )
 }
 

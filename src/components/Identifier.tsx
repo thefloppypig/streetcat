@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { FeederData, CatData, CatType } from "../Types";
+import { CatData, CatType } from "../Types";
 import { Divider } from "./Divider";
 import IdentifierTable from "./IdentifierTable";
 import IdentifierTiles from "./IdentifierTiles";
 import { SortCatData } from "../utils/utils";
-import React from "react";
 
 const IdentifierViews = {
     all: "All",

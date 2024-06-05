@@ -53,7 +53,7 @@ export type ProcessOptions = typeof defaultProcessOptions;
 
 export const streetcatLoader: PluginOption = {
     name: "streetcatLoader",
-    async buildStart(options) {
+    async buildStart(_) {
         await startProcessRecursive("./public", {});
     },
 }

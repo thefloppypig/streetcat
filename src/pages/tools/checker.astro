@@ -1,8 +1,28 @@
 ---
+import { linkMeowCamera, linkWiki } from "../../Const";
 import ToolFindCst from "../../components/ToolFindCst";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout>
-    <ToolFindCst client:only="react" />
+<Layout
+    title="Meow.camera file checker - Streetcat Identifier"
+    description="Get info from meow.camera screenshot or clip."
+>
+    <div>
+        <h1>Meow.camera file checker</h1>
+        <div>
+            Simple tool to retrieve the date from the filename of a
+            <a href={linkMeowCamera}>meow.camera</a>
+            screenshot or clip. You can use it to record
+            <a href={linkWiki}>Street Cat Wiki</a>
+            cat sightings.
+        </div>
+        <div>
+            File names should look like this: <i>
+                meow.camera_4258783365322591678_1714768691754
+            </i>
+        </div>
+        <div>Select 1 or more files:</div>
+        <ToolFindCst client:only="react" />
+    </div>
 </Layout>

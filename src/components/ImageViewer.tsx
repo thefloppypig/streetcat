@@ -1,11 +1,10 @@
 
-import React from "react";
 import { getMeowCameraFileNameData } from "../utils/imageUtils";
 
 interface ImageViewerProps {
 }
 
-export default function ImageViewer(props: ImageViewerProps) {
+export default function ImageViewer(_: ImageViewerProps) {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const src = urlSearchParams.get("file");
     if (!src) return <div>No Image found!</div>

@@ -67,11 +67,7 @@ export default function ToolFindCst() {
     }
 
     return (
-        <div>
-            <h1>Meow.camera file checker</h1>
-            <div>Simple tool to retrieve the date from the filename of a meow.camera screenshot or clip.</div>
-            <div>File names should look like this: <i>meow.camera_4258783365322591678_1714768691754</i></div>
-            <div>Select 1 or more files:</div>
+        <>
             <div className={`dropzone ${isDragActive ? "dropzoneReady" : ""}`} {...getRootProps()}>
                 <input {...getInputProps()} type="file" multiple />
                 {
@@ -87,7 +83,7 @@ export default function ToolFindCst() {
             </select>
             <Divider />
             {elems}
-        </div>
+        </>
     )
 }
 
