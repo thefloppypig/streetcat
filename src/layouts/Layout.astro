@@ -7,13 +7,15 @@ import "./main.css";
 const {
 	title = "Streetcat Identifier",
 	description = "Identify the cats on Hello Street Cat livestreams",
-	imageSrc,
+	imageSrc = "icon-64.webp",
 	imageCard,
 } = Astro.props;
 
+const image = `streetcat.pages.dev/${imageSrc}`;
 const openGraph: SEOProps["openGraph"] | undefined = {
-	basic: { title: title, image: imageSrc ?? "icon-64.png", type: "website" },
-	image: imageCard ? { url: imageSrc } : undefined,
+	basic: { title: title, image: image, type: "website" },
+	image: imageCard ? { url: image } : undefined,
+	optional: { description: description },
 };
 const twitter: SEOProps["twitter"] | undefined = imageCard
 	? { card: "summary_large_image" }
