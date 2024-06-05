@@ -1,16 +1,33 @@
 ---
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
-import { SEO } from "astro-seo";
+import { SEO, SEOProps } from "astro-seo";
 import "./main.css";
+
+const {
+	title = "Streetcat Identifier",
+	description = "Identify the cats on Hello Street Cat livestreams",
+	imageSrc,
+	imageCard,
+} = Astro.props;
+
+const openGraph: SEOProps["openGraph"] | undefined = {
+	basic: { title: title, image: imageSrc ?? "icon-64.png", type: "website" },
+	image: imageCard ? { url: imageSrc } : undefined,
+};
+const twitter: SEOProps["twitter"] | undefined = imageCard
+	? { card: "summary_large_image" }
+	: undefined;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<SEO
-			title="Streetcat Identifier"
-			description="Identify the cats on Hello Street Cat livestreams"
+			title={title}
+			description={description}
+			openGraph={openGraph}
+			twitter={twitter}
 		/>
 		<base href="/" />
 		<meta charset="UTF-8" />

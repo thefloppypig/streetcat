@@ -25,7 +25,10 @@ const feederData = await getFeederData(feeder);
 const catDataList = await getFeederCatList(feeder);
 ---
 
-<Layout>
+<Layout
+    title={`${feederData.name} - Streetcat Identifier`}
+    description={`Identify the cats at the feeder ${feederData.name}`}
+>
     <h1>List of Cats in {feederData.name ?? ""}</h1>
     <div>
         <a class="linkButton" href={`${linkWiki}/${feederData.wiki}`}>Wiki</a>

@@ -11,7 +11,7 @@ import {
 } from "../../utils/readFiles";
 import { CatUnseeableBox } from "../../components/CatUnseeableBox";
 import { CatWarningBox } from "../../components/CatWarningBox";
-import CatPage from "../../components/CatPage";
+import CatPage, { getCatUrl } from "../../components/CatPage";
 
 interface Props {
     feeder: string;
@@ -44,11 +44,17 @@ const catData = await getCatData(feeder, cat);
 const filesExt = await getExtGalleryList(feeder, cat);
 const filesLocal = (await getMeta(`${feederRootPublic}/${feeder}/${cat}`))
     .files;
-const { name, features } = catData;
+const { name, features, img } = catData;
 const names = possessive(name);
+const imgUrl = img.front ? getCatUrl(catData, img.front) : undefined;
 ---
 
-<Layout>
+<Layout
+    title={`${name} - Streetcat Identifier`}
+    description={`Identify ${name} from the feeder ${feederData.name}`}
+    imageSrc={imgUrl}
+    imageCard={true}
+>
     <h1>{catData.name}</h1>
     {catData.unseeable && <CatUnseeableBox />}
     {catData.unknown && <CatWarningBox />}
