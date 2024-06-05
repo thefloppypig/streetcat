@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import { getLocalStorage, setLocalStorage } from "../utils/dataUtils"
 import { fetchFeederList } from "../utils/fetchUtils"
-import { FeederData, FeederList } from "../shared/Types"
-import { Divider } from "../components/Divider"
-import { linkMeowCamera } from "../shared/Const"
+import { FeederData, FeederList } from "../Types"
+import { Divider } from "./Divider"
+import { linkMeowCamera } from "../Const"
 import { MdDelete, MdDragIndicator } from "react-icons/md"
 import "./ToolNotepad.css"
-import { Link } from "react-router-dom"
+import React from "react"
 
 type StoredFeeder = {
     name: string
@@ -115,7 +115,7 @@ function ToolNotepadItem(props: ToolNotepadItemProps) {
         <MdDragIndicator size={30} />
         <span className="notepadName">{item.name}</span>
         <span className="notepadDesc">{item.desc}</span>
-        {identifier && <Link className="linkButton" to={`/${identifier}`}>Identifier</Link>}
+        {identifier && <a className="linkButton" href={`/${identifier}`}>Identifier</a>}
         <a className="linkButton" href={`${linkMeowCamera}${item.id}`}>Camera</a>
         <button className="notepadX" onClick={onDelete}><MdDelete size={18} /></button>
     </div>

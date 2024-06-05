@@ -2,13 +2,14 @@ import 'moment-timezone';
 import moment from "moment";
 import { ReactNode, useEffect, useState } from "react"
 import './ToolFindCst.css'
-import { Divider } from '../components/Divider';
+import { Divider } from './Divider';
 import { fetchFeederList } from '../utils/fetchUtils';
-import { FeederList } from '../shared/Types';
-import { linkWiki } from '../shared/Const';
-import { CatWarningIcon } from '../components/CatWarningIcon';
+import { FeederList } from '../Types';
+import { linkWiki } from '../Const';
+import { CatWarningIcon } from './CatWarningIcon';
 import { useDropzone } from 'react-dropzone';
 import { RiImageAddFill } from 'react-icons/ri';
+import React from 'react';
 
 const Timezones = {
     CST: { name: "China Standard Time (LFT - Local Feeder Time) +08:00", tz: "Asia/Shanghai" },

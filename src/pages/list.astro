@@ -1,0 +1,29 @@
+---
+import { SEO } from "astro-seo";
+import Layout from "../layouts/Layout.astro";
+import { getFeederList } from "../utils/readFiles";
+
+const feederList = await getFeederList();
+---
+
+<Layout>
+    <div>
+        <SEO
+            title="List of Feeders - Streetcat Identifier"
+            description=`List of feeders in Streetcat Identifier`
+        />
+    </div>
+    <h1>List of Feeders</h1>
+    <div>
+        {
+            feederList.map((feederData) => {
+                const { __feeder, name } = feederData;
+                return (
+                    <a class="aNone" href={`/${__feeder}`}>
+                        <div class="feederListItem">{name}</div>
+                    </a>
+                );
+            })
+        }
+    </div>
+</Layout>

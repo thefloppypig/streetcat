@@ -1,0 +1,87 @@
+---
+import { feederRootPublic, linkWiki } from "../../Const";
+import Layout from "../../layouts/Layout.astro";
+import {
+    getCatData,
+    getExtGalleryList,
+    getFeederCatList,
+    getFeederData,
+    getFeederList,
+    getMeta,
+} from "../../utils/readFiles";
+import { CatUnseeableBox } from "../../components/CatUnseeableBox";
+import { CatWarningBox } from "../../components/CatWarningBox";
+import CatPage from "../../components/CatPage";
+
+interface Props {
+    feeder: string;
+    cat: string;
+}
+
+export async function getStaticPaths() {
+    const feederList = await getFeederList();
+    const params: { params: Props }[] = [];
+    for (const feeder of feederList) {
+        const catList = await getFeederCatList(feeder.__feeder);
+        for (const cat of catList) {
+            params.push({
+                params: { feeder: feeder.__feeder, cat: cat.__cat },
+            });
+        }
+    }
+
+    return params;
+}
+
+function possessive(name: string) {
+    if (name.endsWith("s")) return `${name}'`;
+    else return `${name}'s`;
+}
+
+const { feeder, cat } = Astro.params;
+const feederData = await getFeederData(feeder);
+const catData = await getCatData(feeder, cat);
+const filesExt = await getExtGalleryList(feeder, cat);
+const filesLocal = (await getMeta(`${feederRootPublic}/${feeder}/${cat}`))
+    .files;
+const { name, features } = catData;
+const names = possessive(name);
+---
+
+<Layout>
+    <h1>{catData.name}</h1>
+    {catData.unseeable && <CatUnseeableBox />}
+    {catData.unknown && <CatWarningBox />}
+    <div>
+        Find {name} at <a class="a" href={`/${feederData?.__feeder}`}
+            >{feederData?.name}!</a
+        >
+    </div>
+    <br />
+    <div>
+        Check {names}
+        <a class="a" href={`${linkWiki}/${name.replace(/\s+/g, "_")}`}
+            >Streetcat Wiki page</a
+        >
+    </div>
+    <br />
+    {
+        features ? (
+            <>
+                <h2>{names} Features</h2>
+                <ul>
+                    {features.map((feature, i) => (
+                        <li>{feature}</li>
+                    ))}
+                </ul>
+            </>
+        ) : undefined
+    }
+    <h2>Gallery</h2>
+    <CatPage
+        client:only="react"
+        filesExt={filesExt}
+        filesLocal={filesLocal}
+        catData={catData}
+    />
+</Layout>

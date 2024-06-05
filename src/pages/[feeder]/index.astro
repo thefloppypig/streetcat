@@ -1,0 +1,38 @@
+---
+import { linkWiki, linkMeowCamera } from "../../Const";
+import Layout from "../../layouts/Layout.astro";
+import {
+    getFeederCatList,
+    getFeederData,
+    getFeederList,
+} from "../../utils/readFiles";
+import Identifier from "../../components/Identifier";
+import Divider from "../../components/Divider.astro";
+
+export async function getStaticPaths() {
+    const feederList = await getFeederList();
+    return feederList.map((feeder) => {
+        return { params: { feeder: feeder.__feeder } };
+    });
+}
+
+interface Props {
+    feeder: string;
+}
+
+const { feeder } = Astro.params;
+const feederData = await getFeederData(feeder);
+const catDataList = await getFeederCatList(feeder);
+---
+
+<Layout>
+    <h1>List of Cats in {feederData.name ?? ""}</h1>
+    <div>
+        <a class="linkButton" href={`${linkWiki}/${feederData.wiki}`}>Wiki</a>
+        <a class="linkButton" href={`${linkMeowCamera}${feederData.id}`}
+            >Camera</a
+        >
+    </div>
+    <Divider />
+    <Identifier client:load catDataList={catDataList} />
+</Layout>

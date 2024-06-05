@@ -1,13 +1,14 @@
-import { useSearchParams } from "react-router-dom"
-import { Page404 } from "./Page404";
+
+import React from "react";
 import { getMeowCameraFileNameData } from "../utils/imageUtils";
 
-export default function ImageViewer() {
-    const [searchParams] = useSearchParams();
+interface ImageViewerProps {
+}
 
-    if (!searchParams.has("file")) return <Page404 />
-
-    const src = searchParams.get("file")!;
+export default function ImageViewer(props: ImageViewerProps) {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const src = urlSearchParams.get("file");
+    if (!src) return <div>No Image found!</div>
     const filename = src.replace(/^.*[\\/]/, '');
     const data = getMeowCameraFileNameData(filename);
 

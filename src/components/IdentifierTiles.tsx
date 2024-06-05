@@ -1,12 +1,12 @@
 import { IoLink } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import { CatWarningIcon } from "../components/CatWarningIcon";
-import { CatData, CatImgType } from "../shared/Types";
-import { CatImage } from "../components/CatImage";
+import { CatWarningIcon } from "./CatWarningIcon";
+import { CatData, CatImgType } from "../Types";
+import { CatImage } from "./CatImage";
 import { getCatUrl } from "../utils/fetchUtils";
 import { altText } from "../utils/imageUtils";
 import { ReactNode } from "react";
-import { CatUnseeableIcon } from "../components/CatUnseeableIcon";
+import { CatUnseeableIcon } from "./CatUnseeableIcon";
+import React from "react";
 
 interface IdentifierTableProps {
     which: CatImgType;
@@ -40,12 +40,12 @@ function createTileTableContent(props: IdentifierTableProps) {
 
         tdList.push(
             <td className="idTile" key={index}>
-                <Link className="a" to={`/${catData.__feeder}/${catData.__cat}`}>
+                <a className="a" href={`/${catData.__feeder}/${catData.__cat}`}>
                     {catData.name}
                     {catData.unknown || catData.unseeable || <IoLink />}
                     {catData.unseeable && <CatUnseeableIcon />}
                     {catData.unknown && <CatWarningIcon />}
-                </Link>
+                </a>
                 {
                     src ? <CatImage width={640} height={360} className='identifierImg' src={getCatUrl(catData, src)} alt={altText(catData.name, which)
                     } />

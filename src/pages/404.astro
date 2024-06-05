@@ -1,0 +1,17 @@
+---
+import { SEO } from "astro-seo";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+    <div>
+        <SEO
+            title="Page not found"
+        />
+          <title></title>
+          <meta name='errorpage' content='true' />
+          <meta name='errortype' content='404 - Not Found' />
+        <h1>Error 404</h1>
+        <div>There's nothing on this page!</div>
+      </div>
+</Layout>

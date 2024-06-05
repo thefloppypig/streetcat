@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
-import { CatData, CatDataMap, FeederData } from "../src/shared/Types"
+import { CatData, CatDataMap, FeederData } from "../src/Types"
 import { PluginOption } from "vite";
-import { feederRootPublic } from "../src/shared/Const"
+import { feederRootPublic } from "../src/Const"
 
 function processFeederList() {
     const listDir = readdirSync(feederRootPublic, { withFileTypes: true });

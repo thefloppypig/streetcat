@@ -1,0 +1,20 @@
+---
+import NavLink from "./NavLink.astro";
+---
+
+<nav class="nav">
+    <a href={"/"}
+        ><img
+            class="navicon"
+            src="icon-128.webp"
+            alt="Home"
+            height={40}
+            width={40}
+        /></a
+    >
+    <NavLink to={"/list"} label="Feeder List" />
+    <NavLink to={"/happycanteen"} label="Happy Canteen" />
+    <NavLink to={"/lucky711-ii"} label="Lucky 7-11 Ⅱ" />
+    <NavLink to={"/auspiciousrestaurant"} label="Auspicious Restaurant" />
+    <NavLink to={"/catmojo"} label="CatMojo" />
+</nav>

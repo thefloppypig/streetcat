@@ -1,3 +1,4 @@
+import React from "react";
 import { CatUnseeableIcon } from "./CatUnseeableIcon";
 
 export function CatUnseeableBox() {

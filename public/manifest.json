@@ -1,0 +1,38 @@
+{
+    "name": "Streetcat Identifier",
+    "short_name": "Streetcat",
+    "id": "streetcat",
+    "display": "standalone",
+    "theme_color": "#fbf623",
+    "background_color": "#242424",
+    "scope": "/",
+    "start_url": "https://streetcat.pages.dev/",
+    "description": "Identify the cats on Hello Street Cat livestreams",
+    "icons": [
+        {
+            "src": "../icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "https://streetcat.pages.dev/icon-500.webp",
+            "type": "image/webp",
+            "sizes": "500x500"
+        },
+        {
+            "src": "../icon-128.webp",
+            "type": "image/webp",
+            "sizes": "128x128"
+        },
+        {
+            "src": "../icon-64.webp",
+            "type": "image/webp",
+            "sizes": "64x64"
+        },
+        {
+            "src": "../icon-48.webp",
+            "type": "image/webp",
+            "sizes": "48x48"
+        }
+    ]
+}

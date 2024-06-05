@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
 import { IoLink } from "react-icons/io5";
-import { CatWarningIcon } from "../components/CatWarningIcon";
-import { CatData } from "../shared/Types";
+import { CatWarningIcon } from "./CatWarningIcon";
+import { CatData } from "../Types";
 import { altText } from "../utils/imageUtils";
-import { CatImage } from "../components/CatImage";
+import { CatImage } from "./CatImage";
 import { getCatUrl } from "../utils/fetchUtils";
-import { CatUnseeableIcon } from "../components/CatUnseeableIcon";
+import { CatUnseeableIcon } from "./CatUnseeableIcon";
+import React from "react";
 
 interface IdentifierTableProps {
     catDatList: CatData[]
@@ -32,12 +32,12 @@ export default function IdentifierTable(props: IdentifierTableProps) {
             <tbody>
                 {catDatList.map((d) => <tr key={d.__cat}>
                     <td>
-                        <Link className="a" to={`/${d.__feeder}/${d.__cat}`}>
+                        <a className="a" href={`/${d.__feeder}/${d.__cat}`}>
                             {d.name}
                             {d.unknown || d.unseeable || <IoLink />}
                             {d.unseeable && <CatUnseeableIcon />}
                             {d.unknown && <CatWarningIcon />}
-                        </Link>
+                        </a>
                     </td>
                     {processCatDataToTableImages(d, "front")}
                     {processCatDataToTableImages(d, "back")}

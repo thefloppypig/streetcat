@@ -1,5 +1,5 @@
 import moment from "moment";
-import { CatData } from "../shared/Types";
+import { CatData } from "../Types";
 
 export function getMeowCameraFileNameData(filename: string) {
     try {
