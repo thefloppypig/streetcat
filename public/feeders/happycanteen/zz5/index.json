@@ -1,0 +1,17 @@
+{
+    "name": "???",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1717682632564.webp",
+        "back": "meow.camera_4258783365322591678_1717682676257.webp",
+        "eating": "meow.camera_4258783365322591678_1717682690304.webp"
+    },
+    "unknown": true,
+    "type": "brown",
+    "colours": [
+        "grey",
+        "brown"
+    ],
+    "features": [
+        "Back is similar to Mr Crunch but different head pattern"
+    ]
+}

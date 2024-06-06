@@ -12,6 +12,7 @@ import {
 import { CatUnseeableBox } from "../../components/CatUnseeableBox";
 import { CatWarningBox } from "../../components/CatWarningBox";
 import CatPage, { getCatUrl } from "../../components/CatPage";
+import { possessive } from "../../utils/catUtils";
 
 interface Props {
     feeder: string;
@@ -31,11 +32,6 @@ export async function getStaticPaths() {
     }
 
     return params;
-}
-
-function possessive(name: string) {
-    if (name.endsWith("s")) return `${name}'`;
-    else return `${name}'s`;
 }
 
 const { feeder, cat } = Astro.params;

@@ -1,0 +1,19 @@
+---
+import { linkWiki } from "../../Const";
+import { ToolWikiCat } from "../../components/tools/ToolWikiCat";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+    title="Wiki Cat Page Generator - Streetcat Identifier"
+    description="Generate wiki source text for Streetcat Wiki cat pages"
+>
+    <div>
+        <h1>Create a Cat Page for Street Cat Wiki</h1>
+        <div>
+            Helper tool to generate Wiki Source text for a
+            <a href={linkWiki}>Street Cat Wiki</a> cat page.
+        </div>
+        <ToolWikiCat client:only="react" />
+    </div>
+</Layout>

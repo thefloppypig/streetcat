@@ -2,11 +2,11 @@ import 'moment-timezone';
 import moment from "moment";
 import { ReactNode, useEffect, useState } from "react"
 import './ToolFindCst.css'
-import { Divider } from './Divider';
-import { fetchFeederList } from '../utils/fetchUtils';
-import { FeederList } from '../Types';
-import { linkWiki } from '../Const';
-import { CatWarningIcon } from './CatWarningIcon';
+import { Divider } from '../Divider';
+import { fetchFeederList } from '../../utils/fetchUtils';
+import { FeederList } from '../../Types';
+import { linkWiki } from '../../Const';
+import { CatWarningIcon } from '../CatWarningIcon';
 import { useDropzone } from 'react-dropzone';
 import { RiImageAddFill } from 'react-icons/ri';
 import React from 'react';
@@ -46,7 +46,7 @@ export default function ToolFindCst() {
                     incorrectFormat = true;
                 };
                 const m = moment(ms).tz(timezone);
-                const formattedDate = m.format("MMMM Do, YYYY")
+                const formattedDate = m.format("MMMM DD, YYYY")
                 const formattedTime = m.format("HH:MM (z)").replace("CST", "LFT")
                 const outVisual = `${formattedDate} - At ${formattedTime}`;
                 const outSource = `* '''${formattedDate}:''' At ${formattedTime}`;
