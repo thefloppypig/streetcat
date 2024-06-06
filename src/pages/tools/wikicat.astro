@@ -1,5 +1,6 @@
 ---
 import { linkWiki } from "../../Const";
+import Divider from "../../components/Divider.astro";
 import { ToolWikiCat } from "../../components/tools/ToolWikiCat";
 import Layout from "../../layouts/Layout.astro";
 ---
@@ -11,9 +12,11 @@ import Layout from "../../layouts/Layout.astro";
     <div>
         <h1>Create a Cat Page for Street Cat Wiki</h1>
         <div>
-            Helper tool to generate Wiki Source text for a
-            <a href={linkWiki}>Street Cat Wiki</a> cat page.
+            This is a helper tool which generates Wiki Source text to make a cat
+            page on
+            <a href={linkWiki}>Street Cat Wiki</a>.
         </div>
+        <Divider />
         <ToolWikiCat client:only="react" />
     </div>
 </Layout>

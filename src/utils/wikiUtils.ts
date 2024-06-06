@@ -15,6 +15,7 @@ export function wikiCatPageTemplate(
     coat: string,
     sex: string,
     rarity: string,
+    occupation: string,
     appearance: string,
     firstSighting: string,
     pIntroduction: string,
@@ -24,7 +25,7 @@ export function wikiCatPageTemplate(
     sightings: WikiSighting[],
     gallery: WikiImageWithCaption[],
 ) {
-    return `{{CatInfobox|name=${name}|image=${pfp.filename}|caption=${pfp.caption}|breed=${breed}|coat=${coat}|sex=${sex}|rarity=${rarity}|appearance=${appearance}|first_sighting=${firstSighting}}
+    return `{{CatInfobox|name=${name}|image=${pfp.filename}|caption=${pfp.caption}|breed=${breed}|coat=${coat}|sex=${sex}|rarity=${rarity}|occupation=${occupation}|appearance=${appearance}|first_sighting=${firstSighting}}
 ${pIntroduction}
 
 == Behavior ==
@@ -35,7 +36,6 @@ ${pAppearance}
 [[File:${pAppearanceImg.filename}|none|thumb|207x207px|${pAppearanceImg.caption}]]
 
 == Sightings ==
-=== Month Year ===
 ${processSightings(sightings)}
 
 {{Sighting Disclaimer}}
@@ -52,9 +52,9 @@ ${processGallery(gallery)}
 }
 
 function processSightings(sightings: WikiSighting[]) {
-    return sightings.map((sighting) => `* '''${sighting.date}:''' ${sighting.text}`)
+    return sightings.map((sighting) => `* '''${sighting.date}:''' ${sighting.text}`).join("\n")
 }
 
 function processGallery(gallery: WikiImageWithCaption[]) {
-    return gallery.map((img) => `${img.filename}|${img.caption}`).join("\n")
+    return gallery.map((img) => `File:${img.filename}|${img.caption}`).join("\n")
 }
