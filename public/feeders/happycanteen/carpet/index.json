@@ -1,15 +1,13 @@
 {
-    "name": "???",
+    "name": "Ms. Carpet",
     "img": {
         "front": "meow.camera_4258783365322591678_1714851012548.webp",
         "back": "meow.camera_4258783365322591678_1714851050910.webp",
         "eating": "meow.camera_4258783365322591678_1714851042987.webp"
     },
-    "unknown": true,
     "type": "brown",
     "colours": [
         "black",
-        "brown",
-        "orange"
+        "brown"
     ]
 }

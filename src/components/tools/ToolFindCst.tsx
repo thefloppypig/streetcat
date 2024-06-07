@@ -47,7 +47,7 @@ export default function ToolFindCst() {
                 };
                 const m = moment(ms).tz(timezone);
                 const formattedDate = m.format("MMMM DD, YYYY")
-                const formattedTime = m.format("HH:MM (z)").replace("CST", "LFT")
+                const formattedTime = m.format("HH:mm (z)").replace("CST", "LFT")
                 const outVisual = `${formattedDate} - At ${formattedTime}`;
                 const outSource = `* '''${formattedDate}:''' At ${formattedTime}`;
                 elems.push(<span className='fileItem' key={file.name}>
