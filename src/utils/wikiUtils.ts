@@ -25,7 +25,7 @@ export function wikiCatPageTemplate(
     sightings: WikiSighting[],
     gallery: WikiImageWithCaption[],
 ) {
-    return `{{CatInfobox|name=${name}|image=${pfp.filename}|caption=${pfp.caption}|breed=${breed}|coat=${coat}|sex=${sex}|rarity=${rarity}|occupation=${occupation}|appearance=${appearance}|first_sighting=${firstSighting}}
+    return `{{CatInfobox|name=${name}|image=${pfp.filename}|caption=${pfp.caption}|breed=${breed}|coat=${coat}|sex=${sex}|rarity=${rarity}|occupation=${occupation}|appearance=${appearance}|first_sighting=${firstSighting}}}
 ${pIntroduction}
 
 == Behavior ==

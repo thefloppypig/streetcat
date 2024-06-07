@@ -62,30 +62,75 @@ export function ToolWikiCat() {
                 <li>
                     <label htmlFor="catbreed">Breed: </label>
                     <WikiCatTextBox id="catbreed" placeholder="eg. Domestic Shorthair" state={catBreed} />
+                    <ul>
+                        <sub><li>If you don't know, Domestic Shorthair/Longhair is a safe bet</li></sub>
+                    </ul>
                 </li>
+                <datalist id="catbreed">
+                    <option value="Domestic Shorthair" />
+                    <option value="Domestic Longhair" />
+                </datalist>
                 <li>
                     <label htmlFor="catcoat">Coat: </label>
                     <WikiCatTextBox id="catcoat" placeholder="eg. Calico" state={catCoat} />
+                    <ul>
+                        <sub><li>Check other cat pages which are similar if you are unsure</li></sub>
+                    </ul>
                 </li>
+                <datalist id="catcoat">
+                    <option value="Orange Tabby" />
+                    <option value="Brown Tabby" />
+                    <option value="Calico" />
+                    <option value="Tortoiseshell" />
+                </datalist>
                 <li>
                     <label htmlFor="catgender">Sex: </label>
                     <WikiCatTextBox id="catgender" placeholder="eg. Female" state={catGender} />
+                    <ul>
+                        <sub><li>You can also write "Assumed Male/Female" if you are unsure</li></sub>
+                    </ul>
                 </li>
+                <datalist id="catgender">
+                    <option value="Male" />
+                    <option value="Female" />
+                    <option value="Unknown" />
+                </datalist>
                 <li>
                     <label htmlFor="catrarity">Rarity: </label>
                     <WikiCatTextBox id="catrarity" placeholder="eg. Common" state={catRarity} />
+                    <ul>
+                        <sub><li>Check the wiki's <a target="_blank" rel="noopener noreferrer" href={`${linkWiki}/Cats_By_Rarity`}>Rarity List</a> </li></sub>
+                    </ul>
                 </li>
+                <datalist id="catrarity">
+                    <option value="Common" />
+                    <option value="Uncommon" />
+                    <option value="Rare" />
+                    <option value="Legendary" />
+                    <option value="Mythical" />
+                    <option value="Unseeable" />
+                    <option value="Unknown" />
+                </datalist>
                 <li>
                     <label htmlFor="catoccupation">Occupation: </label>
                     <WikiCatTextBox id="catoccupation" placeholder="eg. Professional boxer" state={catOccupation} />
+                    <ul>
+                        <sub><li>Give {catNameStr} a fun occupation!</li></sub>
+                    </ul>
                 </li>
                 <li>
                     <label htmlFor="catappearance">Appearance: </label>
                     <WikiCatTextBox id="catappearance" placeholder="eg. Brown and orange calico with a very soft face and a kirby-shaped collection of blobs on her back." state={catAppearance} />
+                    <ul>
+                        <sub><li>Short description, you will write a long version for the main page</li></sub>
+                    </ul>
                 </li>
                 <li>
                     <label htmlFor="catfirst">First sighting: </label>
                     <WikiCatTextBox id="catfirst" placeholder="eg. February 04, 2024." state={catFirst} />
+                    <ul>
+                        <sub><li>When {catNameStr} was first seen, in this format: February 04, 2024</li></sub>
+                    </ul>
                 </li>
                 <li>
                     <div>Upload an image for {possessive(catNameStr)} profile photo: <WikiUpload /></div>
