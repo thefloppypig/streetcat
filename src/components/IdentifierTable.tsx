@@ -32,11 +32,13 @@ export default function IdentifierTable(props: IdentifierTableProps) {
             <tbody>
                 {catDatList.map((d) => <tr key={d.__cat}>
                     <td>
-                        <a className="a" href={`/${d.__feeder}/${d.__cat}`}>
-                            {d.name}
-                            {d.unknown || d.unseeable || <IoLink />}
-                            {d.unseeable && <CatUnseeableIcon />}
-                            {d.unknown && <CatWarningIcon />}
+                        <a className="a idLink" href={`/${d.__feeder}/${d.__cat}`}>
+                            <div>
+                                {d.name}
+                                {d.unknown || d.unseeable || <IoLink />}
+                                {d.unseeable && <CatUnseeableIcon />}
+                                {d.unknown && <CatWarningIcon />}
+                            </div>
                         </a>
                     </td>
                     {processCatDataToTableImages(d, "front")}

@@ -45,11 +45,11 @@ export function ToolWikiCat() {
             <label htmlFor="catname">Enter your cat name: </label>
             <WikiCatTextBox id="catname" placeholder="eg. Mrs. Kirby" state={catName} />
             <ul>
-                <li>Mr Mrs and Ms should have a "." - Use Mrs. Kirby not Mrs Kirby</li>
+                <li>Mr Mrs and Ms should have a "." for example use Mrs. Kirby and not Mrs Kirby</li>
                 <li>
                     <label htmlFor="catwiki">Check your cat name has not been taken! <br /> The link below should be an empty page:</label>
                     <ul>
-                        <li><a id="catwiki" href={linkCatNameWiki}>{linkCatNameWiki}</a></li>
+                        <li><a id="catwiki" href={linkCatNameWiki} target="_blank" rel="noopener noreferrer">{linkCatNameWiki}</a></li>
                     </ul>
                 </li>
 
@@ -150,7 +150,12 @@ export function ToolWikiCat() {
         <Divider />
         <div>
             <h2>3. Add {possessive(catNameStr)} sightings</h2>
-            <sub>Ideally, a cat should have 3 sightings before making a page</sub>
+            <sub>
+                <ul>
+                    <li>Ideally, a cat should have 3 sightings before making a page</li>
+                    <li>You can use <a href="/tools/checker" target="_blank" rel="noopener noreferrer">Meow.camera checker</a> to check the date and time of your screenshots</li>
+                </ul>
+            </sub>
             <table className="tableWikiCat">
                 <thead>
                     <tr>
@@ -224,7 +229,7 @@ export function ToolWikiCat() {
             <h2>5. Completed Source Text</h2>
             <div>Copy the source text onto the empty page:</div>
             <ul>
-                <li>Go to your empty page on the Wiki at <a href={linkCatNameWiki}>{linkCatNameWiki}</a></li>
+                <li>Go to your empty page on the Wiki at <a href={linkCatNameWiki} target="_blank" rel="noopener noreferrer">{linkCatNameWiki}</a></li>
                 <li>Click on "Create Source"</li>
                 <li>Copy and paste the source text below into the wiki page</li>
                 <li>Click "Show preview" and make sure everything looks good</li>
