@@ -11,7 +11,7 @@ export function getMeowCameraFileNameData(filename: string) {
         if (!isNaN(ms)) {
             const m = moment(ms);
             const formattedDate = m.format("MMMM Do, YYYY")
-            const formattedTime = m.format("HH:MM z")
+            const formattedTime = m.format("HH:mm z")
 
             return { feederId, formattedDate, formattedTime }
         }
