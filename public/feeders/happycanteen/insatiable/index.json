@@ -1,0 +1,17 @@
+{
+    "name": "Mr. Insatiable",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1718027105044.webp",
+        "back": "meow.camera_4258783365322591678_1718027129949.webp",
+        "eating": "meow.camera_4258783365322591678_1718027363693.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ],
+    "features": [
+        "Known to look like a corndog from above",
+        "Right ear is clipped"
+    ]
+}

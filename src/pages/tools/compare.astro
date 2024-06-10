@@ -1,0 +1,17 @@
+---
+import CompareCats from "../../components/tools/CompareCats";
+import Layout from "../../layouts/Layout.astro";
+import { getFeederList } from "../../utils/readFiles";
+
+const feederList = await getFeederList();
+---
+
+<Layout
+    title="Cat comparison - Streetcat Identifier"
+    description=`Compare cats from hello street cat feeders`
+>
+    <h1>Cat comparison</h1>
+    <div>Select two cats to compare</div>
+    <br />
+    <CompareCats feederList={feederList} client:only="react" />
+</Layout>

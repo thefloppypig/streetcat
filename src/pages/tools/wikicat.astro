@@ -20,3 +20,14 @@ import Layout from "../../layouts/Layout.astro";
         <ToolWikiCat client:only="react" />
     </div>
 </Layout>
+<script>
+    let hasTyped = false;
+    document.body.addEventListener("keydown", (ev) => {
+        if (!hasTyped) {
+            window.onbeforeunload = () => {
+                return "Changes will not be saved";
+            };
+            hasTyped = true;
+        }
+    });
+</script>

@@ -6,13 +6,10 @@ import { getFeederList } from "../utils/readFiles";
 const feederList = await getFeederList();
 ---
 
-<Layout>
-    <div>
-        <SEO
-            title="List of Feeders - Streetcat Identifier"
-            description=`List of feeders in Streetcat Identifier`
-        />
-    </div>
+<Layout
+    title="List of Feeders - Streetcat Identifier"
+    description=`List of feeders in Streetcat Identifier`
+>
     <h1>List of Feeders</h1>
     <div>
         {

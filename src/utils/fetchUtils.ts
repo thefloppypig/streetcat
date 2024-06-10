@@ -105,3 +105,8 @@ export async function fetchMeta(path: string) {
 export function getCatUrl(catData: CatData, img: string) {
     return `${feederRootProd}/${catData.__feeder}/${catData.__cat}/${img}`
 }
+
+export function getCatUrlImg(catData: CatData, which: keyof CatData["img"]) {
+    const imgSrc = catData.img[which]
+    if (imgSrc) return getCatUrl(catData, imgSrc);
+}
