@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Mane",
+    "img": {
+        "front": "meow.camera_4291094747934800009_1718379558699.webp",
+        "back": "meow.camera_4291094747934800009_1718379274760.webp",
+        "eating": "meow.camera_4291094747934800009_1718379270002.webp"
+    },
+    "type": "brown",
+    "colours": [
+        "brown",
+        "white"
+    ]
+}
