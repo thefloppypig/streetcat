@@ -5,6 +5,8 @@ import {
     linkAppPurrr,
     linkMeowCamera,
     linkWiki,
+    linkDiscordWiki,
+    linkDiscordDeMiaowa,
 } from "../Const";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -14,14 +16,21 @@ import Layout from "../layouts/Layout.astro";
     <p>
         Street Cat Identifier helps you identify named cats on
         <a href={linkHelloStreetCat}>Hello Street Cat</a>
-        livestreams. You can access the streams on the official chinese app
+        livestreams.
+    </p>
+    <p>
+        You can access the streams on the official chinese app
         <a href={linkAppCN}>街猫</a>, the international version
         <a href={linkAppPurrr}>Purrr</a> or
         <a href={linkMeowCamera}>meow.camera</a>.
     </p>
     <p>
         Cats are named by the community and pages for each cat are documented on
-        the <a href={linkWiki}>Street Cat Wiki</a>! Check it out if you want
-        more information.
+        the <a href={linkWiki}>Street Cat Wiki</a>! Join the street cat
+        community on discord on the
+        <a href={linkDiscordWiki}>Wiki Discord</a>
+        or the
+        <a href={linkDiscordDeMiaowa}>DeMiaowa Discord</a>
     </p>
+    <p></p>
 </Layout>

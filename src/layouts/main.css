@@ -300,3 +300,13 @@ h1 {
 .dropzoneReady {
   background-color: #8f8f8f8f;
 }
+
+.dataTable {
+  border: 1px white solid;
+  border-radius: 10px;
+}
+
+table.dataTable td {
+  border: 1px white solid;
+  padding: 1px 6px;
+}

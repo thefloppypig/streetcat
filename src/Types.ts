@@ -6,6 +6,7 @@ export type FolderMetaData = {
 export type FeederData = {
     __feeder: string,
     name: string,
+    aka: string,
     id: string,//camera id
     wiki: string,//wiki link
 }
@@ -41,3 +42,33 @@ export type CatData = {
 export type CatDataMap = Record<string, CatData>;
 
 export type CatImgType = keyof CatData["img"]
+
+export type MeowApiCatHouse = {
+    name: string
+    englishName?: string
+    translatedName?: string
+    images: string[]
+    subscribeCount: number
+    todayFeedCount: number
+    todayShowCount: number
+    catPresent: boolean
+    lightTurnedOn: boolean
+    deviceTemperatureCelsius: number
+    stock: {
+        kibble: string
+        snack: string
+    },
+    hasSnacks: boolean
+    viewers: {
+        local: number
+        jiemao: number
+        purrrr: number
+    }
+}
+
+export type MeowApiCatHouseSaved = {
+    chineseName: string
+    translatedName?: string
+    images: string[]
+    hasSnacks: boolean
+}

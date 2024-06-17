@@ -1,5 +1,5 @@
-import { feederRootProd } from "../Const";
-import { CatDataMap, FeederData, FeederList, CatData, FolderMetaData } from "../Types";
+import { feederRootProd, linkMeowApi } from "../Const";
+import { CatDataMap, FeederData, FeederList, CatData, FolderMetaData, MeowApiCatHouse } from "../Types";
 
 const cache: Record<string, any> = {};
 
@@ -100,6 +100,11 @@ export async function fetchExtGalleryList(feeder: string, cat: string): Promise<
 export async function fetchMeta(path: string) {
     const json = await fetchCachedJson<FolderMetaData>(`${path}/meta.json`);
     return json;
+}
+
+export async function fetchFeederMeowCameraApi(id: string) {
+    const response = await fetch(`${linkMeowApi}/${id}`)
+    return await response.json() as MeowApiCatHouse;
 }
 
 export function getCatUrl(catData: CatData, img: string) {

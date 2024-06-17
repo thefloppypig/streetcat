@@ -46,7 +46,7 @@ export default function CompareCats(props: CompareCatsProps) {
         <div>
             <table className="compareTable idTable">
                 <colgroup>
-                    <col span={2} className="identifierCol" />
+                    <col span={2} style={{ width: "50%" }} />
                 </colgroup>
                 <thead>
                     <th>

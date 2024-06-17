@@ -1,0 +1,60 @@
+---
+import {
+    linkHelloStreetCat,
+    linkAppCN,
+    linkAppPurrr,
+    linkMeowCamera,
+    linkWiki,
+    linkDiscordWiki,
+    linkDiscordDeMiaowa,
+} from "../../Const";
+import FeederLiveMeowApi from "../../components/FeederLiveMeowApi";
+import Layout from "../../layouts/Layout.astro";
+import {
+    getFeederCatList,
+    getFeederData,
+    getFeederList,
+    getFeederSavedApiData,
+} from "../../utils/readFiles";
+
+export async function getStaticPaths() {
+    const feederList = await getFeederList();
+    return feederList.map((feeder) => {
+        return { params: { feeder: feeder.__feeder } };
+    });
+}
+
+interface Props {
+    feeder: string;
+}
+
+const { feeder } = Astro.params;
+const feederData = await getFeederData(feeder);
+const catDataList = await getFeederCatList(feeder);
+const apiData = await getFeederSavedApiData(feeder);
+
+const { name, aka, id } = feederData;
+---
+
+<Layout>
+    <h1>About {name}</h1>
+    {aka && <small>Also known as {aka}</small>}
+    <br />
+    <br />
+    {
+        apiData && (
+            <>
+                <div>Chinese name: {apiData.chineseName}</div>
+                <div>
+                    {apiData.hasSnacks
+                        ? `${name} provides both kibble and chicken snacks to it's visitors.`
+                        : `${name} only provides kibble. Chicken snacks are not available in this feeder.`}
+                </div>
+            </>
+        )
+    }
+
+    <h2>Live Data</h2>
+    <small>Powered by meow.camera api</small>
+    <FeederLiveMeowApi client:only="react" id={id} />
+</Layout>

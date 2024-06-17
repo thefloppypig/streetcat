@@ -1,6 +1,6 @@
 import { readFile } from "fs/promises";
 import { feederRootPublic } from "../Const";
-import { FeederData, FolderMetaData, CatData, FeederList, CatDataMap } from "../Types";
+import { FeederData, FolderMetaData, CatData, FeederList, CatDataMap, MeowApiCatHouseSaved } from "../Types";
 
 const cache: Record<string, any> = {};
 
@@ -104,4 +104,13 @@ export async function getExtGalleryList(feeder: string, cat: string): Promise<st
 export async function getMeta(path: string) {
     const json = await getCachedJson<FolderMetaData>(`${path}/meta.json`);
     return json;
+}
+
+export async function getFeederSavedApiData(feeder: string): Promise<MeowApiCatHouseSaved> {
+    const data = await getCachedJson<MeowApiCatHouseSaved>(`${feederRootPublic}/${feeder}/apiData.json`);
+    return data;
+}
+
+export function pathToFilename(src: string) {
+    return src.replace(/^.*[\\/]/, '');
 }

@@ -8,7 +8,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "webp": "npx tsx ./build/processWebp.ts"
+    "webp": "npx tsx ./build/processWebp.ts",
+    "saveApiData": "npx tsx ./build/saveApiData.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",

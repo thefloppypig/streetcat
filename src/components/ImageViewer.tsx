@@ -1,15 +1,26 @@
 
+import { useEffect, useState } from "react";
+import { fetchFeederList } from "../utils/fetchUtils";
 import { getMeowCameraFileNameData } from "../utils/imageUtils";
+import { FeederList } from "../Types";
+import { pathToFilename } from "../utils/readFiles";
 
 interface ImageViewerProps {
 }
 
 export default function ImageViewer(_: ImageViewerProps) {
+    const [feederList, setFeederList] = useState<FeederList>([])
+
     const urlSearchParams = new URLSearchParams(window.location.search);
     const src = urlSearchParams.get("file");
     if (!src) return <div>No Image found!</div>
-    const filename = src.replace(/^.*[\\/]/, '');
+    const filename = pathToFilename(src);
     const data = getMeowCameraFileNameData(filename);
+    const feeder = data ? feederList.find((f) => f.id === data.feederId) : undefined
+
+    useEffect(() => {
+        fetchFeederList().then((res) => setFeederList(res));
+    }, []);
 
     return (
         <div>
@@ -17,7 +28,7 @@ export default function ImageViewer(_: ImageViewerProps) {
             <h3 className="breakwords">{filename}</h3>
             {data ? <ul>
                 <li>Image taken on {data.formattedDate} at {data.formattedTime}</li>
-                <li>Image taken at feeder with id {data.feederId}</li>
+                <li>Image taken at {feeder ? <a href={feeder.__feeder}>{feeder.name}</a> : undefined} feeder with id {data.feederId}</li>
             </ul> : undefined}
         </div>
     )

@@ -9,6 +9,7 @@ function processFeederList() {
     const feederIndexMap: FeederData[] = [];
 
     for (const feeder of listDir) {
+        if (feeder.name.startsWith(".")) break;
         if (feeder.isDirectory()) {
             try {
                 const index = readFileSync(`${feederRootPublic}/${feeder.name}/index.json`, "utf8");
