@@ -1,8 +1,9 @@
 import { writeFile } from "fs/promises";
 import { fetchFeederMeowCameraApi } from "../src/utils/fetchUtils"
-import { getFeederData, pathToFilename } from "../src/utils/readFiles";
+import { getFeederData } from "../src/utils/readFiles";
 import { feederRootPublic } from "../src/Const";
 import { MeowApiCatHouseSaved } from "../src/Types";
+import { pathToFilename } from "../src/utils/dataUtils";
 
 const feeder = process.argv[2]
 const { id } = await getFeederData(feeder);

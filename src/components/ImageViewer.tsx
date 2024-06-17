@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchFeederList } from "../utils/fetchUtils";
 import { getMeowCameraFileNameData } from "../utils/imageUtils";
 import { FeederList } from "../Types";
-import { pathToFilename } from "../utils/readFiles";
+import { pathToFilename } from "../utils/dataUtils";
 
 interface ImageViewerProps {
 }

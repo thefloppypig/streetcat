@@ -110,7 +110,3 @@ export async function getFeederSavedApiData(feeder: string): Promise<MeowApiCatH
     const data = await getCachedJson<MeowApiCatHouseSaved>(`${feederRootPublic}/${feeder}/apiData.json`);
     return data;
 }
-
-export function pathToFilename(src: string) {
-    return src.replace(/^.*[\\/]/, '');
-}
