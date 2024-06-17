@@ -22,7 +22,7 @@ import Layout from "../../layouts/Layout.astro";
 </Layout>
 <script>
     let hasTyped = false;
-    document.body.addEventListener("keydown", (ev) => {
+    document.body.addEventListener("keydown", (_ev) => {
         if (!hasTyped) {
             window.onbeforeunload = () => {
                 return "Changes will not be saved";

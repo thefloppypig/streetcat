@@ -7,19 +7,20 @@ import { altText } from "../utils/imageUtils";
 import { ReactNode } from "react";
 import { CatUnseeableIcon } from "./CatUnseeableIcon";
 import React from "react";
+import { IdentifierIconSizesType } from "./Identifier";
 
 interface IdentifierTableProps {
     which: CatImgType;
     catDatList: CatData[];
-    tilesPerRow: number;
+    iconSize: IdentifierIconSizesType;
 }
 
 export default function IdentifierTiles(props: IdentifierTableProps) {
-    const { tilesPerRow } = props;
+    const { iconSize } = props;
     return (
         <table className="idTable">
             <colgroup>
-                <col span={tilesPerRow} className="identifierCol" />
+                <col span={identifierTilesPerRow(iconSize)} className="identifierCol" />
             </colgroup>
             <tbody>
                 {createTileTableContent(props)}
@@ -29,7 +30,7 @@ export default function IdentifierTiles(props: IdentifierTableProps) {
 }
 
 function createTileTableContent(props: IdentifierTableProps) {
-    const { catDatList, which, tilesPerRow } = props;
+    const { catDatList, which, iconSize } = props;
 
     const trList: ReactNode[] = [];
     let tdList: ReactNode[] = [];
@@ -54,7 +55,7 @@ function createTileTableContent(props: IdentifierTableProps) {
             </td>
         )
 
-        if (tdList.length >= tilesPerRow) {
+        if (tdList.length >= identifierTilesPerRow(iconSize)) {
             trList.push(
                 <tr key={index}>
                     {tdList}
@@ -71,5 +72,15 @@ function createTileTableContent(props: IdentifierTableProps) {
         )
     }
     return trList;
+}
 
+function identifierTilesPerRow(iconSize: IdentifierIconSizesType) {
+    switch (iconSize) {
+        case "small":
+            return 5
+        case "medium":
+            return 4
+        default://large
+            return 3
+    }
 }

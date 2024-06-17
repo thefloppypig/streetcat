@@ -190,6 +190,7 @@ h1 {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 500px) {
@@ -202,14 +203,6 @@ h1 {
   .idTable {
     font-size: 7px;
   }
-}
-
-.identifier1stCol {
-  width: auto;
-}
-
-.identifierCol {
-  width: 30%;
 }
 
 .identifierTd {

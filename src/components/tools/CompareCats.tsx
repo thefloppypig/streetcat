@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./CompareCats.css"
-import { CatData, CatDataMap, FeederList } from "../../Types"
-import { fetchFeederCatList, fetchFeederCatMap, getCatUrl, getCatUrlImg } from "../../utils/fetchUtils";
+import { CatDataMap, FeederList } from "../../Types"
+import { fetchFeederCatMap, getCatUrlImg } from "../../utils/fetchUtils";
 import { CatImage } from "../CatImage";
 
 type CompareCatsProps = {

@@ -12,6 +12,9 @@ export default defineConfig({
     prefetchAll: true,
     defaultStrategy: "hover"
   },
+  build: {
+    format: "file"
+  },
   site: deployedLink,
   integrations: [react(), sitemap()],
   vite: {

@@ -14,6 +14,14 @@ const IdentifierViews = {
 
 type IdentifierViewType = keyof typeof IdentifierViews;
 
+export const IdentifierIconSizes = {
+    large: "Large",
+    medium: "Medium",
+    small: "Small",
+}
+
+export type IdentifierIconSizesType = keyof typeof IdentifierIconSizes;
+
 export type IdentifierProps = {
     catDataList: CatData[],
 }
@@ -24,21 +32,13 @@ export default function Identifier(props: IdentifierProps) {
 
     const [filterType, setFilterType] = useState<CatType>(CatType.None)
     const [view, setView] = useState<IdentifierViewType>("all");
+    const [iconSize, setIconSize] = useState<IdentifierIconSizesType>("large");
 
     if (catDataList) {
         const filteredList = filterType ? catDataList.filter((d) => d.type === filterType) : catDataList;
         const sortedFilteredList = filteredList.sort(SortCatData.Alphabetically);
         return (
             <>
-                <div>
-                    View:
-                    {Object.entries(IdentifierViews).map(([k, v]) => {
-                        return <span className="idRadio" key={v} onClick={() => setView(k as IdentifierViewType)}>
-                            <input type="radio" radioGroup="filter" id={`radio-${k}`} value={k} checked={view === k} readOnly />
-                            <label htmlFor={`radio-${k}`}>{v}</label>
-                        </span>
-                    })}
-                </div>
                 <div>
                     Filter:
                     {Object.entries(CatType).map(([k, v]) => {
@@ -48,11 +48,27 @@ export default function Identifier(props: IdentifierProps) {
                         </span>
                     })}
                 </div>
+                <div>
+                    View:
+                    <select value={view} onChange={(ev) => setView(ev.target.value as IdentifierViewType)}>
+                        {Object.entries(IdentifierViews).map(([k, v]) => {
+                            return <option className="idRadio" key={v} value={k}>{v}</option>
+                        })}
+                    </select>
+                </div>
+                <div>
+                    Image Size:
+                    <select value={iconSize} onChange={(ev) => setIconSize(ev.target.value as IdentifierIconSizesType)}>
+                        {Object.entries(IdentifierIconSizes).map(([k, v]) => {
+                            return <option className="idRadio" key={v} value={k}>{v}</option>
+                        })}
+                    </select>
+                </div>
                 <Divider />
                 {view === "all" ?
-                    <IdentifierTable catDatList={sortedFilteredList} />
+                    <IdentifierTable catDatList={sortedFilteredList} iconSize={iconSize} />
                     :
-                    <IdentifierTiles key={view} tilesPerRow={3} which={view} catDatList={sortedFilteredList} />
+                    <IdentifierTiles key={view} iconSize={iconSize} which={view} catDatList={sortedFilteredList} />
                 }
             </>
         )

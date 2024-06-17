@@ -6,20 +6,23 @@ import { CatImage } from "./CatImage";
 import { getCatUrl } from "../utils/fetchUtils";
 import { CatUnseeableIcon } from "./CatUnseeableIcon";
 import React from "react";
+import { IdentifierIconSizesType } from "./Identifier";
 
 interface IdentifierTableProps {
     catDatList: CatData[]
+    iconSize: IdentifierIconSizesType
 }
 
 
 export default function IdentifierTable(props: IdentifierTableProps) {
-    const { catDatList } = props;
+    const { catDatList, iconSize } = props;
+    const { first, col } = identifierWidth(iconSize)
 
     return (
         <table className="idTable">
             <colgroup>
-                <col className="identifier1stCol" />
-                <col span={3} className="identifierCol" />
+                <col style={first} />
+                <col style={col} span={3} />
             </colgroup>
             <thead>
                 <tr>
@@ -48,6 +51,17 @@ export default function IdentifierTable(props: IdentifierTableProps) {
             </tbody>
         </table>
     )
+}
+
+function identifierWidth(iconSize: IdentifierIconSizesType) {
+    switch (iconSize) {
+        case "small":
+            return { first: { width: "auto" }, col: { width: "17%" } }
+        case "medium":
+            return { first: { width: "auto" }, col: { width: "22%" } }
+        default://large
+            return { first: { width: "auto" }, col: { width: "30%" } }
+    }
 }
 
 function processCatDataToTableImages(catData: CatData, which: keyof CatData["img"]) {
