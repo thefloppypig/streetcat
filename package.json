@@ -11,6 +11,9 @@
     "webp": "npx tsx ./build/processWebp.ts",
     "saveApiData": "npx tsx ./build/saveApiData.ts"
   },
+  "imports": {
+    "#*": "./src*"
+  },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/react": "^3.4.0",

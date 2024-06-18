@@ -7,7 +7,9 @@ import {
     linkWiki,
     linkDiscordWiki,
     linkDiscordDeMiaowa,
+    feederRootProd,
 } from "../../Const";
+import CatMasonry from "../../components/CatMasonry";
 import FeederLiveMeowApi from "../../components/FeederLiveMeowApi";
 import Layout from "../../layouts/Layout.astro";
 import {
@@ -34,6 +36,8 @@ const catDataList = await getFeederCatList(feeder);
 const apiData = await getFeederSavedApiData(feeder);
 
 const { name, aka, id } = feederData;
+
+const images = apiData.images.map((name) => `${feederRootProd}/${feeder}/.about/${name}`)
 ---
 
 <Layout>
@@ -53,8 +57,19 @@ const { name, aka, id } = feederData;
             </>
         )
     }
+    Find more information at <a class="a" href={`${linkWiki}/${feederData.wiki}`}>{feederData.name} Wiki page</a>
+    <br/>
+    Watch {feederData.name}  on <a class="a" href={`${linkMeowCamera}/${feederData.id}`}>meow.camera</a>
 
     <h2>Live Data</h2>
     <small>Powered by meow.camera api</small>
     <FeederLiveMeowApi client:only="react" id={id} />
+
+    <h2>Feeder Images</h2>
+    <CatMasonry
+        columnsCountBreakPoints={{ 300: 2, 500: 3, 750: 4 }}
+        client:only="react"
+        srcList={images} 
+        altText={`Image of ${feederData.name}`}
+    />
 </Layout>

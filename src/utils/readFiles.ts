@@ -107,6 +107,6 @@ export async function getMeta(path: string) {
 }
 
 export async function getFeederSavedApiData(feeder: string): Promise<MeowApiCatHouseSaved> {
-    const data = await getCachedJson<MeowApiCatHouseSaved>(`${feederRootPublic}/${feeder}/apiData.json`);
+    const data = await getCachedJson<MeowApiCatHouseSaved>(`${feederRootPublic}/${feeder}/.about/apiData.json`);
     return data;
 }

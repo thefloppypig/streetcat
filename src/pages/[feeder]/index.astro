@@ -31,10 +31,14 @@ const catDataList = await getFeederCatList(feeder);
 >
     <h1>List of Cats in {feederData.name ?? ""}</h1>
     <div>
+        <a class="linkButton" href={`${feeder}/about`}>About</a>
         <a class="linkButton" href={`${linkWiki}/${feederData.wiki}`}>Wiki</a>
-        <a class="linkButton" href={`${linkMeowCamera}${feederData.id}`}
-            >Camera</a
+        <a 
+            class="linkButton" 
+            href={`${linkMeowCamera}${feederData.id}`}
         >
+            Camera
+        </a>
     </div>
     <Divider />
     <Identifier client:load catDataList={catDataList} />

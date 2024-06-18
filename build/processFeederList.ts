@@ -9,7 +9,7 @@ function processFeederList() {
     const feederIndexMap: FeederData[] = [];
 
     for (const feeder of listDir) {
-        if (feeder.name.startsWith(".")) break;
+        if (feeder.name.startsWith(".")) continue;
         if (feeder.isDirectory()) {
             try {
                 const index = readFileSync(`${feederRootPublic}/${feeder.name}/index.json`, "utf8");
@@ -32,6 +32,7 @@ function processCatList(feeder: string) {
     const catList = {} as CatDataMap;
 
     for (const catDir of listFeeder) {
+        if (catDir.name.startsWith(".")) continue;
         if (catDir.isDirectory()) {
             const catPath = `${feederPath}/${catDir.name}`
             try {

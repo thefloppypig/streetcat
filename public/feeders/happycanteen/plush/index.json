@@ -1,11 +1,10 @@
 {
-    "name": "???",
+    "name": "Madam Plush",
     "img": {
         "front": "meow.camera_4258783365322591678_1718636250140.webp",
         "back": "meow.camera_4258783365322591678_1718636270604.webp",
         "eating": "meow.camera_4258783365322591678_1718636332582.webp"
     },
-    "unknown": true,
     "type": "brown",
     "colours": [
         "grey",
