@@ -1,0 +1,15 @@
+{
+    "name": "Ms. Diamond",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1718982877129.webp",
+        "back": "meow.camera_4258783365322591678_1718982836668.webp",
+        "eating": "meow.camera_4258783365322591678_1718983246010.webp"
+    },
+    "unknown": true,
+    "type": "brown",
+    "colours": [
+        "brown",
+        "orange",
+        "white"
+    ]
+}
