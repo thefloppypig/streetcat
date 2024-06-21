@@ -9,10 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "webp": "npx tsx ./build/processWebp.ts",
-    "saveApiData": "npx tsx ./build/saveApiData.ts"
-  },
-  "imports": {
-    "#*": "./src*"
+    "saveApiData": "npx tsx ./build/saveApiData.ts",
+    "createNewFeeder": "npx tsx ./build/createNewFeeder.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
