@@ -65,11 +65,13 @@ export default function Identifier(props: IdentifierProps) {
                     </select>
                 </div>
                 <Divider />
-                {view === "all" ?
+                {sortedFilteredList.length > 0 ? 
+                                (view === "all" ?
                     <IdentifierTable catDatList={sortedFilteredList} iconSize={iconSize} />
                     :
                     <IdentifierTiles key={view} iconSize={iconSize} which={view} catDatList={sortedFilteredList} />
-                }
+                ) : <div style={{textAlign: "center"}} ><h2>No results!</h2><div>No cats match this filter</div><br /><br /></div>
+            }
             </>
         )
     }

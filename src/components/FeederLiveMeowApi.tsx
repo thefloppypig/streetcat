@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { linkMeowApi } from "../Const"
 import { MeowApiCatHouse } from "../Types"
 import { fetchFeederMeowCameraApi } from "../utils/fetchUtils"
 

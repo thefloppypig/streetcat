@@ -34,7 +34,7 @@ export async function getStaticPaths() {
     return params;
 }
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
+// const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
 
 const { feeder, cat } = Astro.params;
 const feederData = await getFeederData(feeder);

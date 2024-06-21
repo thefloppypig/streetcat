@@ -4,6 +4,7 @@ import { PluginOption } from "vite";
 import { feederRootPublic } from "../src/Const"
 import { computeHash } from "./utils/hash";
 import { getHashData } from "../src/utils/readFiles.js";
+import moment from "moment";
 
 async function processFeederList() {
     const listDir = readdirSync(feederRootPublic, { withFileTypes: true });
@@ -28,8 +29,8 @@ async function processFeederList() {
                 } catch (error) {
                 }
                 if (hash !== oldHash) {
-                    const dateNow = new Date(Date.now());
-                    writeFileSync(`${feederPath}/.hash.json`, JSON.stringify({hash: hash, date: dateNow.toUTCString()}));
+                    const dateNow = moment().format("MMMM Do, YYYY");
+                    writeFileSync(`${feederPath}/.hash.json`, JSON.stringify({hash: hash, date: dateNow}));
                 }
             } catch (error) {
                 console.log(`${feeder.name} has no index.json`)
