@@ -5,6 +5,7 @@ import {
     getFeederCatList,
     getFeederData,
     getFeederList,
+getHashData,
 } from "../../utils/readFiles";
 import Identifier from "../../components/Identifier";
 import Divider from "../../components/Divider.astro";
@@ -23,6 +24,7 @@ interface Props {
 const { feeder } = Astro.params;
 const feederData = await getFeederData(feeder);
 const catDataList = await getFeederCatList(feeder);
+const hashData = await getHashData(feeder);
 ---
 
 <Layout
@@ -42,4 +44,6 @@ const catDataList = await getFeederCatList(feeder);
     </div>
     <Divider />
     <Identifier client:load catDataList={catDataList} />
+
+    <div style="text-align: center; font-size: x-small;">{feederData.name} was last updated on {hashData.date}</div>
 </Layout>

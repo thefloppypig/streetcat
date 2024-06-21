@@ -1,6 +1,6 @@
 import { readFile } from "fs/promises";
 import { feederRootPublic } from "../Const";
-import { FeederData, FolderMetaData, CatData, FeederList, CatDataMap, MeowApiCatHouseSaved } from "../Types";
+import { FeederData, FolderMetaData, CatData, FeederList, CatDataMap, MeowApiCatHouseSaved, FeederHashData } from "../Types";
 
 const cache: Record<string, any> = {};
 
@@ -108,5 +108,10 @@ export async function getMeta(path: string) {
 
 export async function getFeederSavedApiData(feeder: string): Promise<MeowApiCatHouseSaved> {
     const data = await getCachedJson<MeowApiCatHouseSaved>(`${feederRootPublic}/${feeder}/.about/apiData.json`);
+    return data;
+}
+
+export async function getHashData(feeder: string) {
+    const data = await getCachedJson<FeederHashData>(`${feederRootPublic}/${feeder}/.hash.json`);
     return data;
 }

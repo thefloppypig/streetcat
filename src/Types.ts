@@ -72,3 +72,8 @@ export type MeowApiCatHouseSaved = {
     images: string[]
     hasSnacks: boolean
 }
+
+export type FeederHashData = {
+    hash: string,
+    date: string
+}

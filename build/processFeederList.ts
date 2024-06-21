@@ -2,21 +2,35 @@ import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { CatData, CatDataMap, FeederData } from "../src/Types"
 import { PluginOption } from "vite";
 import { feederRootPublic } from "../src/Const"
+import { computeHash } from "./utils/hash";
+import { getHashData } from "../src/utils/readFiles.js";
 
-function processFeederList() {
+async function processFeederList() {
     const listDir = readdirSync(feederRootPublic, { withFileTypes: true });
 
     const feederIndexMap: FeederData[] = [];
 
     for (const feeder of listDir) {
+        const feederPath = `${feederRootPublic}/${feeder.name}`
         if (feeder.name.startsWith(".")) continue;
         if (feeder.isDirectory()) {
             try {
-                const index = readFileSync(`${feederRootPublic}/${feeder.name}/index.json`, "utf8");
+                const index = readFileSync(`${feederPath}/index.json`, "utf8");
                 const json = JSON.parse(index) as FeederData;
                 json.__feeder = feeder.name;
                 feederIndexMap.push(json);
                 processCatList(feeder.name);
+
+                const hash = await computeHash(feederPath);
+                let oldHash = undefined;
+                try {
+                    oldHash = (await getHashData(feeder.name)).hash;
+                } catch (error) {
+                }
+                if (hash !== oldHash) {
+                    const dateNow = new Date(Date.now());
+                    writeFileSync(`${feederPath}/.hash.json`, JSON.stringify({hash: hash, date: dateNow.toUTCString()}));
+                }
             } catch (error) {
                 console.log(`${feeder.name} has no index.json`)
             }
