@@ -1,8 +1,16 @@
 ---
+import { FeederData } from "../Types";
 import Layout from "../layouts/Layout.astro";
 import { getFeederList } from "../utils/readFiles";
 
 const feederList = await getFeederList();
+
+const alphabeticalFeederList = {} as Record<string, FeederData[]>;
+for (const feederData of feederList) {
+    const char = feederData.name[0];
+    if (!alphabeticalFeederList[char]) alphabeticalFeederList[char] = [];
+    alphabeticalFeederList[char].push(feederData);
+}
 ---
 
 <Layout
@@ -12,14 +20,30 @@ const feederList = await getFeederList();
     <h1>List of Feeders</h1>
     <div>
         {
-            feederList.map((feederData) => {
-                const { __feeder, name } = feederData;
-                return (
-                    <a class="aNone" href={`/${__feeder}`}>
-                        <div class="feederListItem">{name}</div>
-                    </a>
-                );
-            })
+            Object.entries(alphabeticalFeederList).map(
+                ([letter, feederDataList]) => {
+                    return (
+                        <>
+                            {/* <h4>{letter}</h4> */}
+                            <div>
+                                {feederDataList.map((feederData) => {
+                                    const { __feeder, name } = feederData;
+                                    return (
+                                        <a
+                                            class="aNone aFeederListItem"
+                                            href={`/${__feeder}`}
+                                        >
+                                            <div class="feederListItem">
+                                                {name}
+                                            </div>
+                                        </a>
+                                    );
+                                })}
+                            </div>
+                        </>
+                    );
+                },
+            )
         }
     </div>
 </Layout>

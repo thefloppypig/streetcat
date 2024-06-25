@@ -277,16 +277,24 @@ h1 {
   background-color: var(--hoverColor);
 }
 
+.aka {
+  color: #8f8f8f;
+}
+
 .feederListItem {
-  width: fit-content;
   border-radius: 10px;
-  margin: 5px;
   padding: 5px 15px;
   background-color: var(--buttonColor);
 }
 
 .feederListItem:hover {
   background-color: var(--hoverColor);
+}
+
+.aFeederListItem {
+  margin: 5px;
+  width: fit-content;
+  display: block;
 }
 
 .dropzone {

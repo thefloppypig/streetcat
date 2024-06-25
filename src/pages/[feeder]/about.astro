@@ -1,9 +1,5 @@
 ---
-import {
-    linkMeowCamera,
-    linkWiki,
-    feederRootProd,
-} from "../../Const";
+import { linkMeowCamera, linkWiki, feederRootProd } from "../../Const";
 import CatMasonry from "../../components/CatMasonry";
 import FeederLiveMeowApi from "../../components/FeederLiveMeowApi";
 import Layout from "../../layouts/Layout.astro";
@@ -32,12 +28,16 @@ const apiData = await getFeederSavedApiData(feeder);
 
 const { name, aka, id } = feederData;
 
-const images = apiData.images.map((name) => `${feederRootProd}/${feeder}/.about/${name}`)
+const images = apiData.images.map(
+    (name) => `${feederRootProd}/${feeder}/.about/${name}`,
+);
 ---
 
 <Layout>
     <h1>About {name}</h1>
-    {aka && <small>Also known as {aka}</small>}
+    <small class="aka">
+        Also known as {feederData.aka}
+    </small>
     <br />
     <br />
     {
@@ -52,9 +52,15 @@ const images = apiData.images.map((name) => `${feederRootProd}/${feeder}/.about/
             </>
         )
     }
-    Find more information at <a class="a" href={`${linkWiki}/${feederData.wiki}`}>{feederData.name} Wiki page</a>
-    <br/>
-    Watch {feederData.name}  on <a class="a" href={`${linkMeowCamera}/${feederData.id}`}>meow.camera</a>
+    Find more information at <a
+        class="a"
+        href={`${linkWiki}/${feederData.wiki}`}>{feederData.name} Wiki page</a
+    >
+    <br />
+    Watch {feederData.name} on <a
+        class="a"
+        href={`${linkMeowCamera}/${feederData.id}`}>meow.camera</a
+    >
 
     <h2>Live Data</h2>
     <small>Powered by meow.camera api</small>
@@ -64,7 +70,7 @@ const images = apiData.images.map((name) => `${feederRootProd}/${feeder}/.about/
     <CatMasonry
         columnsCountBreakPoints={{ 300: 2, 500: 3, 750: 4 }}
         client:only="react"
-        srcList={images} 
+        srcList={images}
         altText={`Image of ${feederData.name}`}
     />
 </Layout>
