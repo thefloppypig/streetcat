@@ -2,9 +2,6 @@ import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { CatData, CatDataMap, FeederData } from "../src/Types"
 import { PluginOption } from "vite";
 import { feederRootPublic } from "../src/Const"
-import { computeHash } from "./utils/hash";
-import { getHashData } from "../src/utils/readFiles.js";
-import moment from "moment";
 
 async function processFeederList() {
     const listDir = readdirSync(feederRootPublic, { withFileTypes: true });
@@ -21,17 +18,6 @@ async function processFeederList() {
                 json.__feeder = feeder.name;
                 feederIndexMap.push(json);
                 processCatList(feeder.name);
-
-                const hash = await computeHash(feederPath);
-                let oldHash = undefined;
-                try {
-                    oldHash = (await getHashData(feeder.name)).hash;
-                } catch (error) {
-                }
-                if (hash !== oldHash) {
-                    const dateNow = moment().format("MMMM Do, YYYY");
-                    writeFileSync(`${feederPath}/.hash.json`, JSON.stringify({hash: hash, date: dateNow}));
-                }
             } catch (error) {
                 console.log(`${feeder.name} has no index.json`)
             }

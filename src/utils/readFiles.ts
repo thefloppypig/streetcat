@@ -1,6 +1,8 @@
 import { readFile } from "fs/promises";
 import { feederRootPublic } from "../Const";
 import { FeederData, FolderMetaData, CatData, FeederList, CatDataMap, MeowApiCatHouseSaved, FeederHashData } from "../Types";
+import { execSync } from "child_process";
+import moment from "moment";
 
 const cache: Record<string, any> = {};
 
@@ -111,7 +113,9 @@ export async function getFeederSavedApiData(feeder: string): Promise<MeowApiCatH
     return data;
 }
 
-export async function getHashData(feeder: string) {
-    const data = await getCachedJson<FeederHashData>(`${feederRootPublic}/${feeder}/.hash.json`);
-    return data;
+export function getGitLogDate(path: string) {
+    const cmd = `git log -n 1 --pretty=format:%cD "${path}"`;
+    const out = execSync(cmd, { encoding: 'utf8' });
+    const date = moment(out).format("MMMM Do, YYYY");
+    return date;
 }

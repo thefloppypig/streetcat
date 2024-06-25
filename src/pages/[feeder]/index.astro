@@ -1,11 +1,11 @@
 ---
-import { linkWiki, linkMeowCamera } from "../../Const";
+import { linkWiki, linkMeowCamera, feederRootPublic } from "../../Const";
 import Layout from "../../layouts/Layout.astro";
 import {
     getFeederCatList,
     getFeederData,
     getFeederList,
-getHashData,
+    getGitLogDate,
 } from "../../utils/readFiles";
 import Identifier from "../../components/Identifier";
 import Divider from "../../components/Divider.astro";
@@ -24,7 +24,7 @@ interface Props {
 const { feeder } = Astro.params;
 const feederData = await getFeederData(feeder);
 const catDataList = await getFeederCatList(feeder);
-const hashData = await getHashData(feeder);
+const gitLogDate = getGitLogDate(`${feederRootPublic}/${feeder}`);
 ---
 
 <Layout
@@ -35,15 +35,14 @@ const hashData = await getHashData(feeder);
     <div>
         <a class="linkButton" href={`${feeder}/about`}>About</a>
         <a class="linkButton" href={`${linkWiki}/${feederData.wiki}`}>Wiki</a>
-        <a 
-            class="linkButton" 
-            href={`${linkMeowCamera}${feederData.id}`}
-        >
+        <a class="linkButton" href={`${linkMeowCamera}${feederData.id}`}>
             Camera
         </a>
     </div>
     <Divider />
     <Identifier client:load catDataList={catDataList} />
-    <br/><br/>
-    <div style="text-align: center; font-size: x-small;">{feederData.name} was last updated on {hashData.date}</div>
+    <br /><br />
+    <div style="text-align: center; font-size: x-small;">
+        {feederData.name} was last updated on {gitLogDate}
+    </div>
 </Layout>
