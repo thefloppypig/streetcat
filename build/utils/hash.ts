@@ -4,7 +4,7 @@ import { Hash, createHash } from "crypto";
 import path from 'path';
 
 export async function computeHash(folder: string, inputHash: Hash | null | undefined = null) {
-    const hash = inputHash ? inputHash : createHash('sha256');
+    const hash = inputHash ? inputHash : createHash("md5");
     const info = await fsp.readdir(folder, { withFileTypes: true });
     for (let item of info) {
         const fullPath = path.join(folder, item.name);
