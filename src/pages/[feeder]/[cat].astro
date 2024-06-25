@@ -7,6 +7,7 @@ import {
     getFeederCatList,
     getFeederData,
     getFeederList,
+    getGitLogDate,
     getMeta,
 } from "../../utils/readFiles";
 import { CatUnseeableBox } from "../../components/CatUnseeableBox";
@@ -45,6 +46,7 @@ const filesLocal = (await getMeta(`${feederRootPublic}/${feeder}/${cat}`))
 const { name, features, img } = catData;
 const names = possessive(name);
 const imgUrl = img.front ? getCatUrl(catData, img.front) : undefined;
+const gitLogDate = getGitLogDate(`${feederRootPublic}/${feeder}/${cat}`);
 ---
 
 <Layout
@@ -57,10 +59,21 @@ const imgUrl = img.front ? getCatUrl(catData, img.front) : undefined;
     {catData.unseeable && <CatUnseeableBox />}
     {catData.unknown && <CatWarningBox />}
     <div>
-        Find {name} at <a class="a" href={`/${feederData?.__feeder}`}
-            >{feederData?.name}!</a
-        >
+        Find {name} at
+        <a class="a" href={`/${feederData?.__feeder}`}>
+            {feederData?.name}!
+        </a>
     </div>
+    {
+        catData.alsoVisits && (
+            <ul>
+                {catData.name} also visits these feeders:
+                {catData.alsoVisits.map((val) => {
+                    return <li>{val}</li>;
+                })}
+            </ul>
+        )
+    }
     <br />
     <div>
         Check {names}
@@ -88,4 +101,8 @@ const imgUrl = img.front ? getCatUrl(catData, img.front) : undefined;
         filesLocal={filesLocal}
         catData={catData}
     />
+    <br /><br />
+    <div class="lastUpdatedText">
+        {catData.name} was last updated on {gitLogDate}
+    </div>
 </Layout>

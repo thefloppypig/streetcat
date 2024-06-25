@@ -28,7 +28,7 @@ const gitLogDate = getGitLogDate(`${feederRootPublic}/${feeder}`);
 ---
 
 <Layout
-    title={`${feederData.name} - Streetcat Identifier`}
+    title={`${feederData.name} Cat List - Streetcat Identifier`}
     description={`Identify the cats at the feeder ${feederData.name}`}
 >
     <h1>List of Cats in {feederData.name ?? ""}</h1>
@@ -42,7 +42,7 @@ const gitLogDate = getGitLogDate(`${feederRootPublic}/${feeder}`);
     <Divider />
     <Identifier client:load catDataList={catDataList} />
     <br /><br />
-    <div style="text-align: center; font-size: x-small;">
+    <div class="lastUpdatedText">
         {feederData.name} was last updated on {gitLogDate}
     </div>
 </Layout>

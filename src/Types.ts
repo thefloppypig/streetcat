@@ -37,6 +37,7 @@ export type CatData = {
     type: CatType,
     colours: string[],
     features?: string[],
+    alsoVisits?: string[],
 }
 
 export type CatDataMap = Record<string, CatData>;

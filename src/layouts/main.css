@@ -310,3 +310,8 @@ table.dataTable td {
   border: 1px white solid;
   padding: 1px 6px;
 }
+
+.lastUpdatedText {
+  text-align: center;
+  font-size: xx-small;
+}

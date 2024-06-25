@@ -18,7 +18,7 @@ interface IdentifierTableProps {
 export default function IdentifierTiles(props: IdentifierTableProps) {
     const { iconSize } = props;
     return (
-        <table className="idTable">
+        <table className="idTable" style={{ tableLayout: "fixed" }}>
             <colgroup>
                 <col span={identifierTilesPerRow(iconSize)} className="identifierCol" />
             </colgroup>
