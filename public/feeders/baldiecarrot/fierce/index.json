@@ -1,0 +1,14 @@
+{
+    "name": "Ms. Fierce",
+    "img": {
+        "front": "meow.camera_4300845904274638881_1719397049806.webp",
+        "back": "meow.camera_4300845904274638881_1719396923932.webp",
+        "eating": "meow.camera_4300845904274638881_1719397173461.webp"
+    },
+    "type": "calico",
+    "colours": [
+        "white",
+        "orange",
+        "brown"
+    ]
+}

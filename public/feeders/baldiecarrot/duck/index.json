@@ -1,0 +1,15 @@
+{
+    "name": "The Ducks",
+    "img": {
+        "front": "meow.camera_4300845904274638881_1719398299770.webp",
+        "back": "meow.camera_4300845904274638881_1719398319715.webp",
+        "eating": "meow.camera_4300845904274638881_1719398308415.webp"
+    },
+    "type": "white",
+    "colours": [
+        "white"
+    ],
+    "features": [
+        "Quack"
+    ]
+}

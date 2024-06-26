@@ -35,6 +35,11 @@ for (const feederData of feederList) {
                                         >
                                             <div class="feederListItem">
                                                 {name}
+                                                {feederData.aka && (
+                                                    <small class="aka">
+                                                        {feederData.aka}
+                                                    </small>
+                                                )}
                                             </div>
                                         </a>
                                     );

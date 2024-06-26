@@ -10,7 +10,7 @@
     "astro": "astro",
     "webp": "npx tsx ./build/processWebp.ts",
     "saveApiData": "npx tsx ./build/saveApiData.ts",
-    "createNewFeeder": "npx tsx ./build/createNewFeeder.ts"
+    "createFeeder": "npx tsx ./build/createNewFeeder.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.7.0",
