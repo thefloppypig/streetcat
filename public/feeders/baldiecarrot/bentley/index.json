@@ -1,0 +1,15 @@
+{
+    "name": "Mr. Bentley",
+    "img": {
+        "front": "meow.camera_4300845904274638881_1719404954647.webp",
+        "back": "meow.camera_4300845904274638881_1719404997949.webp",
+        "eating": "meow.camera_4300845904274638881_1719405160730.webp"
+    },
+    "type": "black",
+    "colours": [
+        "black"
+    ],
+    "features": [
+        "Clipped right ear"
+    ]
+}
