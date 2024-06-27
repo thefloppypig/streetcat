@@ -1,0 +1,12 @@
+{
+    "name": "Mr. Blanket",
+    "img": {
+        "front": "meow.camera_4300845904274638881_1719494089725.webp",
+        "back": "meow.camera_4300845904274638881_1719494277760.webp",
+        "eating": "meow.camera_4300845904274638881_1719494387891.webp"
+    },
+    "type": "white",
+    "colours": [
+        "white"
+    ]
+}

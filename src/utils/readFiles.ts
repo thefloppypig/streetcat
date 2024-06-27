@@ -1,6 +1,6 @@
 import { readFile } from "fs/promises";
 import { feederRootPublic } from "../Const";
-import { FeederData, FolderMetaData, CatData, FeederList, CatDataMap, MeowApiCatHouseSaved, FeederHashData } from "../Types";
+import { FeederData, FolderMetaData, CatData, FeederList, CatDataMap, MeowApiCatHouseSaved } from "../Types";
 import { execSync } from "child_process";
 import moment from "moment";
 

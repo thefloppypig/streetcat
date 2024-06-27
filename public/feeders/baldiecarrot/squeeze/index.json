@@ -1,0 +1,16 @@
+{
+    "name": "Mr. Squeeze",
+    "img": {
+        "front": "meow.camera_4300845904274638881_1719493157341.webp",
+        "back": "meow.camera_4300845904274638881_1719493137639.webp",
+        "eating": "meow.camera_4300845904274638881_1719493149396.webp"
+    },
+    "type": "white",
+    "colours": [
+        "white",
+        "black"
+    ],
+    "features": [
+        "Left ear clipped"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "name": "Ms. Exclamation Mark",
+    "img": {
+        "front": "meow.camera_4300845904274638881_1719493530213.webp",
+        "back": "meow.camera_4300845904274638881_1719493546711.webp",
+        "eating": "meow.camera_4300845904274638881_1719493540217.webp"
+    },
+    "type": "calico",
+    "colours": [
+        "white",
+        "orange",
+        "brown"
+    ],
+    "features": [
+        "Right ear clipped"
+    ]
+}

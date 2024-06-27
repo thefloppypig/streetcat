@@ -22,6 +22,15 @@ const openGraph: SEOProps["openGraph"] | undefined = {
 const twitter: SEOProps["twitter"] | undefined = imageCard
 	? { card: "summary_large_image" }
 	: undefined;
+
+	
+
+const baseUrl = Astro.site ?? Astro.url;
+const defaultCanonicalUrl = new URL(
+    Astro.url.pathname + Astro.url.search,
+    baseUrl,
+);
+const canonicalUrl = defaultCanonicalUrl.href.replace(/index.html|\.html$/, ""); 
 ---
 
 <!doctype html>
@@ -32,6 +41,7 @@ const twitter: SEOProps["twitter"] | undefined = imageCard
 			description={description}
 			openGraph={openGraph}
 			twitter={twitter}
+			canonical={canonicalUrl}
 		/>
 		<base href="/" />
 		<meta charset="UTF-8" />

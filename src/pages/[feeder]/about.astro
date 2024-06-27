@@ -17,10 +17,6 @@ export async function getStaticPaths() {
     });
 }
 
-interface Props {
-    feeder: string;
-}
-
 const { feeder } = Astro.params;
 const feederData = await getFeederData(feeder);
 const catDataList = await getFeederCatList(feeder);
@@ -61,6 +57,26 @@ const images = apiData.images.map(
         class="a"
         href={`${linkMeowCamera}/${feederData.id}`}>meow.camera</a
     >
+
+    <br />
+    <br />
+    <details>
+        <summary>
+            Click to see the list of cats that show up at the feeder
+            {feederData.name}
+        </summary>
+        <ul>
+            {
+                catDataList.map(({ __feeder, __cat, name }) => (
+                    <li>
+                        <a href={`/${__feeder}/${__cat}`} class="a">
+                            {name}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </details>
 
     <h2>Live Data</h2>
     <small>Powered by meow.camera api</small>
