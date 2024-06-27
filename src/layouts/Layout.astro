@@ -30,7 +30,7 @@ const defaultCanonicalUrl = new URL(
     Astro.url.pathname + Astro.url.search,
     baseUrl,
 );
-const canonicalUrl = defaultCanonicalUrl.href.replace(/index.html|\.html$/, ""); 
+const canonicalUrl = defaultCanonicalUrl.href.replace(/\/index.html|\.html$/, ""); 
 ---
 
 <!doctype html>
