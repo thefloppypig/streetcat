@@ -2,6 +2,7 @@ import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { CatData, CatDataMap, FeederData } from "../src/Types"
 import { PluginOption } from "vite";
 import { feederRootPublic } from "../src/Const"
+import { gitFetch } from "./git";
 
 async function processFeederList() {
     const listDir = readdirSync(feederRootPublic, { withFileTypes: true });
@@ -52,6 +53,7 @@ function processCatList(feeder: string) {
 export const processFeederPlugin: PluginOption = {
     name: "processFeederList",
     async buildStart(_) {
+        gitFetch();
         processFeederList();
     },
 }
