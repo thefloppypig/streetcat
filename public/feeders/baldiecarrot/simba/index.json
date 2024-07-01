@@ -1,0 +1,16 @@
+{
+    "name": "Mr. Simba",
+    "img": {
+        "front": "meow.camera_4300845904274638881_1719837834433.webp",
+        "back": "meow.camera_4300845904274638881_1719847780953.webp",
+        "eating": "meow.camera_4300845904274638881_1719848241102.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ],
+    "features": [
+        "Left ear clipped"
+    ]
+}
