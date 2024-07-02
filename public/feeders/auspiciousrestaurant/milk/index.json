@@ -1,13 +1,15 @@
 {
     "name": "Ms. Milk",
     "img": {
-        "front": "meow.camera_4412424173050749216_1714599811975.webp",
-        "back": "meow.camera_4412424173050749216_1714599848727.webp",
+        "front": "meow.camera_4412424173050749216_1719932063087.webp",
+        "back": "meow.camera_4412424173050749216_1719932056276.webp",
         "eating": "meow.camera_4412424173050749216_1714599985842.webp"
     },
-    "unknown": true,
     "type": "white",
     "colours": [
         "white"
+    ],
+    "features": [
+        "Has heterochromia, one eye blue, one eye green-ish"
     ]
 }
