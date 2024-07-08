@@ -1,0 +1,15 @@
+{
+    "name": "Ms. Opera",
+    "img": {
+        "front": "meow.camera_4300845904274638881_1720430622251.webp",
+        "back": "meow.camera_4300845904274638881_1720430378876.webp",
+        "eating": "meow.camera_4300845904274638881_1720430335393.webp"
+    },
+    "type": "tortie",
+    "colours": [
+        "brown",
+        "black",
+        "orange",
+        "white"
+    ]
+}

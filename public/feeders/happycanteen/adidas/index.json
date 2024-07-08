@@ -1,0 +1,16 @@
+{
+    "name": "Mr. Adidas",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1720427082319.webp",
+        "back": "meow.camera_4258783365322591678_1720426820016.webp",
+        "eating": "meow.camera_4258783365322591678_1720427073228.webp"
+    },
+    "unknown": true,
+    "type": "orange",
+    "colours": [
+        "orange"
+    ],
+    "features": [
+        "3 stripes on his back"
+    ]
+}
