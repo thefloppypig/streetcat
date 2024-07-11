@@ -1,0 +1,16 @@
+{
+    "name": "Mr. Hurry",
+    "img": {
+        "front": "meow.camera_4300845904274638881_1720709942820.webp",
+        "back": "meow.camera_4300845904274638881_1720708988353.webp",
+        "eating": "meow.camera_4300845904274638881_1720708993038.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ],
+    "features": [
+        "Left ear clipped"
+    ]
+}
