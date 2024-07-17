@@ -1,0 +1,16 @@
+{
+    "name": "Cow Lily",
+    "img": {
+        "front": "meow.camera_4412424173050749216_1720531870540.webp",
+        "back": "meow.camera_4412424173050749216_1720531578805.webp",
+        "eating": "meow.camera_4412424173050749216_1720531599378.webp"
+    },
+    "type": "black",
+    "colours": [
+        "black",
+        "white"
+    ],
+    "features": [
+        "Snowdrop's sibling"
+    ]
+}
