@@ -1,0 +1,13 @@
+{
+    "name": "Mrs. Dress",
+    "img": {
+        "front": "meow.camera_4154701567245307824_1719496925656.webp",
+        "back": "meow.camera_4154701567245307824_1719496965849.webp",
+        "eating": "meow.camera_4154701567245307824_1721223924887.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ]
+}

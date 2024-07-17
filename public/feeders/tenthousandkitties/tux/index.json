@@ -1,0 +1,13 @@
+{
+    "name": "Ms. Tux",
+    "img": {
+        "front": "meow.camera_4154701567245307824_1720683507505.webp",
+        "back": "meow.camera_4154701567245307824_1719569842292.webp",
+        "eating": "meow.camera_4154701567245307824_1720683352575.webp"
+    },
+    "type": "black",
+    "colours": [
+        "black",
+        "white"
+    ]
+}

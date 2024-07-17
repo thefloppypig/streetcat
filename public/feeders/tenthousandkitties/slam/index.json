@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Slam",
+    "img": {
+        "front": "meow.camera_4154701567245307824_1715857447425.webp",
+        "back": "meow.camera_4154701567245307824_1719578372925.webp",
+        "eating": "meow.camera_4154701567245307824_1715857440887.webp"
+    },
+    "type": "black",
+    "colours": [
+        "black",
+        "white"
+    ]
+}
