@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Edo",
+    "img": {
+        "front": "meow.camera_4154701567245307824_1721298567857.webp",
+        "back": "meow.camera_4154701567245307824_1721298695256.webp",
+        "eating": "meow.camera_4154701567245307824_1721298620420.webp"
+    },
+    "type": "black",
+    "colours": [
+        "black",
+        "white"
+    ]
+}
