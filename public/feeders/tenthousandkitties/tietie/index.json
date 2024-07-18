@@ -1,0 +1,13 @@
+{
+    "name": "TieTie",
+    "img": {
+        "front": "meow.camera_4154701567245307824_1721298887571.webp",
+        "back": "meow.camera_4154701567245307824_1721298908950.webp",
+        "eating": "meow.camera_4154701567245307824_1721298967920.webp"
+    },
+    "type": "black",
+    "colours": [
+        "black",
+        "white"
+    ]
+}
