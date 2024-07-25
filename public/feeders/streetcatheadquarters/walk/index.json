@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Walk",
+    "img": {
+        "front": "meow.camera_3501579737146885662_1721824567803.webp",
+        "back": "meow.camera_3501579737146885662_1721824693152.webp",
+        "eating": "meow.camera_3501579737146885662_1721824577288.webp"
+    },
+    "type": "white",
+    "colours": [
+        "grey",
+        "white"
+    ]
+}
