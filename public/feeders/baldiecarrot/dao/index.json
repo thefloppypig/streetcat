@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Dao",
+    "img": {
+        "front": "meow.camera_4300845904274638881_1722412945780.webp",
+        "back": "meow.camera_4300845904274638881_1722412853994.webp",
+        "eating": "meow.camera_4300845904274638881_1722412990620.webp"
+    },
+    "type": "white",
+    "colours": [
+        "white",
+        "black"
+    ]
+}

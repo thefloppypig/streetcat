@@ -1,0 +1,13 @@
+{
+    "name": "Little Bean Sprout",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1722008493621.webp",
+        "back": "meow.camera_4258783365322591678_1722250598376.webp",
+        "eating": "meow.camera_4258783365322591678_1722008565261.webp"
+    },
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ]
+}
