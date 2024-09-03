@@ -1,0 +1,13 @@
+{
+    "name": "Mr. Heartthrob",
+    "img": {
+        "front": "meow.camera_4154701567245307824_1725377699143.webp",
+        "back": "meow.camera_4154701567245307824_1725377671468.webp",
+        "eating": "meow.camera_4154701567245307824_1725377708907.webp"
+    },
+    "type": "brown",
+    "colours": [
+        "brown",
+        "grey"
+    ]
+}
