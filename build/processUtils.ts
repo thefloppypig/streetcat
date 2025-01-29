@@ -17,6 +17,6 @@ export function cmdRun(cmd: string, args?: string[], options?: SpawnOptionsWitho
     })
 }
 
-export function isPng(dirent: fs.Dirent) {
-    return dirent.name.endsWith(".png");
+export function isImage(dirent: fs.Dirent) {
+    return dirent.name.endsWith(".png") || dirent.name.endsWith(".jpg");
 }

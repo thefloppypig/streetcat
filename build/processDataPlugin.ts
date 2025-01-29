@@ -1,14 +1,16 @@
 import * as fs from "fs";
 import { PluginOption } from 'vite'
-import { cmdRun, isPng } from "./processUtils";
+import { cmdRun, isImage } from "./processUtils";
 
 
-async function processPngToWebp(dirPath: string, listDir: fs.Dirent[]) {
+async function processImageToWebp(dirPath: string, listDir: fs.Dirent[]) {
     try {
         const process = cmdRun("magick", ["mogrify", "-format webp", "*.png"], { cwd: dirPath, shell: true })
         await process;
+        const process2 = cmdRun("magick", ["mogrify", "-format webp", "*.jpg"], { cwd: dirPath, shell: true })
+        await process2;
         for (const dirent of listDir) {
-            if (isPng(dirent)) {
+            if (isImage(dirent)) {
                 fs.rmSync(`${dirPath}/${dirent.name}`);
                 console.log(`Removing ${dirPath}/${dirent.name}`);
             };
@@ -20,16 +22,27 @@ async function processPngToWebp(dirPath: string, listDir: fs.Dirent[]) {
 
 async function processRecursive(dirPath: string, options: ProcessOptions) {
     const data = await processDirectoryData(dirPath, options);
-    for (const dir of data.dir) {
-        await processRecursive(`${dirPath}/${dir}`, options)
+    if (data) {
+        for (const dir of data.dir) {
+            await processRecursive(`${dirPath}/${dir}`, options)
+        }
     }
 }
 
 async function processDirectoryData(dirPath: string, options: ProcessOptions) {
     let listDir = fs.readdirSync(dirPath, { withFileTypes: true });
+    if (listDir.length === 0) {
+        fs.rmdirSync(dirPath);
+        return;
+    }
+    if (listDir.length === 1 && listDir[0].name === "meta.json") {
+        fs.rmSync(`${dirPath}/meta.json`);
+        fs.rmdirSync(dirPath);
+        return;
+    }
 
-    if (options.processWebp && listDir.some(dirent => isPng(dirent))) {
-        await processPngToWebp(dirPath, listDir);
+    if (options.processWebp && listDir.some(dirent => isImage(dirent))) {
+        await processImageToWebp(dirPath, listDir);
         listDir = fs.readdirSync(dirPath, { withFileTypes: true });
     }
 

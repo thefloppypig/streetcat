@@ -1,0 +1,18 @@
+{
+    "name": "Mr. Turkey",
+    "img": {
+        "front": "meow.camera_5144313095337151915_1728911593604.webp",
+        "back": "meow.camera_5144313095337151915_1728911593602.webp",
+        "eating": "meow.camera_5144313095337151915_1728911614255.webp"
+    },
+    "unseeable": true,
+    "type": "orange",
+    "colours": [
+        "orange",
+        "white"
+    ],
+    "features": [
+        "Pointy white shape on face",
+        "Kinda goofy"
+    ]
+}
