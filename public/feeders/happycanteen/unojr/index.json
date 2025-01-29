@@ -1,0 +1,16 @@
+{
+    "name": "Uno Jr.",
+    "img": {
+        "front": "meow.camera_4258783365322591678_1736872423424.webp",
+        "back": "meow.camera_4258783365322591678_1737025554484.webp",
+        "eating": "meow.camera_4258783365322591678_1737025516331.webp"
+    },
+    "type": "white",
+    "colours": [
+        "white",
+        "brown"
+    ],
+    "features": [
+        "Suspected to be one of Mrs Kirby's Kittens"
+    ]
+}
